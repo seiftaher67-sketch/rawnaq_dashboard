@@ -1,24 +1,54 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
+// Import pages
+import Home from './pages/Home';
+import Abayas from './pages/Abayas';
+import Tarhas from './pages/Tarhas';
+import Niqabs from './pages/Niqabs';
+import Offers from './pages/Offers';
+import ProductDetails from './pages/ProductDetails';
+import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
+import Login from './pages/Login';
+import OTP from './pages/OTP';
+import EditProfile from './pages/EditProfile';
+import MyOrders from './pages/MyOrders';
+import Favorites from './pages/Favorites';
+import WashingGuide from './pages/WashingGuide';
+import ReturnPolicy from './pages/ReturnPolicy';
+import OrderSuccess from './pages/OrderSuccess';
+import VerifyPhone from './pages/VerifyPhone';
+import Header from './components/Header';
+import Footer from './components/Footer';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+       <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/abayas" element={<Abayas />} />
+          <Route path="/tarhas" element={<Tarhas />} />
+          <Route path="/niqabs" element={<Niqabs />} />
+          <Route path="/offers" element={<Offers />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/otp" element={<OTP />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/my-orders" element={<MyOrders />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/washing-guide" element={<WashingGuide />} />
+          <Route path="/return-policy" element={<ReturnPolicy />} />
+          <Route path="/order-success" element={<OrderSuccess />} />
+          <Route path="/verify-phone" element={<VerifyPhone />} />
+        </Routes>
+       <Footer />
+      </div>
+    </Router>
   );
 }
 
