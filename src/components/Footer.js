@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logooo from '../logooo.png';
-import { FiInstagram, FiPhone, FiMapPin, FiMail, FiMessageCircle } from 'react-icons/fi';
+import { FiInstagram, FiPhone, FiMapPin, FiMail, FiMessageCircle, FiHeadphones } from 'react-icons/fi';
 import { FaFacebook, FaTiktok, FaCcVisa, FaCcMastercard, FaCcAmex, FaApple } from 'react-icons/fa';
 
 const Footer = () => {
@@ -33,24 +33,11 @@ const Footer = () => {
 
           {/* Middle Column - تواصل معنا */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">تواصل معنا</h3>
-            <div className="space-y-4 text-sm">
-              <div className="flex items-start gap-2 flex-row-reverse">
-                <FiPhone className="mt-1 flex-shrink-0" size={18} />
-                <span>+966 551235523</span>
-              </div>
-              <div className="flex items-start gap-2 flex-row-reverse">
-                <FiMapPin className="mt-1 flex-shrink-0" size={18} />
-                <span>الشارع الإداري - مركز الإدارة</span>
-              </div>
-              <div className="flex items-start gap-2 flex-row-reverse">
-                <FiMail className="mt-1 flex-shrink-0" size={18} />
-                <span>atlascompany@gmail.com</span>
-              </div>
-              <div className="flex items-start gap-2 flex-row-reverse">
-                <FiMessageCircle className="mt-1 flex-shrink-0" size={18} />
-                <span>+966 551235523</span>
-              </div>
+            <p className="text-lg font-semibold mb-6 ml-5">تواصل معنا</p>
+            <div className="space-y-2 text-sm font-semibold">
+              <p><FiMapPin className="inline mr-2" size={16} /> ش الأمير نواف بن عبدالعزيز - مرکز مزاين</p>
+              <p>✉️ atlascompany@gmail.com</p>
+              <p><FiPhone className="inline mr-2 text-white" size={16} />  6551235523 +96</p>
             </div>
           </div>
 
