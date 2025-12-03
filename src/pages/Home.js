@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import CategorySection from '../components/CategorySection';
-import Testimonials from '../components/Testimonials';
+import ProductCarousel from '../components/ProductCarousel';
 
 const Home = () => {
   const [activeCard, setActiveCard] = useState(null);
@@ -55,7 +55,7 @@ const Home = () => {
           <div className="flex flex-col md:flex-row gap-6">
             {/* Card 1 - Left (Wider) - صورة المرأة في الصحراء */}
             <div
-              className="relative overflow-hidden rounded-2xl shadow-lg cursor-pointer transition-all duration-300 h-[400px] md:flex-[1.5]"
+              className="relative overflow-hidden rounded-2xl shadow-lg cursor-pointer transition-all duration-300 h-[500px] md:flex-[1]"
               onClick={() => handleCardClick('card1')}
             >
               <img
@@ -74,7 +74,7 @@ const Home = () => {
 
             {/* Card 2 - Right (Narrower) - صورة قريبة */}
             <div
-              className="relative overflow-hidden rounded-2xl shadow-lg cursor-pointer transition-all duration-300 h-[400px] md:flex-[1]"
+              className="relative overflow-hidden rounded-2xl shadow-lg cursor-pointer transition-all duration-300 h-[500px] md:flex-[0.8]"
               onClick={() => handleCardClick('card2')}
             >
               <img
@@ -95,11 +95,7 @@ const Home = () => {
       </section>
 
       {/* New Collection / Featured Products Section */}
-      <section className="featured-products">
-        <h2>New Collection</h2>
-        {/* Product cards will be added here */}
-      </section>
-      <Testimonials />
+      <ProductCarousel />
     </div>
   );
 };
