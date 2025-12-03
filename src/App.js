@@ -23,6 +23,7 @@ import Register from './pages/Register';
 import VerifyPhone from './pages/VerifyPhone';
 import Header from './components/Header';
 import Footer from './components/Footer';
+
 function App() {
   return (
     <Router>
@@ -48,6 +49,7 @@ function App() {
           <Route path="/order-success" element={<OrderSuccess />} />
           <Route path="/verify-phone" element={<VerifyPhone />} />
         </Routes>
+
        <Footer />
       </div>
     </Router>

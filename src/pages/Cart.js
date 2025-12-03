@@ -17,6 +17,20 @@ export default function Cart() {
       qty: 1,
       image: "/images/1.png",
     },
+    {
+      id: 3,
+      name: "عباية قطنية مريحة",
+      price: 150,
+      qty: 1,
+      image: "/images/2.png",
+    },
+    {
+      id: 4,
+      name: "عباية حريرية أنيقة",
+      price: 300,
+      qty: 1,
+      image: "/images/3.png",
+    },
   ]);
 
   const increaseQty = (id) =>
@@ -57,12 +71,12 @@ export default function Cart() {
           {cart.map((item) => (
             <div
               key={item.id}
-              className="p-5 border border-gray-200 rounded-xl bg-white shadow-sm flex gap-6"
+              className="p-6 border border-[#C8A06A]/10 rounded-xl bg-white shadow-md hover:shadow-xl transition-all duration-300 flex gap-6"
             >
               {/* IMAGE */}
               <img
                 src={item.image}
-                className="w-40 h-40 rounded-md object-cover shadow"
+                className="w-40 h-40 rounded-lg object-cover shadow border-2 border-[#C8A06A]/20"
                 alt={item.name}
               />
 
@@ -80,7 +94,7 @@ export default function Cart() {
                 <div className="flex items-center gap-4 mt-5">
                   <button
                     onClick={() => decreaseQty(item.id)}
-                    className="p-2 border rounded-md"
+                    className="p-2 bg-[#C8A06A] text-white hover:bg-[#A68B5A] rounded-full transition-colors duration-200"
                   >
                     <FiMinus />
                   </button>
@@ -89,7 +103,7 @@ export default function Cart() {
 
                   <button
                     onClick={() => increaseQty(item.id)}
-                    className="p-2 border rounded-md"
+                    className="p-2 bg-[#C8A06A] text-white hover:bg-[#A68B5A] rounded-full transition-colors duration-200"
                   >
                     <FiPlus />
                   </button>
@@ -99,9 +113,9 @@ export default function Cart() {
               {/* REMOVE BUTTON */}
               <button
                 onClick={() => removeItem(item.id)}
-                className="text-red-500 text-3xl hover:text-red-700"
+                className="p-2 bg-red-50 hover:bg-red-100 text-red-500 hover:text-red-700 rounded-full transition-colors duration-200"
               >
-                <FiTrash2 />
+                <FiTrash2 className="text-xl" />
               </button>
             </div>
           ))}
