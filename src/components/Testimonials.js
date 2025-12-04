@@ -41,25 +41,23 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-light">
+    <section className="py-16 mb-20" style={{backgroundColor: '#c3e2e5a9'}}>
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-6">
           <h2 className="text-2xl md:text-3xl font-bold text-brand-black mb-1">
-            ثقة عملائنا هي سر تميزنا
-          </h2>
-          <p className="text-gray-dark text-sm">
-            اكتشفي تقييماتهم معنا
-          </p>
+ثقة عملاؤنا هي سر تميزنا ، اكتشفي تجاربهم 
+معنا          </h2>
+          
         </div>
 
         {/* Testimonials Cards */}
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 w-full px-4">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white rounded-2xl p-6 border border-gray-light transition-transform duration-300 hover:border-gray-medium"
+              className="bg-white rounded-2xl p-6 border border-gray-light transition-transform duration-300 hover:border-gray-medium group"
             >
               {/* Review Text */}
               <p className="text-brand-softBlack text-xs leading-relaxed mb-4 line-clamp-5 text-right italic font-medium">
@@ -67,7 +65,7 @@ const Testimonials = () => {
               </p>
 
               {/* Star Rating */}
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1 mb-4 group-hover:brightness-75 transition-all duration-300">
                 {[...Array(testimonial.rating)].map((_, index) => (
                   <FaStar key={index} className="text-yellow-400" size={12} />
                 ))}
