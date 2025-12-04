@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import CategorySection from '../components/CategorySection';
 import ProductCarousel from '../components/ProductCarousel';
+import Testimonials from '../components/Testimonials';
 import im1 from '../im1.jpeg';
 
 const Home = () => {
@@ -99,6 +100,9 @@ const Home = () => {
 
       {/* New Collection / Featured Products Section */}
       <ProductCarousel />
+
+      {/* Testimonials Section */}
+      <Testimonials />
     </div>
   );
 };
