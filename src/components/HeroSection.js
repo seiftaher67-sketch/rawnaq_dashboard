@@ -18,13 +18,13 @@ const HeroSection = () => {
           <div className="flex-grow flex items-center justify-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center">
-                <h1 className="text-4xl md:text-6xl font-bold mb-6 font-ruqah italic">
+                <h1 className="text-8xl font-bold mb-6 font-amiri leading-none tracking-normal text-center">
                    أناقتك تبدا من هنا
                 </h1>
-                <p className="text-lg md:text-2xl mt-[52px] mb-4 opacity-90 leading-relaxed font-ruqah italic font-bold">
+                <p className="text-2xl mt-[52px] mb-4 opacity-90 leading-none font-amiri font-normal tracking-normal text-center">
                   اكتشفي تشكيلتنا الراقية من العبايات والنقابات والطرح المصممة بعناية لتمنحك احتشامًا يليق بكِ،
                 </p>
-                <p className="text-lg md:text-2xl mt-[-10px] mb-8 opacity-90 leading-relaxed font-ruqah italic font-bold">
+                <p className="text-2xl mt-[-10px] mb-8 opacity-90 leading-none font-amiri font-normal tracking-normal text-center">
                    وخامات فاخرة تجمع بين الراحة والأناقة في كل مناسبة
                 </p>
                 <Link to="/offers">

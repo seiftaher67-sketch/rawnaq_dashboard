@@ -30,12 +30,12 @@ export default function Header() {
         </Link>
 
         {/* DESKTOP LINKS */}
-        <ul className="hidden md:flex items-center gap-10 text-lg font-medium text-[#0F0F0F]">
+        <ul className="hidden md:flex items-center gap-10 text-[#0F0F0F]">
           {links.map((link) => (
             <li key={link.name}>
               <Link
                 to={link.href}
-                className={`transition-colors ${
+                className={`transition-colors font-calibri font-bold text-2xl leading-none tracking-normal text-center ${
                   location.pathname === link.href
                     ? "text-[#A73533] active:text-[#8B2A2A]"
                     : "active:text-[#333333]"
@@ -77,12 +77,12 @@ export default function Header() {
                 <FiX />
               </button>
 
-              <ul className="space-y-6 text-xl font-medium text-[#0F0F0F]">
+              <ul className="space-y-6 text-[#0F0F0F]">
                 {links.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className={`transition-colors ${
+                      className={`transition-colors font-calibri font-bold text-2xl leading-none tracking-normal text-center ${
                         location.pathname === link.href
                           ? "text-[#A73533] active:text-[#8B2A2A]"
                           : "active:text-[#333333]"

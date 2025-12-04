@@ -1,4 +1,4 @@
-# TODO List for Footer Edit Task
-
-- [x] Edit src/components/Footer.js to update the phone number to +96 6551235523 next to the phone icon
-- [x] Edit src/components/Footer.js to place the phone number first, followed by the phone icon
+- [x] Edit src/components/Testimonials.js to apply custom CSS styles to the h2 element containing the Arabic text.
+- [x] Replace Tailwind classes with inline styles: font-family: Amiri; font-weight: 400; font-style: Regular; font-size: 36px; leading-trim: NONE; line-height: 100%; letter-spacing: 0%; text-align: center;
+- [x] Apply styles to the star rating div: transform: rotate(0deg); opacity: 1; position: relative; top: 20px; left: 27px; gap: 5px; justifyContent: 'center'; (removed width and height as per user request).
+- [ ] Verify the changes in the browser.

@@ -1,6 +1,7 @@
 // src/pages/Offers.js
 
 import ProductCard from "../components/ProductCard.jsx";
+import LimitedTimeOffers from "../components/LimitedTimeOffers";
 
 export default function Offers() {
   const offersData = [
@@ -61,6 +62,8 @@ export default function Offers() {
           اكتشفي أحدث المجموعات بأسعار مميزة وخصومات حصرية لفترة محدودة
         </p>
       </div>
+
+      <LimitedTimeOffers />
 
       {/* Products Grid */}
       <div className="container mx-auto px-6">

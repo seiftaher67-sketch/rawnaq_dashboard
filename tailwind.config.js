@@ -9,6 +9,8 @@ module.exports = {
       fontFamily: {
         sans: ["Tajawal", "sans-serif"],
         ruqah: ["Ruqaa", "serif"],
+        amiri: ["Amiri", "serif"],
+        calibri: ["Calibri", "sans-serif"],
       },
       colors: {
         brand: {

@@ -45,8 +45,8 @@ const Testimonials = () => {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-6">
-          <h2 className="text-2xl md:text-3xl font-bold text-brand-black mb-1">
-ثقة عملاؤنا هي سر تميزنا ، اكتشفي تجاربهم 
+          <h2 className="mb-1" style={{ fontFamily: 'Amiri', fontWeight: 400, fontStyle: 'Regular', fontSize: '36px', leadingTrim: 'NONE', lineHeight: '100%', letterSpacing: '0%', textAlign: 'center' }}>
+ثقة عملاؤنا هي سر تميزنا ، اكتشفي تجاربهم
 معنا          </h2>
           
         </div>
@@ -65,9 +65,9 @@ const Testimonials = () => {
               </p>
 
               {/* Star Rating */}
-              <div className="flex gap-1 mb-4 group-hover:brightness-75 transition-all duration-300">
+              <div className="mb-4 group-hover:brightness-75 transition-all duration-300" style={{ display: 'flex', justifyContent: 'center', transform: 'rotate(0deg)', opacity: 1, position: 'relative', top: '10px', left: '27px', gap: '2px' }}>
                 {[...Array(testimonial.rating)].map((_, index) => (
-                  <FaStar key={index} className="text-yellow-400" size={12} />
+                  <FaStar key={index} className="text-yellow-600" size={12} />
                 ))}
               </div>
 

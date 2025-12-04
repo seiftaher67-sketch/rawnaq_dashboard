@@ -1,13 +1,13 @@
 import React from 'react';
-import card1 from '../card1.png';
-import card2 from '../crad2.png';
-import card3 from '../card3.png';
+import card1 from '../card1.jpg';
+import card2 from '../card2.jpg';
+import card3 from '../card3.jpg';
 
 const LimitedTimeOffers = () => {
   return (
     <div className="bg-gray-50 py-12 px-4">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-center text-red-600 mb-8">عروض محدودة لفترة قصيرة</h2>
+        <h2 style={{ fontFamily: 'Calibri', fontWeight: 400, fontStyle: 'normal', fontSize: '48px', lineHeight: '100%', letterSpacing: '0%', textAlign: 'right', color: '#dc2626' }} className="mb-8">عروض محدودة لفترة قصيرة</h2>
         <div className="flex overflow-x-auto space-x-6 pb-4">
           {/* Card 1 */}
           <div className="flex-shrink-0 w-64 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer">
