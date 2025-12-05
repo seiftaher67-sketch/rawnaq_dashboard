@@ -1,3 +1,5 @@
+
+
 import React, { useState } from 'react';
 import { FiChevronLeft, FiChevronRight, FiHeart, FiShoppingCart } from 'react-icons/fi';
 import card1 from '../card1.jpg';
@@ -77,12 +79,12 @@ const ProductCarousel = () => {
       <div className="w-full mx-auto px-4">
         {/* Header with Title and Button */}
         <div className="flex items-center justify-between mb-8">
-          <button className="bg-brand-gold text-brand-black px-8 py-4 rounded-full font-bold hover:bg-brand-black hover:text-brand-gold transition-all duration-300 text-lg shadow-lg hover:shadow-xl transform hover:scale-105">
-            عرض جميع العروض
-          </button>
-          <h2 className="text-2xl md:text-3xl font-bold text-center flex-1">
+          <h2 className="text-2xl md:text-3xl font-bold text-center flex-1 mr-[80px]" style={{ fontFamily: 'Calibri', fontWeight: 400, fontStyle: 'normal', fontSize: '48px', leadingTrim: 'none', lineHeight: '100%', letterSpacing: '0%', textAlign: 'right' }}>
             عروض محدودة لفترة قصيرة
           </h2>
+          <button className="bg-brand-gold text-brand-black px-8 py-4 rounded-full font-bold hover:bg-brand-black hover:text-brand-gold transition-all duration-300 text-lg shadow-lg hover:shadow-xl transform hover:scale-105 ml-[100px]">
+            عرض جميع العروض
+          </button>
         </div>
 
         {/* Carousel */}
@@ -179,3 +181,4 @@ const ProductCarousel = () => {
 };
 
 export default ProductCarousel;
+
