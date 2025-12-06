@@ -36,7 +36,7 @@ const CategorySection = () => {
             <Link
               key={category.path}
               to={category.path}
-              className="group relative rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden h-[36rem]"
+              className="group relative rounded-2xl shadow-card hover:shadow-lg transition-all duration-300 overflow-hidden h-[36rem] border border-gray-200"
             >
               <div
                 style={{ backgroundImage: `url(${category.image})` }}

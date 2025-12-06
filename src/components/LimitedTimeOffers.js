@@ -1,4 +1,5 @@
 import React from 'react';
+import { FiShoppingCart } from 'react-icons/fi';
 import card1 from '../card1.jpg';
 import card2 from '../card2.jpg';
 import card3 from '../card3.jpg';
@@ -33,69 +34,97 @@ const LimitedTimeOffers = () => {
       </div>
 
       <div className="max-w-7xl mx-auto">
-        <h2 style={{ fontFamily: 'Calibri', fontWeight: 400, fontStyle: 'normal', fontSize: '48px', lineHeight: '100%', letterSpacing: '0%', textAlign: 'right', color: '#dc2626' }} className="mb-8">عروض محدودة لفترة قصيرة</h2>
+        <h2 style={{ fontFamily: 'Calibri', fontWeight: 400, fontStyle: 'normal', fontSize: '48px', lineHeight: '100%', letterSpacing: '0%', textAlign: 'right', color: '#0F0F0F' }} className="mb-8">عروض محدودة لفترة قصيرة</h2>
         <div className="flex overflow-x-auto space-x-6 pb-4">
           {/* Card 1 */}
-          <div className="flex-shrink-0 w-64 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer">
-            <div className="relative">
-              <img src="/images/1.png" alt="الفرقة" className="w-full h-48 object-cover rounded-t-lg" />
-              <div className="absolute top-2 left-2 bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-sm">25%</div>
+          <div className="flex-shrink-0 w-64 flex-1 bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-soft transition-shadow flex flex-col">
+            <div className="relative bg-gray-100 h-80 flex-grow overflow-hidden">
+              <img src="/images/1.png" alt="الفرقة" className="w-full h-full object-cover object-center" />
+              <div className="absolute top-3 right-3 bg-state-error text-white px-3 py-1 rounded font-bold text-sm">25%</div>
             </div>
-            <div className="p-4">
-              <h3 className="font-semibold text-lg mb-2" style={{ fontFamily: 'Calibri', fontWeight: 400, fontStyle: 'normal', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '100%', letterSpacing: '0%' }}>الفرقة</h3>
-              <div className="flex items-center space-x-2 mb-2">
-                <span className="text-gray-500 line-through">250 ريال</span>
-                <span className="text-red-600 font-bold">250 ريال</span>
+            <div className="p-3 flex flex-col">
+              <div className="flex justify-between items-center mb-3">
+                <h3 className="font-sans text-lg font-bold text-left opacity-60" style={{ color: '#666666' }}>الفرقة</h3>
+                <div className="flex flex-col text-right">
+                  <p className="font-bold text-xl" style={{ color: '#8B1538' }}>250 <span className="text-sm">ريال</span></p>
+                  <p className="text-sm" style={{ color: '#999999', textDecoration: 'line-through' }}>300 <span className="text-xs">ريال</span></p>
+                </div>
               </div>
-              <button className="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 transition-colors" style={{ fontFamily: 'Calibri', fontWeight: 700, fontStyle: 'bold', fontSize: '16px', leadingTrim: 'NONE', lineHeight: '100%', letterSpacing: '0%' }}>اشتري الآن</button>
+              <div className="flex gap-2 mt-auto">
+                <button className="flex-1 bg-brand-black text-white py-2 px-3 rounded-full font-semibold hover:bg-brand-softBlack transition-colors text-xs">اشتري الآن</button>
+                <button className="bg-gray-light border border-gray-200 rounded-full p-2 hover:bg-gray-light transition-colors flex-shrink-0">
+                  <FiShoppingCart size={18} className="text-brand-black" />
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="flex-shrink-0 w-64 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer">
-            <div className="relative">
-              <img src="/images/2.png" alt="عبارة كتان" className="w-full h-48 object-cover rounded-t-lg" />
-              <div className="absolute top-2 left-2 bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-sm">25%</div>
+          <div className="flex-shrink-0 w-64 flex-1 bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-soft transition-shadow flex flex-col">
+            <div className="relative bg-gray-100 h-80 flex-grow overflow-hidden">
+              <img src="/images/2.png" alt="عبارة كتان" className="w-full h-full object-cover object-center" />
+              <div className="absolute top-3 right-3 bg-state-error text-white px-3 py-1 rounded font-bold text-sm">25%</div>
             </div>
-            <div className="p-4">
-              <h3 className="font-semibold text-lg mb-2" style={{ fontFamily: 'Calibri', fontWeight: 400, fontStyle: 'normal', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '100%', letterSpacing: '0%' }}>عبارة كتان</h3>
-              <div className="flex items-center space-x-2 mb-2">
-                <span className="text-gray-500 line-through">255 ريال</span>
-                <span className="text-red-600 font-bold">250 ريال</span>
+            <div className="p-3 flex flex-col">
+              <div className="flex justify-between items-center mb-3">
+                <h3 className="font-sans text-lg font-bold text-left opacity-60" style={{ color: '#666666' }}>عبارة كتان</h3>
+                <div className="flex flex-col text-right">
+                  <p className="font-bold text-xl" style={{ color: '#8B1538' }}>250 <span className="text-sm">ريال</span></p>
+                  <p className="text-sm" style={{ color: '#999999', textDecoration: 'line-through' }}>335 <span className="text-xs">ريال</span></p>
+                </div>
               </div>
-              <button className="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 transition-colors" style={{ fontFamily: 'Calibri', fontWeight: 700, fontStyle: 'bold', fontSize: '16px', leadingTrim: 'NONE', lineHeight: '100%', letterSpacing: '0%' }}>اشتري الآن</button>
+              <div className="flex gap-2 mt-auto">
+                <button className="flex-1 bg-brand-black text-white py-2 px-3 rounded-full font-semibold hover:bg-brand-softBlack transition-colors text-xs">اشتري الآن</button>
+                <button className="bg-gray-light border border-gray-200 rounded-full p-2 hover:bg-gray-light transition-colors flex-shrink-0">
+                  <FiShoppingCart size={18} className="text-brand-black" />
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Card 3 */}
-          <div className="flex-shrink-0 w-64 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer">
-            <div className="relative">
-              <img src="/images/3.png" alt="طرحة قطن" className="w-full h-48 object-cover rounded-t-lg" />
-              <div className="absolute top-2 left-2 bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-sm">25%</div>
+          <div className="flex-shrink-0 w-64 flex-1 bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-soft transition-shadow flex flex-col">
+            <div className="relative bg-gray-100 h-80 flex-grow overflow-hidden">
+              <img src="/images/3.png" alt="طرحة قطن" className="w-full h-full object-cover object-center" />
+              <div className="absolute top-3 right-3 bg-state-error text-white px-3 py-1 rounded font-bold text-sm">25%</div>
             </div>
-            <div className="p-4">
-              <h3 className="font-semibold text-lg mb-2" style={{ fontFamily: 'Calibri', fontWeight: 400, fontStyle: 'normal', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '100%', letterSpacing: '0%' }}>طرحة قطن</h3>
-              <div className="flex items-center space-x-2 mb-2">
-                <span className="text-gray-500 line-through">250 ريال</span>
-                <span className="text-red-600 font-bold">250 ريال</span>
+            <div className="p-3 flex flex-col">
+              <div className="flex justify-between items-center mb-3">
+                <h3 className="font-sans text-lg font-bold text-left opacity-60" style={{ color: '#666666' }}>طرحة قطن</h3>
+                <div className="flex flex-col text-right">
+                  <p className="font-bold text-xl" style={{ color: '#8B1538' }}>250 <span className="text-sm">ريال</span></p>
+                  <p className="text-sm" style={{ color: '#999999', textDecoration: 'line-through' }}>300 <span className="text-xs">ريال</span></p>
+                </div>
               </div>
-              <button className="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 transition-colors" style={{ fontFamily: 'Calibri', fontWeight: 700, fontStyle: 'bold', fontSize: '16px', leadingTrim: 'NONE', lineHeight: '100%', letterSpacing: '0%' }}>اشتري الآن</button>
+              <div className="flex gap-2 mt-auto">
+                <button className="flex-1 bg-brand-black text-white py-2 px-3 rounded-full font-semibold hover:bg-brand-softBlack transition-colors text-xs">اشتري الآن</button>
+                <button className="bg-gray-light border border-gray-200 rounded-full p-2 hover:bg-gray-light transition-colors flex-shrink-0">
+                  <FiShoppingCart size={18} className="text-brand-black" />
+                </button>
+              </div>
             </div>
           </div>
 
           {/* Card 4 */}
-          <div className="flex-shrink-0 w-64 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer">
-            <div className="relative">
-              <img src="/images/4.jpg" alt="عبارة كتان" className="w-full h-48 object-cover rounded-t-lg" />
-              <div className="absolute top-2 left-2 bg-red-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-sm">25%</div>
+          <div className="flex-shrink-0 w-64 flex-1 bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-soft transition-shadow flex flex-col">
+            <div className="relative bg-gray-100 h-80 flex-grow overflow-hidden">
+              <img src="/images/4.jpg" alt="عبارة كتان" className="w-full h-full object-cover object-center" />
+              <div className="absolute top-3 right-3 bg-state-error text-white px-3 py-1 rounded font-bold text-sm">25%</div>
             </div>
-            <div className="p-4">
-              <h3 className="font-semibold text-lg mb-2" style={{ fontFamily: 'Calibri', fontWeight: 400, fontStyle: 'normal', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '100%', letterSpacing: '0%' }}>عبارة كتان</h3>
-              <div className="flex items-center space-x-2 mb-2">
-                <span className="text-gray-500 line-through">250 ريال</span>
-                <span className="text-red-600 font-bold">250 ريال</span>
+            <div className="p-3 flex flex-col">
+              <div className="flex justify-between items-center mb-3">
+                <h3 className="font-sans text-lg font-bold text-left opacity-60" style={{ color: '#666666' }}>عبارة كتان</h3>
+                <div className="flex flex-col text-right">
+                  <p className="font-bold text-xl" style={{ color: '#8B1538' }}>250 <span className="text-sm">ريال</span></p>
+                  <p className="text-sm" style={{ color: '#999999', textDecoration: 'line-through' }}>300 <span className="text-xs">ريال</span></p>
+                </div>
               </div>
-              <button className="w-full bg-pink-500 text-white py-2 rounded hover:bg-pink-600 transition-colors" style={{ fontFamily: 'Calibri', fontWeight: 700, fontStyle: 'bold', fontSize: '16px', leadingTrim: 'NONE', lineHeight: '100%', letterSpacing: '0%' }}>اشتري الآن</button>
+              <div className="flex gap-2 mt-auto">
+                <button className="flex-1 bg-brand-black text-white py-2 px-3 rounded-full font-semibold hover:bg-brand-softBlack transition-colors text-xs">اشتري الآن</button>
+                <button className="bg-gray-light border border-gray-200 rounded-full p-2 hover:bg-gray-light transition-colors flex-shrink-0">
+                  <FiShoppingCart size={18} className="text-brand-black" />
+                </button>
+              </div>
             </div>
           </div>
         </div>

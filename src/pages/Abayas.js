@@ -20,41 +20,64 @@ export default function Abayas() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-[#0F0F0F]">العبايات</h1>
 
-        <p className="text-lg text-gray-600 max-w-xl mx-auto mt-3">
-          اكتشفي مجموعتنا الفاخرة من العبايات المصممة بعناية لتناسب جميع المناسبات
-        </p>
+        
       </div>
 
-      {/* Filter Section */}
-      <div className="container mx-auto px-6 mb-12">
-        <div className="bg-gray-100 border border-gray-200 rounded-lg p-5 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+     {/* Filter Section */}
+<div className="container mx-auto px-6 mb-12">
+  <div className="bg-white border border-gray-200 rounded-xl p-4 flex flex-col md:flex-row gap-4 md:items-center md:justify-between shadow-sm">
 
-          {/* Sort */}
-          <select className="p-3 rounded-md border border-gray-300 text-gray-700">
-            <option>الفرز: من السعر الأقل للأعلى</option>
-            <option>الفرز: من الأعلى للأقل</option>
-            <option>الأحدث</option>
-          </select>
+    {/* Sort */}
+    <div className="relative w-full md:w-1/3">
+      <select className="w-full appearance-none p-4 border border-gray-300 rounded-lg text-gray-700 bg-white">
+        <option>الفرز: من السعر الأقل للأعلى</option>
+        <option>الفرز: من الأعلى للأقل</option>
+        <option>الأحدث</option>
+      </select>
+      <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-gray-400">
+        ▼
+      </span>
+    </div>
 
-          {/* Size */}
-          <select className="p-3 rounded-md border border-gray-300 text-gray-700">
-            <option>المقاس</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-          </select>
+    {/* Size */}
+    <div className="relative w-full md:w-1/3">
+      <select className="w-full appearance-none p-4 border border-gray-300 rounded-lg text-gray-700 bg-white">
+        <option>المقاس</option>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+      </select>
+      <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-gray-400">
+        ▼
+      </span>
+    </div>
 
-          {/* Color */}
-          <select className="p-3 rounded-md border border-gray-300 text-gray-700">
-            <option>اللون</option>
-            <option>أسود</option>
-            <option>بيج</option>
-            <option>رمادي</option>
-          </select>
+    {/* Color */}
+    <div className="relative w-full md:w-1/3">
+      <select className="w-full appearance-none p-4 border border-gray-300 rounded-lg text-gray-700 bg-white">
+        <option>اللون</option>
+        <option>أسود</option>
+        <option>بيج</option>
+        <option>رمادي</option>
+      </select>
+      <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-gray-400">
+        ▼
+      </span>
+    </div>
 
-        </div>
-      </div>
+    {/* Apply Filter Button */}
+    <div className="w-full md:w-auto">
+      <button className="w-full md:w-auto px-6 py-4 border border-gray-300 rounded-lg text-white bg-black hover:bg-gray-800 flex items-center justify-center gap-2">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 21L16.5 16.5M19 11C19 15.4183 15.4183 19 11 19S3 15.4183 3 11 6.58172 3 11 3 19 6.58172 19 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+       
+      </button>
+    </div>
+
+  </div>
+</div>
 
       {/* Products Grid */}
       <div className="container mx-auto px-6">

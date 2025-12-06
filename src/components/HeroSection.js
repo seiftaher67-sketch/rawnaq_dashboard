@@ -12,7 +12,7 @@ const HeroSection = () => {
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover -z-20"
       >
-        <source src="/images/Frau(MP4).mp4" type="video/mp4" />
+        <source src="/images/PM.mp4" type="video/mp4" />
       </video>
       <div className="relative z-10 flex flex-col h-full">
           <div className="flex-grow flex items-center justify-center">

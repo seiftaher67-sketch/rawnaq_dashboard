@@ -1,3 +1,5 @@
-- [x] Update fontSize in ProductCard.js from '16px' to '18px'
-- [x] Update fontSize in ProductCard.jsx from '16px' to '18px'
-- [ ] Verify the changes in the application
+# TODO List for Applying Font Styling to Headings
+
+- [x] Edit src/pages/Niqabs.js to apply inline styles to the h1 element for "النقابات"
+- [x] Edit src/pages/Tarhas.js to apply inline styles to the h1 element for "الطرح"
+- [x] Edit src/pages/Abayas.js to apply inline styles to the h1 element for "العبايات"
