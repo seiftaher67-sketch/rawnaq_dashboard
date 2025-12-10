@@ -1,12 +1,14 @@
 
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FiChevronLeft, FiChevronRight, FiHeart, FiShoppingCart } from 'react-icons/fi';
 import card1 from '../card1.jpg';
 import card2 from '../card2.jpg';
 import card3 from '../card3.jpg';
 
 const ProductCarousel = () => {
+  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [favorites, setFavorites] = useState({});
 
@@ -154,7 +156,10 @@ const ProductCarousel = () => {
 
                   {/* Action Buttons */}
                   <div className="flex gap-2 mt-auto">
-                    <button className="flex-1 bg-brand-black text-white py-2 px-3 rounded-full font-semibold hover:bg-brand-softBlack transition-colors text-xs">
+                    <button
+                      onClick={() => navigate(`/product/${product.id}`)}
+                      className="flex-1 bg-brand-black text-white py-2 px-3 rounded-full font-semibold hover:bg-brand-softBlack transition-colors text-xs"
+                    >
                       اشتري الآن
                     </button>
                     <button className="bg-gray-light border border-gray-200 rounded-full p-2 hover:bg-gray-light transition-colors flex-shrink-0">

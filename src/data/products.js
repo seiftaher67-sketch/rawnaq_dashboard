@@ -119,7 +119,7 @@ export const products = [
     image: "/images/a3.jpg",
     thumbnails: ["/images/a3.jpg", "/images/a3.jpg", "/images/a3.jpg", "/images/a3.jpg", "/images/a3.jpg"],
     rating: 5,
-    description: "عباية مريحة وعملية للاستخدام اليومي، مصنوعة من خامة خفيفة وسهلة العناية.",
+    description: "",
     features: [
       "خامة قطنية ناعمة وخفيفة",
       "سهلة العناية والغسيل",

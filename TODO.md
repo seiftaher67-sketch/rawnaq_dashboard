@@ -1,3 +1,3 @@
-- [x] Update fontWeight from 400 to 600 in all instruction paragraphs in WashingGuide.js
-- [x] Change font color to '#000000' in all instruction paragraphs in ReturnPolicy.js to match WashingGuide.js
-- [ ] Update fontWeight from 400 to 600 in all instruction paragraphs in ReturnPolicy.js
+- [ ] Import useNavigate from react-router-dom in ProductCarousel.js
+- [ ] Add useNavigate hook in ProductCarousel component
+- [ ] Add onClick handler to "اشتري الآن" button to navigate to `/product/${product.id}`
