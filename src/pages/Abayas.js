@@ -1,17 +1,9 @@
 import ProductCard from "../components/ProductCard.jsx";
+import { products } from "../data/products";
 
 export default function Abayas() {
 
-  const abayasList = [
-    { id: 1, name: "عباية كريب فاخرة", price: 199, image: "/images/a1.jpg" },
-    { id: 2, name: "عباية مطرزة سعودية", price: 250, image: "/images/a2.jpg" },
-    { id: 3, name: "عباية يومية عملية", price: 170, image: "/images/a3.jpg" },
-    { id: 4, name: "عباية رسميّة راقية", price: 280, image: "/images/a4.jpg" },
-    { id: 5, name: "عباية فاخرة مفتوحة", price: 220, image: "/images/a1.jpg" },
-    { id: 6, name: "عباية ملكية فاخرة", price: 310, image: "/images/a2.jpg" },
-    { id: 7, name: "عباية شهرية خفيفة", price: 160, image: "/images/a3.jpg" },
-    { id: 8, name: "عباية سوداء كلاسيكية", price: 140, image: "/images/a4.jpg" },
-  ];
+  const abayasList = products;
 
   return (
     <div className="pt-36 pb-20 bg-white">
@@ -89,6 +81,8 @@ export default function Abayas() {
               image={product.image}
               name={product.name}
               price={product.price}
+              oldPrice={product.originalPrice}
+              showOldPrice={true}
               variant="default"
             />
           ))}
