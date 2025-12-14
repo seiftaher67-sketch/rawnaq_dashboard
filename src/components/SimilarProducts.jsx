@@ -1,38 +1,41 @@
 // components/SimilarProducts.jsx
-import { FiShoppingCart } from "react-icons/fi";
+import ProductCard from "./ProductCard.jsx";
 
-export default function SimilarProducts({ products }) {
+export default function SimilarProducts({ products = [] }) {
+  const defaultImgs = [
+    "/images/a1.jpg",
+    "/images/a2.jpg",
+    "/images/a3.jpg",
+    "/images/a4.jpg",
+  ];
+
+  // Force the four similar items to use a1..a4 images so all are visible
+  const items = products.slice(0, 4).map((p, i) => ({ ...p, _imgIndex: i, image: defaultImgs[i] }));
+
+  while (items.length < 4) {
+    const idx = items.length;
+    items.push({ id: `placeholder-${idx}`, name: "منتج مشابه", price: "", oldPrice: "", image: defaultImgs[idx], _imgIndex: idx });
+  }
+
   return (
     <div className="mt-24">
-      <h2 className="text-3xl font-bold mb-10 text-black">منتجات مشابهة</h2>
+      <h2 style={{ fontFamily: 'Calibri', fontWeight: 400, fontStyle: 'normal', fontSize: '64px', leadingTrim: 'NONE', lineHeight: '100%', letterSpacing: '0%', textAlign: 'center' }} className="mb-10 text-[#0F0F0F]">قد يعجبك أيضاً</h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
-
-        {products.map((p, i) => (
-          <div
-            key={i}
-            className="p-4 border border-gray-200 rounded-2xl bg-white shadow-sm hover:shadow-lg transition"
-          >
-            <img
-              src={p.image}
-              alt={p.name}
-              className="w-full h-72 object-cover rounded-xl mb-4"
-            />
-
-            <h3 className="text-xl font-semibold text-black">{p.name}</h3>
-
-            <div className="flex items-center gap-3 mt-2 mb-5">
-              <span className="text-gray-500 line-through">{p.oldPrice} ر.س</span>
-              <span className="text-2xl text-[#C8A06A] font-bold">{p.price} ر.س</span>
+      <div className="container mx-auto px-6">
+        <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          {items.map((p, i) => (
+            <div key={p.id || p._id || p.name || i}>
+              <ProductCard
+                id={p.id || p._id}
+                image={p.image || defaultImgs[p._imgIndex || i]}
+                name={p.name}
+                price={p.price}
+                oldPrice={p.oldPrice}
+                showOldPrice={true}
+              />
             </div>
-
-            <button className="w-full flex items-center justify-center gap-2 bg-black text-white py-3 rounded-full text-lg hover:bg-[#222] transition">
-              <FiShoppingCart className="text-xl" />
-              اشتري الآن
-            </button>
-          </div>
-        ))}
-
+          ))}
+        </div>
       </div>
     </div>
   );
