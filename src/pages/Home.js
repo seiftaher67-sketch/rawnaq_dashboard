@@ -11,9 +11,6 @@ import CategorySection from '../components/CategorySection';
 const Home = () => {
   const navigate = useNavigate();
   const marqueeText = "شحن مجاني لجميع الطلبات داخل السعودية لفترة محدودة";
-  const spans = Array.from({ length: 50 }, (_, i) => (
-    <span key={i} className="inline-block px-16 text-center" style={{fontFamily: 'Calibri', fontWeight: 400, fontStyle: 'Regular', fontSize: '16px', lineHeight: '100%', letterSpacing: '0%'}}>{marqueeText}</span>
-  ));
 
   const handleCardClick = (productId) => {
     navigate(`/product/${productId}`);
@@ -26,34 +23,28 @@ const Home = () => {
       <CategorySection />
 
       {/* Shipping Info Marquee */}
-      <div className="bg-gray-medium text-white py-4">
-        <style dangerouslySetInnerHTML={{
-          __html: `
-          .animate-marquee {
-            animation: marquee 50s linear infinite;
-            display: inline-block;
-            width: max-content;
-          }
-          @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-33.33%); }
-          }
-        `}} />
-        <div className="overflow-hidden whitespace-nowrap">
-          <div className="inline-block animate-marquee">
-            {spans}
-          </div>
-          <div className="inline-block animate-marquee">
-            {spans}
-          </div>
-          <div className="inline-block animate-marquee">
-            {spans}
+      <div
+        className="bg-gray-medium text-white py-4 overflow-hidden"
+        dir="rtl"
+      >
+        <div className="flex w-[200%] hover:[&>*]:[animation-play-state:paused]">
+         
+          {/* Track  */}
+          <div className="flex w-1/2 animate-[marquee-rtl_25s_linear_infinite]">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <span
+                key={`b-${i}`}
+                className="whitespace-nowrap px-12 text-base"
+              >
+                {marqueeText}
+              </span>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Promotional Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-300">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             {/* Card 1 - Left (Wider) - صورة المرأة في الصحراء */}
@@ -98,6 +89,27 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+ {/* Shipping Info Marquee */}
+      <div
+        className="bg-gray-500 text-white py-4 overflow-hidden"
+        dir="rtl"
+      >
+        <div className="flex w-[200%] hover:[&>*]:[animation-play-state:paused]">
+         
+          {/* Track  */}
+          <div className="flex w-1/2 animate-[marquee-rtl_25s_linear_infinite]">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <span
+                key={`b-${i}`}
+                className="whitespace-nowrap px-12 text-base"
+              >
+                {marqueeText}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* New Collection / Featured Products Section */}
       <ProductCarousel />

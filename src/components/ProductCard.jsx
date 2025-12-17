@@ -57,7 +57,7 @@ export default function ProductCard({
         {/* Name and Price Row */}
         <div className="flex justify-between items-center mb-3">
           {/* Product Name - Left */}
-          <h3 className="font-sans text-lg font-bold text-left opacity-60" style={{ color: '#666666' }}>
+          <h3 className="font-sans text-lg font-bold text-left opacity-60" style={{ color: '#000000' }}>
             {name}
           </h3>
 

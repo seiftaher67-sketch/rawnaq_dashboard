@@ -1,9 +1,13 @@
 // src/pages/Offers.js
 
+import { useState } from 'react';
 import ProductCard from "../components/ProductCard.jsx";
 import { FiClock } from 'react-icons/fi';
 
 export default function Offers() {
+  const [selectedProductType, setSelectedProductType] = useState('');
+  const [selectedFabric, setSelectedFabric] = useState('');
+
   const offersData = [
     {
       id: 1,
@@ -112,6 +116,57 @@ export default function Offers() {
           العروض
         </h1>
 
+      </div>
+
+      {/* Filter Section */}
+      <div className="container mx-auto px-20 mb-12">
+        <div className="bg-gray-100 border border-gray-200 rounded-xl p-4 flex flex-col md:flex-row gap-4 md:items-center md:justify-between shadow-sm">
+
+          {/* Product Type */}
+          <div className="relative w-full md:w-1/2">
+            <select 
+              value={selectedProductType}
+              onChange={(e) => setSelectedProductType(e.target.value)}
+              className="w-full appearance-none p-4 border border-gray-300 rounded-full text-black bg-white"
+            >
+              <option value="">نوع المنتج</option>
+              <option value="عباية">عباية</option>
+              <option value="طرحة">طرحة</option>
+              <option value="نقاب">نقاب</option>
+            </select>
+            <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-black">
+              ▼
+            </span>
+          </div>
+
+          {/* Fabric Type */}
+          <div className="relative w-full md:w-1/2">
+            <select 
+              value={selectedFabric}
+              onChange={(e) => setSelectedFabric(e.target.value)}
+              className="w-full appearance-none p-4 border border-gray-300 rounded-full text-black bg-white"
+            >
+              <option value="">نوع القماش</option>
+              <option value="قطن">قطن</option>
+              <option value="كريب">كريب</option>
+              <option value="حرير">حرير</option>
+              <option value="كتان">كتان</option>
+            </select>
+            <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-black">
+              ▼
+            </span>
+          </div>
+
+          {/* Apply Filter Button */}
+          <div className="w-full md:w-auto">
+            <button className="w-full md:w-auto px-6 py-4 border border-gray-300 rounded-lg text-white bg-black hover:bg-gray-800 flex items-center justify-center gap-2">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 21L16.5 16.5M19 11C19 15.4183 15.4183 19 11 19S3 15.4183 3 11 6.58172 3 11 3 19 6.58172 19 11Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
+
+        </div>
       </div>
 
       {/* Products Grid */}

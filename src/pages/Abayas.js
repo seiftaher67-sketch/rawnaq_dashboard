@@ -16,44 +16,44 @@ export default function Abayas() {
       </div>
 
       {/* Filter Section */}
-      <div className="container mx-auto px-6 mb-12">
-        <div className="bg-white border border-gray-200 rounded-xl p-4 flex flex-col md:flex-row gap-4 md:items-center md:justify-between shadow-sm">
+      <div className="container mx-auto px-20 mb-12">
+        <div className="bg-gray-100 border border-gray-200 rounded-xl p-4 flex flex-col md:flex-row gap-4 md:items-center md:justify-between shadow-sm">
 
           {/* Sort */}
           <div className="relative w-full md:w-1/3">
-            <select className="w-full appearance-none p-4 border border-gray-300 rounded-lg text-gray-700 bg-white">
+            <select className="w-full appearance-none p-4 border border-gray-300 rounded-full text-black bg-white">
               <option>الفرز: من السعر الأقل للأعلى</option>
               <option>الفرز: من الأعلى للأقل</option>
               <option>الأحدث</option>
             </select>
-            <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-gray-400">
+            <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-black">
               ▼
             </span>
           </div>
 
           {/* Size */}
           <div className="relative w-full md:w-1/3">
-            <select className="w-full appearance-none p-4 border border-gray-300 rounded-lg text-gray-700 bg-white">
+            <select className="w-full appearance-none p-4 border border-gray-300 rounded-full text-black bg-white">
               <option>المقاس</option>
               <option>S</option>
               <option>M</option>
               <option>L</option>
               <option>XL</option>
             </select>
-            <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-gray-400">
+            <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-black">
               ▼
             </span>
           </div>
 
           {/* Color */}
           <div className="relative w-full md:w-1/3">
-            <select className="w-full appearance-none p-4 border border-gray-300 rounded-lg text-gray-700 bg-white">
+            <select className="w-full appearance-none p-4 border border-gray-300 rounded-full text-black bg-white">
               <option>اللون</option>
               <option>أسود</option>
               <option>بيج</option>
               <option>رمادي</option>
             </select>
-            <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-gray-400">
+            <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-black">
               ▼
             </span>
           </div>

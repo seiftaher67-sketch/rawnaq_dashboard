@@ -24,8 +24,8 @@ export default function Header() {
   ];
 
   return (
-    <nav className="bg-gray-200 fixed top-1 left-5 right-5 z-50 border-b border-gray-300 shadow-sm rounded-full">
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+    <nav className="bg-gray-200 fixed top-1 left-1/2 -translate-x-1/2 z-50 border-b border-gray-300 rounded-full max-w-6xl w-full mx-auto" style={{ boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3)' }}>
+      <div className="container mx-auto px-6 lg:px-12 py-3 lg:py-4 flex items-center justify-between">
 
         {/* LOGO */}
         <Link to="/">

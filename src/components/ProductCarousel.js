@@ -64,24 +64,45 @@ const ProductCarousel = () => {
       image: card1,
       discount: 25,
     },
+    {
+      id: 7,
+      name: 'عبابة كتان',
+      code: 'JM123',
+      price: 250,
+      image: card1,
+      discount: 25,
+    },
+    {
+      id: 8,
+      name: 'طرحة قطن',
+      code: 'JM124',
+      price: 250,
+      image: card2,
+      discount: 25,
+    },
+    {
+      id: 9,
+      name: 'عبابة كتان',
+      code: 'JM125',
+      price: 250,
+      image: card2,
+      discount: 25,
+    },
+    {
+      id: 10,
+      name: 'طرحة قطن',
+      code: 'JM126',
+      price: 250,
+      image: card1,
+      discount: 25,
+    },
   ];
 
-  // Calculate products per page and card width on mount and resize
+  const duplicatedProducts = [...products];
   useEffect(() => {
     const calculateSizes = () => {
       if (carouselInnerRef.current && cardRef.current) {
-        let newProductsPerPage;
-        const screenWidth = window.innerWidth;
-
-        if (screenWidth >= 1024) { // lg
-          newProductsPerPage = 4;
-        } else if (screenWidth >= 768) { // md
-          newProductsPerPage = 3;
-        } else if (screenWidth >= 640) { // sm
-          newProductsPerPage = 2;
-        } else { // xs
-          newProductsPerPage = 1;
-        }
+        let newProductsPerPage = 3; // Always show 3 products per page
         setProductsPerPage(newProductsPerPage);
 
         // Calculate card width including its right margin (gap-6 is 1.5rem = 24px)
@@ -103,6 +124,19 @@ const ProductCarousel = () => {
     }
   }, [currentIndex, cardVisibleWidth]);
 
+  // Reset index for infinite scrolling
+  useEffect(() => {
+    if (currentIndex >= products.length) {
+      // Stop at the end
+      setCurrentIndex(products.length - 1);
+      setTranslateX(-(products.length - 1) * cardVisibleWidth);
+    } else if (currentIndex < 0) {
+      // Stop at the beginning
+      setCurrentIndex(0);
+      setTranslateX(0);
+    }
+  }, [currentIndex, products.length, cardVisibleWidth]);
+
   const toggleFavorite = (id) => {
     setFavorites({
       ...favorites,
@@ -111,16 +145,20 @@ const ProductCarousel = () => {
   };
 
   const handlePrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + products.length) % products.length);
+    if (currentIndex > 0) {
+      setCurrentIndex((prevIndex) => prevIndex - 1);
+    }
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
+    if (currentIndex < products.length - productsPerPage) {
+      setCurrentIndex((prevIndex) => prevIndex + 1);
+    }
   };
 
   return (
-    <section className="py-12 bg-gray-light">
-      <div className="w-full mx-auto px-4">
+    <section className="py-12 bg-white">
+      <div className="w-full mx-auto px-20">
         {/* Header with Title and Button */}
         <div className="flex flex-col sm:flex-row items-center sm:justify-between mb-8">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-calibri font-normal leading-none tracking-normal text-center sm:text-right flex-1 mb-4 sm:mb-0">
@@ -128,21 +166,22 @@ const ProductCarousel = () => {
           </h2>
           <button
             onClick={() => navigate('/offers')}
-            className="bg-brand-gold text-brand-black px-4 py-2 sm:px-6 sm:py-3 rounded-full font-bold hover:bg-brand-black hover:text-brand-gold transition-all duration-300 text-sm sm:text-base shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="bg-black text-brand-white px-6 py-2 sm:px-6 sm:py-3 rounded-full font-bold hover:bg-brand-black hover:text-brand-gold transition-all duration-300 text-sm sm:text-base shadow-lg hover:shadow-xl transform hover:scale-105"
           >
             عرض جميع العروض
           </button>
         </div>
 
         {/* Carousel */}
-        <div className="relative flex items-center justify-center gap-6">
-          {/* Previous Button */}
+        <div className="relative flex items-center justify-center gap-6 px-6">
+          {/* Previous Button - السهم الأيسر يذهب يمين */}
           <button
             onClick={handlePrevious}
-            className="absolute -left-3 top-1/2 -translate-y-1/2 z-10 bg-brand-black text-white rounded-full p-3 hover:bg-brand-softBlack transition-colors flex-shrink-0"
+            disabled={currentIndex === 0}
+            className="absolute -right-3 top-1/2 -translate-y-1/2 z-10 bg-brand-black text-white rounded-full p-3 hover:bg-brand-softBlack transition-colors flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-brand-black"
             aria-label="السابق"
           >
-            <FiChevronLeft size={24} />
+            <FiChevronRight size={24} />
           </button>
 
           {/* Product Cards Container Wrapper */}
@@ -152,11 +191,11 @@ const ProductCarousel = () => {
               className="flex gap-6 transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(${translateX}px)` }}
             >
-              {products.map((product, index) => (
+              {duplicatedProducts.map((product, index) => (
                 <div
                   key={`${product.id}-${index}`}
                   ref={index === 0 ? cardRef : null} // Assign ref to the first card
-                  className="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/4 bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-soft transition-shadow flex flex-col"
+                  className="flex-none w-1/3 bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-soft transition-shadow flex flex-col"
                 >
                   {/* Product Image Container */}
                   <div className="relative bg-gray-100 h-[20rem] sm:h-[24rem] md:h-[28rem] flex-grow overflow-hidden">
@@ -232,13 +271,14 @@ const ProductCarousel = () => {
             </div>
           </div>
 
-          {/* Next Button */}
+          {/* Next Button - السهم الأيمن يذهب شمال */}
           <button
             onClick={handleNext}
-            className="absolute -right-3 top-1/2 -translate-y-1/2 z-10 bg-brand-black text-white rounded-full p-3 hover:bg-brand-softBlack transition-colors flex-shrink-0"
+            disabled={currentIndex === products.length - productsPerPage}
+            className="absolute -left-3 top-1/2 -translate-y-1/2 z-10 bg-brand-black text-white rounded-full p-3 hover:bg-brand-softBlack transition-colors flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-brand-black"
             aria-label="التالي"
           >
-            <FiChevronRight size={24} />
+            <FiChevronLeft size={24} />
           </button>
         </div>
       </div>

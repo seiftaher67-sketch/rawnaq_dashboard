@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
       </div>
       <div className="p-3 flex flex-col">
         <div className="flex justify-between items-center mb-3">
-          <h3 className="font-sans text-lg font-bold text-left opacity-60" style={{ color: '#666666' }}>
+          <h3 className="font-sans text-lg font-bold text-left opacity-60" style={{ color: '#000000' }}>
             {product.name}
           </h3>
           <div className="flex flex-col text-right">

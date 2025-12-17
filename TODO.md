@@ -1,4 +1,5 @@
-- [x] Update MyOrders.js to use ProductCard component instead of custom order-item divs
-- [x] Replace empty image src with "/images/n1.jpg"
-- [x] Ensure the layout matches Abayas.js exactly (grid layout, ProductCard usage)
-- [x] Test the changes to verify the page renders correctly
+- [x] Fix ProductCarousel to be infinite
+  - [x] Duplicate products array
+  - [x] Use duplicatedProducts in map
+  - [x] Update handleNext and handlePrevious to move by productsPerPage
+  - [x] Add reset logic for infinite scrolling

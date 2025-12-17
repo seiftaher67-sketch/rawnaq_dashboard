@@ -38,7 +38,16 @@ module.exports = {
       boxShadow: {
         card: "0 2px 8px rgba(0,0,0,0.08)",
         soft: "0 1px 4px rgba(0,0,0,0.05)",
-      }
+      },
+      keyframes: {
+        'marquee-rtl': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+      },
+      animation: {
+        'marquee-rtl': 'marquee-rtl 25s linear infinite',
+      },
     },
   },
   plugins: [],
