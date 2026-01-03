@@ -1,27 +1,48 @@
-import { createContext, useState, useContext } from "react";
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null); // null = not logged in
-
-  // Fake login
-  const login = (phone, password) => {
-    if (phone === "0555555555" && password === "123456") {
-      setUser({ name: "مستخدم تجريبي", phone });
-      return true;
-    }
-    return false;
-  };
-
-  const logout = () => setUser(null);
-
-  return (
-    <AuthContext.Provider value={{ user, login, logout }}>
-      {children}
-    </AuthContext.Provider>
-  );
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  return context;
 };
 
-// hook
-export const useAuth = () => useContext(AuthContext);
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Check if user is logged in (e.g., check localStorage for token)
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      // Validate token and set user
+      // For now, just set a mock user
+      setUser({ id: 1, name: 'Admin', email: 'admin@example.com' });
+    }
+    setLoading(false);
+  }, []);
+
+  const login = async (email, password) => {
+    // Implement login logic
+    // For now, just set a mock user
+    setUser({ id: 1, name: 'Admin', email });
+    localStorage.setItem('authToken', 'mock-token');
+  };
+
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem('authToken');
+  };
+
+  const value = {
+    user,
+    login,
+    logout,
+    loading,
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+};

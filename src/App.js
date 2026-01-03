@@ -1,70 +1,69 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-// Import pages
-import Home from './pages/Home';
-import Abayas from './pages/Abayas';
-import Tarhas from './pages/Tarhas';
-import Niqabs from './pages/Niqabs';
-import Offers from './pages/Offers';
-import ProductDetails from './pages/ProductDetails';
-import Cart from './pages/Cart';
-import Checkout from './pages/Checkout';
-import Login from './pages/Login';
-import OTP from './pages/OTP';
-import EditProfile from './pages/EditProfile';
-import MyOrders from './pages/MyOrders';
-import Favorites from './pages/Favorites';
-import WashingGuide from './pages/WashingGuide';
-import ReturnPolicy from './pages/ReturnPolicy';
-import OrderSuccess from './pages/OrderSuccess';
-import Register from './pages/Register';
-import VerifyPhone from './pages/VerifyPhone';
-import EditDataPage from './pages/EditDataPage';
-import OrderHistoryPage from './pages/OrderHistoryPage';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
-import PrivateRoute from './components/PrivateRoute';
+// layouts
+import DashboardLayout from "./layouts/DashboardLayout";
+import AuthLayout from "./layouts/AuthLayout";
 
-import { FavoritesProvider } from './context/FavoritesContext';
+// pages
+import Login from "./pages/Login";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
-function App() {
+import Dashboard from "./pages/Dashboard";
+
+import Orders from "./pages/Orders";
+import OrderDetails from "./pages/OrderDetails";
+
+import Products from "./pages/Products";
+import AddProduct from "./pages/AddProduct";
+import EditProduct from "./pages/EditProduct";
+
+import Customers from "./pages/Customers";
+import Reports from "./pages/Reports";
+
+import Profile from "./pages/Profile";
+import Security from "./pages/Security";
+
+export default function App() {
   return (
-    <Router>
-      <FavoritesProvider>
-        <ScrollToTop />
-        <div className="App">
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/abayas" element={<Abayas />} />
-            <Route path="/tarhas" element={<Tarhas />} />
-            <Route path="/niqabs" element={<Niqabs />} />
-            <Route path="/offers" element={<Offers />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<PrivateRoute><Checkout /></PrivateRoute>} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/otp" element={<OTP />} />
-            <Route path="/edit-profile" element={<PrivateRoute><EditProfile /></PrivateRoute>} />
-            <Route path="/my-orders" element={<PrivateRoute><MyOrders /></PrivateRoute>} />
-            <Route path="/favorites" element={<PrivateRoute><Favorites /></PrivateRoute>} />
-            <Route path="/washing-guide" element={<WashingGuide />} />
-            <Route path="/return-policy" element={<ReturnPolicy />} />
-            <Route path="/order-success" element={<OrderSuccess />} />
-            <Route path="/verify-phone" element={<VerifyPhone />} />
-            <Route path="/edit-data" element={<PrivateRoute><EditDataPage /></PrivateRoute>} />
-            <Route path="/order-history" element={<PrivateRoute><OrderHistoryPage /></PrivateRoute>} />
-          </Routes>
+    <BrowserRouter>
+      <Routes>
+        {/* ================= Auth Routes ================= */}
+        <Route element={<AuthLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+        </Route>
 
-          <Footer />
-        </div>
-      </FavoritesProvider>
-    </Router>
+        {/* ================= Dashboard Routes ================= */}
+        <Route element={<DashboardLayout />}>
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+
+          <Route path="/dashboard" element={<Dashboard />} />
+
+          {/* Orders */}
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/orders/:id" element={<OrderDetails />} />
+
+          {/* Products */}
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/new" element={<AddProduct />} />
+          <Route path="/products/:id/edit" element={<EditProduct />} />
+
+          {/* Customers */}
+          <Route path="/customers" element={<Customers />} />
+
+          {/* Reports */}
+          <Route path="/reports" element={<Reports />} />
+
+          {/* Settings */}
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/security" element={<Security />} />
+        </Route>
+
+        {/* ================= Fallback ================= */}
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;

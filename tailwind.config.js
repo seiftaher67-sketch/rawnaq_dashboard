@@ -7,10 +7,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Tajawal", "sans-serif"],
+        sans: ["Cairo", "sans-serif"],
         ruqah: ["Ruqaa", "serif"],
         amiri: ["Amiri", "serif"],
         calibri: ["Calibri", "sans-serif"],
+        cairo: ["Cairo", "sans-serif"],
       },
       colors: {
         brand: {

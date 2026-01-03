@@ -1,5 +1,2 @@
-- [x] Fix ProductCarousel to be infinite
-  - [x] Duplicate products array
-  - [x] Use duplicatedProducts in map
-  - [x] Update handleNext and handlePrevious to move by productsPerPage
-  - [x] Add reset logic for infinite scrolling
+- [ ] Update the h3 element for "تحليلات المبيعات" in the Sales Chart section of Dashboard.js with the specified font styles
+- [ ] Update the h3 element for "أحدث الطلبات" in the Orders Table section of Dashboard.js with the specified font styles
