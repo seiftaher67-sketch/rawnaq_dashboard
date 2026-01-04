@@ -63,6 +63,9 @@ export default function OrdersPage() {
               <th className="px-4 py-3" style={{ fontFamily: 'Cairo', fontWeight: 700, fontStyle: 'Bold', fontSize: '20px', lineHeight: '16px', letterSpacing: '0.6px', textAlign: 'center', textTransform: 'uppercase', color: '#374151' }}>
                 المبلغ الكلي
               </th>
+              <th className="px-4 py-3" style={{ fontFamily: 'Cairo', fontWeight: 700, fontStyle: 'Bold', fontSize: '20px', lineHeight: '16px', letterSpacing: '0.6px', textAlign: 'center', textTransform: 'uppercase', color: '#374151' }}>
+                النشاط
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -87,6 +90,13 @@ export default function OrdersPage() {
                 </td>
                 <td className="px-4 py-3 text-sm text-brand-black text-center" style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'normal', fontSize: '20px', leadingTrim: 'none', lineHeight: '20px', letterSpacing: '0px' }}>
                   {order.amount}
+                </td>
+                <td className="px-4 py-3 text-center">
+                  <div className="text-center">
+                    <span style={{ fontFamily: 'Cairo', fontWeight: 400, fontSize: '20px', lineHeight: '20px', letterSpacing: '0px' }}></span>
+                    <br />
+                    <img src="/images/ays.png" alt="نشاط" className="w-8 h-8 mx-auto" />
+                  </div>
                 </td>
               </tr>
             ))}
