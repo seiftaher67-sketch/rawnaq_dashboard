@@ -1,159 +1,145 @@
-import { PlusIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Filter, Search } from "lucide-react";
+import Modal from "../components/ui/Modal";
+import AddProduct from "./AddProduct";
 
-export default function Products() {
-  const [expandedFilter, setExpandedFilter] = useState("categories");
+export default function ProductsPage() {
+    const navigate = useNavigate();
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
+    const [isAddProductModalOpen, setIsAddProductModalOpen] = useState(false);
 
-  const products = [
-    { id: 1, name: "عباية كتان", price: "250 ر.س", stock: 515, color: "أسود", size: "M" },
-    { id: 2, name: "عباية شيفون", price: "320 ر.س", stock: 342, color: "بني", size: "L" },
-    { id: 3, name: "عباية حرير", price: "450 ر.س", stock: 128, color: "أبيض", size: "M" },
-    { id: 4, name: "عباية مطرز", price: "580 ر.س", stock: 67, color: "ذهبي", size: "S" },
-    { id: 5, name: "عباية بسيطة", price: "180 ر.س", stock: 890, color: "رمادي", size: "L" },
-    { id: 6, name: "عباية فاخرة", price: "720 ر.س", stock: 23, color: "أسود", size: "M" },
-  ];
+    const filterOptions = [
+        { label: "عبايات", value: "all" },
+        { label: "طرح", value: "available" },
+        { label: "نقابات", value: "out_of_stock" },
 
-  return (
-    <div className="space-y-4">
-      {/* ================= Header ================= */}
-      <div>
-        <h1 className="text-3xl font-bold text-brand-black">المنتجات</h1>
-        <p className="text-sm text-gray-dark mt-1">إدارة كتالوج المنتجات الخاص بك</p>
-      </div>
+    ];
 
-      {/* ================= Content with Sidebar ================= */}
-      <div className="flex gap-6">
-        {/* ================= Left Sidebar Filters ================= */}
-        <div className="w-64 bg-white rounded-xl shadow-card p-6 h-fit">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-semibold text-brand-black">تصفيل المشتري</h2>
-            <button className="text-gray-dark hover:text-brand-gold transition">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M4.3 4.3a1 1 0 011.4 0L10 8.6l4.3-4.3a1 1 0 111.4 1.4L11.4 10l4.3 4.3a1 1 0 11-1.4 1.4L10 11.4l-4.3 4.3a1 1 0 01-1.4-1.4L8.6 10 4.3 5.7a1 1 0 010-1.4z" clipRule="evenodd" />
-              </svg>
-            </button>
-          </div>
+    return (
+        <div dir="rtl" className="min-h-screen bg-[#f5f5f5] px-8 py-6 font-sans">
+            {/* Header */}
+            <div className="flex items-start justify-between mb-6">
+                <div>
+                    <h1 className="text-2xl font-bold text-gray-800">المنتجات</h1>
 
-          {/* Add Product Button */}
-          <button className="w-full bg-brand-gold text-brand-black px-4 py-2 rounded-lg text-sm font-semibold hover:bg-brand-gold/90 transition mb-6">
-            <PlusIcon className="w-5 h-5 inline-block ml-2" />
-            إضافة منتج
-          </button>
+                    <p style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'Regular', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '24px', letterSpacing: '0px', textAlign: 'right', marginTop: '16px', paddingRight: '10px' }}>إدارة وتتبع جميع طلبات العملاء</p>
+                </div>
+                <button onClick={() => setIsAddProductModalOpen(true)} className="text-white px-5 py-2 rounded-lg flex items-center gap-2 text-sm font-medium" style={{ background: 'linear-gradient(to right, #2f6fd6, #1e40af)' }}>
+                    <span className="text-lg">+</span>
+                    إضافة منتج
+                </button>
+            </div>
 
-          {/* Filter Sections */}
-          <div className="space-y-4">
-            {/* Categories */}
-            <FilterSection
-              title="الفئات"
-              expanded={expandedFilter === "categories"}
-              onToggle={() => setExpandedFilter(expandedFilter === "categories" ? null : "categories")}
-              items={["عبايات", "فساتين", "أكسسوارات", "عطور"]}
-            />
+            {/* Search & Filter */}
+            <div className="grid grid-cols-8 gap-4 mb-8 max-w-6xl ml-auto" style={{ paddingRight: '10px' }}>
+                <div className="col-span-6 flex items-center bg-[#E8E8E8] rounded-lg px-3 py-4 shadow-sm">
+                    <Search className="w-4 h-4 text-gray-600 ml-2" />
+                    <input
+                        className="outline-none flex-1 bg-transparent text-black placeholder-gray-500"
+                        style={{
+                            fontFamily: 'Cairo',
+                            fontWeight: 400,
+                            fontStyle: 'normal',
+                            fontSize: '16px',
+                            lineHeight: '100%',
+                            letterSpacing: '0px',
+                            textAlign: 'right'
+                        }}
+                        placeholder="ابحث عن منتج ..."
+                    />
+                </div>
+                <div className="col-span-2 relative">
+                    <button
+                        onClick={() => setIsFilterOpen(!isFilterOpen)}
+                        className="w-full flex items-center justify-start bg-[#E8E8E8] rounded-lg px-3 py-4 shadow-sm hover:bg-gray-300 transition"
+                        style={{ height: '56px' }}
+                    >
+                        <Filter className="w-4 h-4 text-gray-600" />
+                    </button>
 
-            {/* Colors */}
-            <FilterSection
-              title="الألوان"
-              expanded={expandedFilter === "colors"}
-              onToggle={() => setExpandedFilter(expandedFilter === "colors" ? null : "colors")}
-              items={["أسود", "بني", "أبيض", "رمادي", "ذهبي"]}
-            />
+                    {/* Dropdown Menu */}
+                    {isFilterOpen && (
+                        <div className="absolute top-full right-0 mt-2 w-full bg-white rounded-lg shadow-lg border border-gray-light z-50">
+                            {filterOptions.map((option, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => {
+                                        setIsFilterOpen(false);
+                                    }}
+                                    className="w-full px-4 py-3 text-right hover:bg-gray-light transition border-b border-gray-light last:border-b-0"
+                                    style={{ fontFamily: 'Cairo', fontWeight: 400, fontSize: '18px', lineHeight: '24px', textAlign: 'right', color: '#333333' }}
+                                >
+                                    {option.label}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </div>
 
-            {/* Sizes */}
-            <FilterSection
-              title="الأحجام"
-              expanded={expandedFilter === "sizes"}
-              onToggle={() => setExpandedFilter(expandedFilter === "sizes" ? null : "sizes")}
-              items={["S", "M", "L", "XL", "XXL"]}
-            />
+            {/* Products Grid */}
+            <div className="grid grid-cols-3 gap-10 max-w-6xl ml-auto" style={{ paddingRight: '10px' }}>
+                {[1, 2, 3].map((i) => (
+                    <div
+                        key={i}
+                        className="bg-white border border-gray-200 flex flex-col hover:shadow-lg transition-shadow"
+                        style={{
+                            width: '340px',
+                            height: '509px',
+                            borderRadius: '24px',
+                            borderWidth: '1px',
+                            transform: 'rotate(0deg)',
+                            opacity: 1
+                        }}
+                    >
+                        {/* Product Image */}
+                        <div className="w-full overflow-hidden flex-shrink-0" style={{ borderTopLeftRadius: '24px', borderTopRightRadius: '24px', height: '340px' }}>
+                            <img
+                                src="/images/a2.jpg"
+                                alt="عباية كتان"
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
 
-            {/* Price Range */}
-            <FilterSection
-              title="نطاق السعر"
-              expanded={expandedFilter === "price"}
-              onToggle={() => setExpandedFilter(expandedFilter === "price" ? null : "price")}
-              items={["تحت 200 ر.س", "200 - 500 ر.س", "500 - 1000 ر.س", "فوق 1000 ر.س"]}
-            />
-          </div>
+                        {/* Product Info */}
+                        <div className="flex-1 flex flex-col p-5">
+                            {/* Name and Price */}
+                            <div className="flex items-center justify-between mb-2">
+                                <h3 className="text-gray-800" style={{ fontFamily: 'Cairo', fontWeight: 400, fontSize: '24px', lineHeight: '100%', letterSpacing: '0%', textAlign: 'right' }}>عباية كتان</h3>
+                                <div className="flex items-center gap-1">
+                                    <span className="text-black font-semibold" style={{ fontFamily: 'Cairo', fontWeight: 600, fontSize: '24px', lineHeight: '100%', letterSpacing: '0%', textAlign: 'right' }}>250</span>
+                                    <img src="/images/old ry.jpeg" alt="ر.س" style={{ height: '24px', width: 'auto' }} />
+                                </div>
+                            </div>
 
-          {/* Reset Filters */}
-          <button className="w-full mt-6 text-brand-gold text-sm font-medium hover:text-brand-gold/80 transition">
-            إعادة تعيين المرشحات
-          </button>
+                            {/* Stock Info */}
+                            <p className="text-gray-500 mb-6" style={{ fontFamily: 'Cairo', fontWeight: 400, fontSize: '24px', lineHeight: '100%', letterSpacing: '0%', textAlign: 'right' }}>الموجود 51</p>
+
+                            {/* Edit Button */}
+                            <button
+                                onClick={() => navigate('/edit-product')}
+                                className="w-full text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-colors hover:opacity-90"
+                                style={{ backgroundColor: '#064DA8', fontFamily: 'Cairo', fontWeight: 400, fontSize: '24px', lineHeight: '100%', letterSpacing: '0%', textAlign: 'center' }}
+                            >
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                </svg>
+                                تعديل المنتج
+                            </button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Add Product Modal */}
+            <Modal
+                isOpen={isAddProductModalOpen}
+                onClose={() => setIsAddProductModalOpen(false)}
+                title="إضافة منتج جديد"
+            >
+                <AddProduct />
+            </Modal>
         </div>
-
-        {/* ================= Products Grid ================= */}
-        <div className="flex-1">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => (
-              <ProductCard key={product.id} {...product} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ================= Components ================= */
-
-function FilterSection({ title, expanded, onToggle, items }) {
-  return (
-    <div className="border-b border-gray-medium/20 pb-4">
-      <button
-        onClick={onToggle}
-        className="w-full flex items-center justify-between text-sm font-semibold text-brand-black hover:text-brand-gold transition"
-      >
-        {title}
-        <ChevronDownIcon className={`w-4 h-4 transition-transform ${expanded ? "rotate-180" : ""}`} />
-      </button>
-      {expanded && (
-        <div className="space-y-2 mt-3">
-          {items.map((item) => (
-            <label key={item} className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                className="w-4 h-4 rounded border-gray-medium/30 text-brand-gold focus:ring-brand-gold"
-              />
-              <span className="text-xs text-gray-dark hover:text-brand-black transition">{item}</span>
-            </label>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-function ProductCard({ name, price, stock, color, size }) {
-  return (
-    <div className="bg-white rounded-lg shadow-soft hover:shadow-card transition overflow-hidden">
-      {/* Image */}
-      <div className="h-56 bg-gray-light flex items-center justify-center text-gray-medium">
-        <span className="text-sm">صورة المنتج</span>
-      </div>
-
-      {/* Content */}
-      <div className="p-4 space-y-3">
-        <h3 className="text-sm font-semibold text-brand-black line-clamp-2">{name}</h3>
-
-        <div className="space-y-2">
-          <p className="text-xs text-gray-dark">
-            <span className="font-medium">المخزون:</span> {stock}
-          </p>
-          <p className="text-xs text-gray-dark">
-            <span className="font-medium">اللون:</span> {color}
-          </p>
-          <p className="text-xs text-gray-dark">
-            <span className="font-medium">الحجم:</span> {size}
-          </p>
-        </div>
-
-        <p className="text-sm font-bold text-brand-gold">{price}</p>
-
-        {/* Edit Button */}
-        <button className="w-full text-xs text-brand-gold border border-brand-gold/30 rounded-lg py-2 hover:bg-brand-gold/5 transition font-medium">
-          تعديل المنتج
-        </button>
-      </div>
-    </div>
-  );
+    );
 }

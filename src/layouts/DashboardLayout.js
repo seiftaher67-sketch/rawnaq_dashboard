@@ -8,7 +8,7 @@ const DashboardLayout = () => {
     <div className="bg-gray-light">
       <Header />
       <Sidebar />
-      <main className="mr-64 pt-20 min-h-screen overflow-x-hidden bg-gray-light p-6">
+      <main className="mr-[291px] pt-20 min-h-screen overflow-x-hidden bg-gray-light p-6">
         <Outlet />
       </main>
     </div>
