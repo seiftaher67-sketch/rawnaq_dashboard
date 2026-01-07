@@ -1,65 +1,3 @@
-// import React from 'react';
-
-// const Customers = () => {
-//   return (
-//     <div className="p-6">
-//       <h1 className="text-3xl font-bold text-gray-900 mb-6">Customers</h1>
-//       <div className="bg-white p-6 rounded-lg shadow">
-//         <div className="overflow-x-auto">
-//           <table className="min-w-full divide-y divide-gray-200">
-//             <thead className="bg-gray-50">
-//               <tr>
-//                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-//                   Name
-//                 </th>
-//                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-//                   Email
-//                 </th>
-//                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-//                   Phone
-//                 </th>
-//                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-//                   Orders
-//                 </th>
-//                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-//                   Actions
-//                 </th>
-//               </tr>
-//             </thead>
-//             <tbody className="bg-white divide-y divide-gray-200">
-//               <tr>
-//                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-//                   John Doe
-//                 </td>
-//                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-//                   john@example.com
-//                 </td>
-//                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-//                   +1 (555) 123-4567
-//                 </td>
-//                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-//                   5
-//                 </td>
-//                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-//                   <a href="#" className="text-indigo-600 hover:text-indigo-900 mr-4">
-//                     View
-//                   </a>
-//                   <a href="#" className="text-red-600 hover:text-red-900">
-//                     Delete
-//                   </a>
-//                 </td>
-//               </tr>
-//               {/* Add more rows as needed */}
-//             </tbody>
-//           </table>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Customers;
-
 import React from "react";
 
 export default function Customers() {
@@ -74,15 +12,16 @@ export default function Customers() {
   return (
     <div dir="rtl" className="p-6 bg-gray-100 min-h-screen">
       {/* Header */}
-      <h1 className="text-2xl font-bold text-gray-800 mb-4">العملاء</h1>
-      <p className="text-sm text-gray-500 mb-6">إدارة قاعدة بيانات عملائك</p>
-
+<h1 className="text-2xl font-bold text-gray-800" style={{ marginLeft: '15px', marginBottom: '2px', fontFamily: 'Cairo', fontWeight: 600, fontStyle: 'SemiBold', fontSize: '36px', leadingTrim: 'NONE', lineHeight: '36px', letterSpacing: '0px', textAlign: 'right', color: '#101828' }}> العملاء </h1>
+ <p style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'Regular', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '24px', letterSpacing: '0px', textAlign: 'right', marginTop: '16px', paddingRight: '10px' }}>إدارة قاعدة بيانات عملائك</p>
+<br></br>
       {/* Search */}
       <div className="mb-4">
         <input
           type="text"
           placeholder="ابحث عن طريق الاسم، رقم الجوال..."
-          className="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none"
+          className="w-full px-4 rounded-lg border border-gray-200 focus:outline-none"
+          style={{ height: '59px', backgroundColor: '#E8E8E8' }}
         />
       </div>
 
@@ -132,4 +71,3 @@ export default function Customers() {
     </div>
   );
 }
-

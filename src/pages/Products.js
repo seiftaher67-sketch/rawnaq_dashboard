@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Filter, Search } from "lucide-react";
-import Modal from "../components/ui/Modal";
-import AddProduct from "./AddProduct";
 
 export default function ProductsPage() {
     const navigate = useNavigate();
     const [isFilterOpen, setIsFilterOpen] = useState(false);
-    const [isAddProductModalOpen, setIsAddProductModalOpen] = useState(false);
 
     const filterOptions = [
         { label: "عبايات", value: "all" },
@@ -21,11 +18,11 @@ export default function ProductsPage() {
             {/* Header */}
             <div className="flex items-start justify-between mb-6">
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-800">المنتجات</h1>
+                     <h1 className="text-2xl font-bold text-gray-800" style={{ marginLeft: '15px', marginBottom: '2px', fontFamily: 'Cairo', fontWeight: 600, fontStyle: 'SemiBold', fontSize: '36px', leadingTrim: 'NONE', lineHeight: '36px', letterSpacing: '0px', textAlign: 'right', color: '#101828' }}> المنتجات </h1>
 
-                    <p style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'Regular', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '24px', letterSpacing: '0px', textAlign: 'right', marginTop: '16px', paddingRight: '10px' }}>إدارة وتتبع جميع طلبات العملاء</p>
+                    <p style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'Regular', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '24px', letterSpacing: '0px', textAlign: 'right', marginTop: '16px', paddingRight: '10px' }}>إدارة وتتبع جميع المنتجات</p>
                 </div>
-                <button onClick={() => setIsAddProductModalOpen(true)} className="text-white px-5 py-2 rounded-lg flex items-center gap-2 text-sm font-medium" style={{ background: 'linear-gradient(to right, #2f6fd6, #1e40af)' }}>
+                <button onClick={() => navigate('/products/new')} className="text-white px-5 py-2 rounded-lg flex items-center gap-2 text-sm font-medium" style={{ background: 'linear-gradient(to right, #2f6fd6, #1e40af)' }}>
                     <span className="text-lg">+</span>
                     إضافة منتج
                 </button>
@@ -118,7 +115,7 @@ export default function ProductsPage() {
 
                             {/* Edit Button */}
                             <button
-                                onClick={() => navigate('/edit-product')}
+                                onClick={() => navigate('/products/new')}
                                 className="w-full text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-colors hover:opacity-90"
                                 style={{ backgroundColor: '#064DA8', fontFamily: 'Cairo', fontWeight: 400, fontSize: '24px', lineHeight: '100%', letterSpacing: '0%', textAlign: 'center' }}
                             >
@@ -132,14 +129,7 @@ export default function ProductsPage() {
                 ))}
             </div>
 
-            {/* Add Product Modal */}
-            <Modal
-                isOpen={isAddProductModalOpen}
-                onClose={() => setIsAddProductModalOpen(false)}
-                title="إضافة منتج جديد"
-            >
-                <AddProduct />
-            </Modal>
+
         </div>
     );
 }

@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Ruqaa:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap');
 
@@ -19,4 +18,26 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Remove spinner arrows from number inputs */
+input[type="number"].price-input::-webkit-outer-spin-button,
+input[type="number"].price-input::-webkit-inner-spin-button,
+input[type="number"].discount-input::-webkit-outer-spin-button,
+input[type="number"].discount-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"].price-input[type="number"],
+input[type="number"].discount-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Make select options text clear and visible */
+option {
+  font-family: Cairo, sans-serif;
+  font-weight: 600;
+  color: #0F0F0F;
+  background-color: #FFFFFF;
 }
