@@ -115,7 +115,7 @@ export default function ProductsPage() {
 
                             {/* Edit Button */}
                             <button
-                                onClick={() => navigate('/products/new')}
+                                onClick={() => navigate(`/products/${i}/edit`)}
                                 className="w-full text-white py-3 rounded-lg flex items-center justify-center gap-2 transition-colors hover:opacity-90"
                                 style={{ backgroundColor: '#064DA8', fontFamily: 'Cairo', fontWeight: 400, fontSize: '24px', lineHeight: '100%', letterSpacing: '0%', textAlign: 'center' }}
                             >

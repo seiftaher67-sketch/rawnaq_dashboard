@@ -1,4 +1,3 @@
-
 import { Filter, Search } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -24,8 +23,8 @@ export default function OrdersPage() {
   ];
 
   const returns = [
-    { id: "#ORD-1247", name: "Fatima Al-Mansouri", phone: "01557274575", amount: "SAR 850", status: "مرجح", statusClass: "bg-red-100 text-red-700", date: "2025-11-29" },
-    { id: "#ORD-1248", name: "Sara Ahmed", phone: "+966 50 789 0123", amount: "SAR 1,050", status: "مرجح", statusClass: "bg-red-100 text-red-700", date: "2025-11-28" },
+    { id: "#ORD-1247", name: "Fatima Al-Mansouri", phone: "01557274575", amount: "SAR 850", status: "مرتجع", statusClass: "bg-red-100 text-red-700", date: "2025-11-29" },
+    { id: "#ORD-1248", name: "Sara Ahmed", phone: "+966 50 789 0123", amount: "SAR 1,050", status: "مرتجع", statusClass: "bg-red-100 text-red-700", date: "2025-11-28" },
   ];
 
   const customOrders = [
@@ -34,7 +33,7 @@ export default function OrdersPage() {
       name: "فاطمة المنصوري",
       phone: "+966 50 123 4567",
       amount: "SAR 650",
-      status: "بيانات",
+      status: "يعالج",
       statusClass: "bg-blue-100 text-blue-700",
       date: "2025-11-30",
       address: "المدينة المنورة، السعودية",
@@ -223,7 +222,7 @@ export default function OrdersPage() {
                 <td className="px-4 py-3 text-sm text-brand-black" style={{ fontFamily: 'Cairo', fontWeight: 400, fontSize: '20px', lineHeight: '20px', letterSpacing: '0px', textAlign: 'center', leadingTrim: 'NONE', verticalAlign: 'middle' }}>
                   {order.name}
                 </td>
-                <td className="px-4 py-3 text-sm text-brand-black" style={{ fontFamily: 'Cairo', fontWeight: 400, fontSize: '20px', lineHeight: '20px', letterSpacing: '0px', textAlign: 'center', leadingTrim: 'NONE', verticalAlign: 'middle' }}>
+                <td className="px-2 py-3 text-sm text-brand-black" style={{ fontFamily: 'Cairo', fontWeight: 400, fontSize: '20px', lineHeight: '20px', letterSpacing: '0px', textAlign: 'center', leadingTrim: 'NONE', verticalAlign: 'middle', whiteSpace: 'nowrap' }}>
                   {order.phone}
                 </td>
                 <td className="px-4 py-3 text-center" style={{ verticalAlign: 'middle' }}>
@@ -231,7 +230,7 @@ export default function OrdersPage() {
                     {order.status}
                   </span>
                 </td>
-                <td className="px-4 py-3 text-sm text-brand-black text-center" style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'normal', fontSize: '20px', leadingTrim: 'none', lineHeight: '20px', letterSpacing: '0px', verticalAlign: 'middle' }}>
+                <td className="px-2 py-3 text-sm text-brand-black text-center" style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'normal', fontSize: '20px', leadingTrim: 'none', lineHeight: '20px', letterSpacing: '0px', verticalAlign: 'middle', whiteSpace: 'nowrap' }}>
                   {order.date}
                 </td>
                 <td className="px-4 py-3 text-sm text-brand-black text-center" style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'normal', fontSize: '20px', leadingTrim: 'none', lineHeight: '20px', letterSpacing: '0px', verticalAlign: 'middle' }}>
@@ -239,7 +238,16 @@ export default function OrdersPage() {
                 </td>
                 <td className="px-4 py-3 text-center" style={{ verticalAlign: 'middle' }}>
                   <div className="text-center">
-                    <img src="/images/ays.png" alt="نشاط" className="w-8 h-8 mx-auto" style={{ verticalAlign: 'middle' }} />
+                    <img
+                      src="/images/ays.png"
+                      alt="نشاط"
+                      className="w-8 h-8 mx-auto cursor-pointer"
+                      style={{ verticalAlign: 'middle' }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigate(`/orders/${order.id.replace('#', '')}`, { state: { orderData: order } });
+                      }}
+                    />
                   </div>
                 </td>
               </tr>

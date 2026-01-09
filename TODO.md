@@ -1,4 +1,7 @@
-# TODO: Apply Font Styles to Category and Fabric Selects in AddProduct.js
+# TODO for OrderDetails Status Update Feature
 
-- [x] Add inline styles to the category select element
-- [x] Add inline styles to the fabric select element
+- [x] Import necessary React hooks and Select component in OrderDetails.js
+- [x] Add state management for order status
+- [x] Replace the empty select div with a Select component containing the four status options
+- [x] Update the order summary to display the selected status dynamically
+- [ ] Test the functionality to ensure status updates correctly

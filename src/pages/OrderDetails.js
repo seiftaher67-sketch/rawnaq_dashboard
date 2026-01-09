@@ -1,205 +1,230 @@
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import Select from "../components/ui/Select";
 
 export default function OrderDetails() {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const [statusUpdate, setStatusUpdate] = useState("");
-
-  // Get order data from navigation state
-  const passedData = location.state?.orderData;
-  
-  const orderData = passedData ? {
-    date: passedData.date,
-    orderNumber: passedData.id,
-    customerName: passedData.name,
-    customerPhone: passedData.phone,
-    customerAddress: passedData.address || 'الرياض – حي النرجس – السعودية',
-    email: 'customer@email.com',
-    productName: passedData.productName,
-    productPrice: passedData.amount,
-    originalPrice: passedData.originalPrice || 'SAR 1200',
-    fabric: 'كريب',
-    measurements: passedData.specifications || {
-      height: '170cm',
-      chestCircumference: '40cm',
-      waistCircumference: '20cm',
-      abeaLength: '20cm',
-      hipsCircumference: '50cm',
-      shoulderWidth: '100cm',
-      sleeveLength: '20cm',
-      armCircumference: '20cm',
-    },
-    notes: passedData.specialNotes || 'طول إضافي',
-  } : {
-    date: '2025-11-30',
-    orderNumber: '#ORD-1246',
-    customerName: 'أحمد محمد',
-    customerPhone: '+966 55 234 5678',
-    customerAddress: 'الرياض – حي النرجس – السعودية',
-    email: 'ahmed@email.com',
-    productName: 'عباية نسائية سوداء',
-    productPrice: 'SAR 650',
-    originalPrice: 'SAR 1200',
-    fabric: 'كريب',
-    measurements: {
-      height: '170cm',
-      chestCircumference: '40cm',
-      waistCircumference: '20cm',
-      abeaLength: '20cm',
-      hipsCircumference: '50cm',
-      shoulderWidth: '100cm',
-      sleeveLength: '20cm',
-      armCircumference: '20cm',
-    },
-    notes: 'طول إضافي',
-  };
-
-  const measurementsArray = [
-    ['الطول', orderData.measurements.height],
-    ['محيط الصدر', orderData.measurements.chestCircumference],
-    ['محيط الخصر', orderData.measurements.waistCircumference],
-    ['طول العباءة', orderData.measurements.abeaLength],
-    ['محيط الأرداف', orderData.measurements.hipsCircumference],
-    ['عرض الكتف', orderData.measurements.shoulderWidth],
-    ['طول الكم', orderData.measurements.sleeveLength],
-    ['محيط الذراع', orderData.measurements.armCircumference],
-  ];
-
+  const [status, setStatus] = useState("خارج للتسليم");
   return (
-    <div dir="rtl" className="min-h-screen bg-[#f6f6f6] flex justify-center p-6 font-sans">
-      <div className="w-full max-w-[1100px] bg-white rounded-xl p-6">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => navigate(-1)}
-              className="px-4 py-1 text-sm bg-[#e8f0ff] text-[#3b82f6] rounded-full hover:bg-[#d0e2ff] transition"
-              style={{ fontFamily: 'Cairo' }}
-            >
-              رجوع
-            </button>
-            <h1 className="text-xl font-bold" style={{ fontFamily: 'Cairo' }}>
-              تفاصيل الطلب المخصص
-            </h1>
+    <>
+      <style>{`
+        * {
+          box-sizing: border-box;
+          font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+          margin: 0;
+          background: #fafafa;
+          direction: rtl;
+        }
+
+        .page {
+          padding: 32px 48px 32px 148px;
+        }
+
+        /* HEADER */
+        .top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 24px;
+        }
+
+        .badge {
+          padding: 6px 16px;
+          border-radius: 20px;
+          background: #f7efff;
+          color: #7c3aed;
+          font-family: Cairo;
+          font-weight: 400;
+          font-style: normal;
+          font-size: 24px;
+          line-height: 24px;
+          letter-spacing: 0px;
+          text-align: right;
+          border: 1px solid #e5d9ff;
+          margin-right: auto;
+        }
+
+        .title {
+          text-align: right;
+        }
+
+        .title h1 {
+          margin: 0;
+          font-size: 24px;
+          font-weight: 700;
+        }
+
+        .title p {
+          margin-top: 6px;
+          font-size: 14px;
+          color: #6b7280;
+        }
+
+        /* LAYOUT */
+        .grid {
+          display: grid;
+          grid-template-columns: 1fr 350px;
+          gap: 32px;
+        }
+
+        .card {
+          background: #fff;
+          border-radius: 16px;
+          padding: 24px;
+          box-shadow: 0 1px 6px rgba(0,0,0,.05);
+        }
+
+        .card h3 {
+          margin: 0 0 20px;
+          font-family: Cairo;
+          font-weight: 600;
+          font-size: 20px;
+          line-height: 28px;
+          letter-spacing: 0px;
+          text-align: right;
+        }
+
+        /* SUMMARY */
+        .row {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 14px;
+          font-14
+fonfmly 'C:#5o'
+        }
+
+        .line {
+          height: 1px;
+          background: #eee;
+          margin: 18px 0;
+        }
+
+        /* STATUS */
+        .select {
+          height: 46px;
+          border-radius: 12px;
+          background: #f1f1f1;
+        }
+
+        /* INFO */
+        .info {
+          display: flex;
+          gap: 14px;
+          margin-bottom: 18px;
+          font-family: 'Cairo';
+        }
+
+        .icon {
+          width: 32px;
+          height: 32px;
+          background: #fff4d8;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        /* PRODUCTS */
+        .product {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border: 1px solid #eee;
+          border-radius: 14px;
+          padding: 14px;
+          margin-bottom: 14px;
+        }
+
+        .product img {
+          width: 80px;
+          height: 105px;
+          border-radius: 10px;
+        }
+
+        .product h4 {
+          margin: 0 0 6px;
+          font-size: 14px;
+        }
+
+        .product p {
+          margin: 0 0 8px;
+          font-size: 13px;
+          color: #6b7280;
+        }
+      `}</style>
+
+      <div className="page">
+        <div className="top">
+          <div className="title">
+
+            <h1 className="text-2xl font-bold text-gray-800" style={{ marginLeft: '15px', marginBottom: '2px', fontFamily: 'Cairo', fontWeight: 600, fontStyle: 'SemiBold', fontSize: '36px', leadingTrim: 'NONE', lineHeight: '36px', letterSpacing: '0px', textAlign: 'right', color: '#101828' }}> تفاصيل الطلب</h1>
+            <p className="text-sm" style={{ marginLeft: '15px', fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'Regular', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '24px', letterSpacing: '0px', textAlign: 'right', color: '#6A7282' }}> 2025-11-30 – #ORD-1246</p>
           </div>
-          <span className="text-sm text-gray-400" style={{ fontFamily: 'Cairo' }}>
-            {orderData.date} • {orderData.orderNumber}
-          </span>
+
         </div>
 
-        <div className="grid grid-cols-12 gap-6">
-          {/* Left column */}
-          <div className="col-span-4 space-y-6">
-            {/* Order Summary */}
-            <div className="border border-gray-200 rounded-xl p-4">
-              <h3 className="font-semibold mb-3" style={{ fontFamily: 'Cairo' }}>
-                ملخص الطلب
-              </h3>
-              <div className="flex justify-between text-sm mb-2" style={{ fontFamily: 'Cairo' }}>
-                <span>سعر الطلب</span>
-                <span>{orderData.originalPrice}</span>
-              </div>
-              <div className="flex justify-between text-sm mb-2" style={{ fontFamily: 'Cairo' }}>
-                <span>رسوم التوصيل</span>
-                <span>مجاني</span>
-              </div>
-              <div className="border-t pt-2 flex justify-between font-semibold" style={{ fontFamily: 'Cairo' }}>
-                <span>الإجمالي</span>
-                <span>{orderData.productPrice}</span>
-              </div>
+        <div className="grid">
+          {/* RIGHT */}
+          <div>
+            <div className="card" style={{ width: '720px', height: '294px', borderRadius: '16px', border: '0.8px solid #eee', transform: 'rotate(0deg)', opacity: 1, gap: '16px', paddingTop: '24.8px', paddingRight: '24.8px', paddingBottom: '0.8px', paddingLeft: '24.8px', fontFamily: 'Cairo' }}>
+              <h3>معلومات العميل</h3>
+
+              <div style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'Regular', fontSize: '16px', leadingTrim: 'NONE', lineHeight: '20px', letterSpacing: '0px', marginRight: '46px' }}>اسم العميل</div>
+
+              <div className="info" style={{ fontWeight: 'bold', color: 'black', fontSize: '18px' }}><div className="icon" style={{ marginTop: '-4px' }}><img src="/images/Icon.png" alt="Name Icon" style={{ width: '24px', height: '24px' }} /></div>عائشة محمد</div>
+              <div style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'Regular', fontSize: '16px', leadingTrim: 'NONE', lineHeight: '20px', letterSpacing: '0px', marginRight: '46px' }}>رقم الهاتف:</div>
+              <div className="info" style={{ fontWeight: 'bold', color: 'black', fontSize: '18px' }}><div className="icon" style={{ marginTop: '-4px' }}><img src="/images/phone.png" alt="Phone Icon" style={{ width: '24px', height: '24px' }} /></div>+966 55 234 5678</div>
+              <div style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'Regular', fontSize: '16px', leadingTrim: 'NONE', lineHeight: '20px', letterSpacing: '0px', marginRight: '46px' }}>عنوان التسليم:</div>
+              <div className="info" style={{ fontWeight: 'bold', color: 'black', fontSize: '18px' }}><div className="icon" style={{ marginTop: '-4px' }}><img src="/images/location.png" alt="Location Icon" style={{ width: '24px', height: '24px' }} /></div>حي الملكة، الرياض</div>
             </div>
 
-            {/* Status Update */}
-            <div className="border border-gray-200 rounded-xl p-4">
-              <h3 className="font-semibold mb-3" style={{ fontFamily: 'Cairo' }}>
-                تحديث الحالة
-              </h3>
-              <select
-                value={statusUpdate}
-                onChange={(e) => setStatusUpdate(e.target.value)}
-                className="w-full border border-gray-300 rounded-lg p-2 text-sm bg-gray-100"
-                style={{ fontFamily: 'Cairo' }}
-              >
-                <option value="">-- اختر الحالة --</option>
-                <option value="pending">قيد الانتظار</option>
-                <option value="processing">قيد المعالجة</option>
-                <option value="completed">مكتمل</option>
-                <option value="cancelled">ملغى</option>
-              </select>
+            <div className="card" style={{ marginTop: 20 }}>
+              <h3>المنتجات المطلوبة</h3>
+              {[1, 2].map(i => (
+                <div className="product" key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginLeft: 'auto' }}>
+                    <img src="/images/ImageWithFallback.png" />
+                    <div>
+                      <h4 style={{ fontFamily: 'Cairo', fontWeight: 600, fontStyle: 'Regular', fontSize: '16px', leadingTrim: 'NONE', lineHeight: '24px', letterSpacing: '0px', textAlign: 'right', margin: 0 }}>عباءة سوداء أنيقة مع تطريز ذهبي</h4>
+                      <br></br>
+                      <p style={{ width: '297px', height: '20px', transform: 'rotate(0deg)', opacity: 1, gap: '13px', top: '-1.5px', margin: 0, fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'Regular', fontSize: '16px', leadingTrim: 'NONE', lineHeight: '20px', letterSpacing: '0px', textAlign: 'right' }}>الكمية: 1 · اللون: أسود · المقاس: M</p>
+                    </div>
+                  </div>
+                  <strong style={{ marginRight: 'auto', marginTop: '-50px' }}>SAR 820</strong>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Right column */}
-          <div className="col-span-8 space-y-6">
-            {/* Customer Info */}
-            <div className="border border-gray-200 rounded-xl p-4">
-              <h3 className="font-semibold mb-4" style={{ fontFamily: 'Cairo' }}>
-                معلومات العميل
-              </h3>
-              <div className="grid grid-cols-2 gap-4 text-sm" style={{ fontFamily: 'Cairo' }}>
-                <div>
-                  👤 اسم العميل: <span className="font-medium">{orderData.customerName}</span>
-                </div>
-                <div>
-                  📞 رقم الجوال: <span className="font-medium">{orderData.customerPhone}</span>
-                </div>
-                <div>
-                  ✉️ البريد الإلكتروني: <span className="font-medium">{orderData.email}</span>
-                </div>
-                <div>
-                  📍 العنوان: <span className="font-medium">{orderData.customerAddress}</span>
-                </div>
-              </div>
+          {/* LEFT */}
+          <div>
+            <div className="card" style={{ fontFamily: 'Cairo' }}>
+
+              <h3>ملخص الطلب</h3>
+              <div style={{ color: '#8200DB', fontWeight: 400, fontSize: '20px', lineHeight: '16px', whiteSpace: 'nowrap', textAlign: 'left', position: 'relative', top: '-43px', fontFamily: 'Cairo', textDecoration: (status === 'قيد الانتظار' || status === 'يعالج') ? '' : 'none', textDecorationThickness: (status === 'قيد الانتظار' || status === 'يعالج') ? '3px' : '1px' }}>{status}</div>
+              <div className="row"><span>المجموع الفرعي</span><span>SAR 1640</span></div>
+              <div className="row green"><span>رسوم التوصيل</span><span>مجاني</span></div>
+              <div className="line" />
+              <div className="row" style={{ color: 'black', fontWeight: 'bold', fontSize: '18px'   }}><strong>الإجمالي</strong><strong>SAR 1640</strong></div>
             </div>
 
-            {/* Required Item */}
-            <div className="border border-gray-200 rounded-xl p-4 flex gap-4 items-center">
-              <img
-                src="https://via.placeholder.com/80x100"
-                alt="item"
-                className="rounded-lg w-20 h-24 object-cover flex-shrink-0"
-              />
-              <div className="flex-1">
-                <h4 className="font-semibold" style={{ fontFamily: 'Cairo' }}>
-                  {orderData.productName}
-                </h4>
-                <p className="text-sm text-gray-500" style={{ fontFamily: 'Cairo' }}>
-                  القماش: {orderData.fabric} • المقاس المخصص
-                </p>
-              </div>
-              <div className="font-semibold" style={{ fontFamily: 'Cairo' }}>
-                {orderData.productPrice}
-              </div>
-            </div>
-
-            {/* Measurements */}
-            <div className="border border-gray-200 rounded-xl p-4">
-              <h3 className="font-semibold mb-4" style={{ fontFamily: 'Cairo' }}>
-                القياسات المطلوبة
-              </h3>
-              <div className="grid grid-cols-2 gap-4">
-                {measurementsArray.map(([label, value], i) => (
-                  <div key={i} className="border border-gray-200 rounded-lg p-3 text-sm flex justify-between" style={{ fontFamily: 'Cairo' }}>
-                    <span>{label}</span>
-                    <span className="text-gray-500">{value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Notes */}
-            <div className="border border-gray-200 rounded-xl p-4">
-              <h3 className="font-semibold mb-2" style={{ fontFamily: 'Cairo' }}>
-                ملاحظات إضافية
-              </h3>
-              <p className="text-sm text-gray-600" style={{ fontFamily: 'Cairo' }}>
-                {orderData.notes}
-              </p>
+            <div className="card" style={{ marginTop: 20 }}>
+              <h3>تحديث الحالة</h3>
+              <Select
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
+                className="select"
+              >
+                <option value="تم التوصيل"  >تم التوصيل</option>
+                <option value="يعالج">يعالج</option>
+                <option value="قيد الانتظار">قيد الانتظار</option>
+                <option value="خارج للتسليم">خارج للتسليم</option>
+              </Select>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
