@@ -1,3 +1,5 @@
+
+
 import React from "react";
 
 export default function Customers() {
@@ -10,64 +12,159 @@ export default function Customers() {
   ];
 
   return (
-    <div dir="rtl" className="p-6 bg-gray-100 min-h-screen">
-      {/* Header */}
-<h1 className="text-2xl font-bold text-gray-800" style={{ marginLeft: '15px', marginBottom: '2px', fontFamily: 'Cairo', fontWeight: 600, fontStyle: 'SemiBold', fontSize: '36px', leadingTrim: 'NONE', lineHeight: '36px', letterSpacing: '0px', textAlign: 'right', color: '#101828' }}> العملاء </h1>
- <p style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'Regular', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '24px', letterSpacing: '0px', textAlign: 'right', marginTop: '16px', paddingRight: '10px' }}>إدارة قاعدة بيانات عملائك</p>
-<br></br>
-      {/* Search */}
-      <div className="mb-4">
+    <div
+      dir="rtl"
+      style={{
+        minHeight: "100vh",
+        background: "#F7F7F7",
+        padding: "32px",
+        fontFamily: "Cairo",
+      }}
+    >
+      {/* ===== Header ===== */}
+      {/* <div style={{ marginBottom: 24 }}>
+        <h1
+          style={{
+            fontSize: 24,
+            fontWeight: 700,
+            color: "#101828",
+            marginBottom: 8,
+          }}
+        >
+          العملاء
+        </h1>
+        <p style={{ fontSize: 16, color: "#667085" }}>
+          إدارة قاعدة بيانات عملائك
+        </p>
+      </div> */}
+
+      <h1 style={{ fontFamily: 'Cairo', fontWeight: 600, fontStyle: 'SemiBold', fontSize: '36px', leadingTrim: 'NONE', lineHeight: '36px', letterSpacing: '0px', textAlign: 'right' }}>العملاء</h1>
+      <br></br>
+      <p style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'Regular', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '24px', letterSpacing: '0px', textAlign: 'right' }}>إدارة قاعدة بيانات عملائك</p>
+
+      <br></br>
+      <br></br>
+
+      {/* ===== Search ===== */}
+      <div style={{ marginBottom: 24 }}>
         <input
           type="text"
           placeholder="ابحث عن طريق الاسم، رقم الجوال..."
-          className="w-full px-4 rounded-lg border border-gray-200 focus:outline-none"
-          style={{ height: '59px', backgroundColor: '#E8E8E8' }}
+          style={{
+            width: "100%",
+            height: 56,
+            padding: "0 16px",
+            borderRadius: 12,
+            border: "1px solid #E4E7EC",
+            background: "#E8E8E8",
+            fontSize: 16,
+            outline: "none",
+          }}
         />
       </div>
 
-      {/* Table */}
-      <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-        <table className="w-full text-right">
-          <thead className="bg-gray-50 text-gray-600 text-sm">
-            <tr>
-              <th className="px-6 py-3">العميل</th>
-              <th className="px-6 py-3">رقم الجوال</th>
-              <th className="px-6 py-3">عدد الطلبات</th>
-              <th className="px-6 py-3">تاريخ آخر طلب</th>
+      {/* ===== Table ===== */}
+      <div
+        style={{
+          background: "#FFFFFF",
+          borderRadius: 16,
+          border: "1px solid #EAECF0",
+          overflow: "hidden",
+        }}
+      >
+        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <thead>
+            <tr style={{ background: "#E8E8E8" }}>
+              <th style={thStyle}>العميل</th>
+              <th style={thStyle}>رقم الجوال</th>
+              <th style={thStyle}>عدد الطلبات</th>
+              <th style={thStyle}>تاريخ آخر طلب</th>
             </tr>
           </thead>
-          <tbody className="divide-y">
+
+          <tbody>
             {customers.map((c, i) => (
-              <tr key={i} className="text-sm text-gray-700">
-                <td className="px-6 py-4 font-medium">{c.name}</td>
-                <td className="px-6 py-4">{c.phone}</td>
-                <td className="px-6 py-4">
-                  <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-semibold">
+              <tr
+                key={i}
+                style={{
+                  borderBottom: "1px solid #EAECF0",
+                }}
+              >
+                <td style={{ ...tdStyle, color: '#000000' }}>{c.name}</td>
+                <td style={tdStyle}>{c.phone}</td>
+                <td style={tdStyle}>
+                  <span
+                    style={{
+                      background: "#ECFDF3",
+                      color: "#027A48",
+                      padding: "6px 16px",
+                      borderRadius: 999,
+                      fontSize: 14,
+                      fontWeight: 600,
+                      display: "inline-block",
+                      minWidth: 44,
+                      textAlign: "center",
+                    }}
+                  >
                     {c.orders}
                   </span>
                 </td>
-                <td className="px-6 py-4">{c.date}</td>
+                <td style={tdStyle}>{c.date}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      {/* Stats */}
-      <div className="grid grid-cols-3 gap-4 mt-6">
-        <div className="bg-white rounded-xl shadow-sm p-4 text-center">
-          <p className="text-gray-500 text-sm">الجديد هذا الشهر</p>
-          <p className="text-2xl font-bold mt-2">143</p>
-        </div>
-        <div className="bg-white rounded-xl shadow-sm p-4 text-center">
-          <p className="text-gray-500 text-sm">نشط هذا الشهر</p>
-          <p className="text-2xl font-bold mt-2">55</p>
-        </div>
-        <div className="bg-white rounded-xl shadow-sm p-4 text-center">
-          <p className="text-gray-500 text-sm">إجمالي العملاء</p>
-          <p className="text-2xl font-bold mt-2">143</p>
-        </div>
+      {/* ===== Stats ===== */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: 24,
+          marginTop: 32,
+        }}
+      >
+        <StatCard title="إجمالي العملاء " value="77" />
+        <StatCard title="نشط هذا الشهر" value="55" />
+        <StatCard title="الجديد هذا الشهر" value="143" />
       </div>
     </div>
   );
 }
+
+/* ===== Styles ===== */
+const thStyle = {
+  padding: "16px 24px",
+  fontSize: 14,
+  fontWeight: 600,
+  color: "#475467",
+  textAlign: "right",
+};
+
+const tdStyle = {
+  padding: "18px 24px",
+  fontSize: 16,
+  color: "#101828",
+  textAlign: "right",
+};
+
+function StatCard({ title, value }) {
+  return (
+    <div
+      style={{
+        background: "#FFFFFF",
+        borderRadius: 16,
+        border: "1px solid #EAECF0",
+        padding: 24,
+        textAlign: "center",
+      }}
+    >
+      <p style={{ fontFamily: 'Cairo', fontWeight: 400, fontSize: 24, lineHeight: '20px', letterSpacing: '0px', textAlign: 'right', color: "#667085" }}>{title}</p>
+      <p style={{ fontFamily: 'Cairo', fontWeight: 600, fontSize: 40, lineHeight: '36px', letterSpacing: '0px', textAlign: 'right', marginTop: 16 }}>
+        {value}
+      </p>
+    </div>
+  );
+}
+

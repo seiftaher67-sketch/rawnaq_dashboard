@@ -1,7 +1,4 @@
-# TODO for OrderDetails Status Update Feature
+# TODO for Styling Customers Page Stat Cards
 
-- [x] Import necessary React hooks and Select component in OrderDetails.js
-- [x] Add state management for order status
-- [x] Replace the empty select div with a Select component containing the four status options
-- [x] Update the order summary to display the selected status dynamically
-- [ ] Test the functionality to ensure status updates correctly
+- [x] Update the title <p> in StatCard component to apply Cairo font with 400 weight, 24px size, 20px line-height, right alignment
+- [x] Update the value <p> in StatCard component to apply Cairo font with 600 weight, 40px size, 36px line-height, right alignment

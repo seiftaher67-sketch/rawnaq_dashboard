@@ -13,6 +13,7 @@ import Dashboard from "./pages/Dashboard";
 
 import Orders from "./pages/Orders";
 import OrderDetails from "./pages/OrderDetails";
+import ResortDetails from "./pages/ResortDetails";
 
 import Products from "./pages/Products";
 import AddProduct from "./pages/AddProduct";
@@ -44,6 +45,7 @@ export default function App() {
           {/* Orders */}
           <Route path="/orders" element={<Orders />} />
           <Route path="/orders/:id" element={<OrderDetails />} />
+          <Route path="/resort-details" element={<ResortDetails />} />
 
           {/* Products */}
           <Route path="/products" element={<Products />} />

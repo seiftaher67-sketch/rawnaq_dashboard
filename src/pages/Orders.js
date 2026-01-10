@@ -213,8 +213,8 @@ export default function OrdersPage() {
             {getTableData().map((order, index) => (
               <tr
                 key={index}
-                className={`border-b border-gray-light ${activeTab === "custom" ? "hover:bg-gray-light cursor-pointer" : "hover:bg-gray-light"}`}
-                onClick={() => activeTab === "custom" && navigate(`/orders/${order.id}`, { state: { orderData: order } })}
+                className={`border-b border-gray-light ${(activeTab === "custom" || activeTab === "returns") ? "hover:bg-gray-light cursor-pointer" : "hover:bg-gray-light"}`}
+                onClick={() => (activeTab === "custom" || activeTab === "returns") && navigate(`/orders/${order.id}`, { state: { orderData: order } })}
               >
                 <td className="px-4 py-3 text-sm text-brand-black" style={{ fontFamily: 'Cairo', fontWeight: 400, fontSize: '20px', lineHeight: '20px', letterSpacing: '0px', textAlign: 'right', leadingTrim: 'NONE', verticalAlign: 'middle' }}>
                   {order.id}
@@ -245,7 +245,11 @@ export default function OrdersPage() {
                       style={{ verticalAlign: 'middle' }}
                       onClick={(e) => {
                         e.stopPropagation();
-                        navigate(`/orders/${order.id.replace('#', '')}`, { state: { orderData: order } });
+                        if (activeTab === "returns") {
+                          navigate(`/resort-details`, { state: { orderData: order } });
+                        } else {
+                          navigate(`/orders/${order.id.replace('#', '')}`, { state: { orderData: order } });
+                        }
                       }}
                     />
                   </div>
