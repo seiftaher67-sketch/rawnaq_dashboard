@@ -54,7 +54,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-64 bg-white border-b border-gray-medium/20 shadow-soft z-40">
+      <header className="fixed top-0 left-0 right-[267px] bg-white border-b border-gray-medium/20 shadow-soft z-40">
         <div className="flex items-center justify-between px-6 py-4 gap-6">
           {/* Search Bar */}
           <div className="flex-1">

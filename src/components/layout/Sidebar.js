@@ -44,7 +44,7 @@ export default function Sidebar() {
   const [activePath, setActivePath] = useState("/dashboard");
 
   return (
-    <aside className="w-[267px] h-[864px] bg-[#FCFCFC] flex flex-col" style={{ position: 'fixed', right: '0', opacity: 1, transform: 'rotate(0deg)', paddingBottom: 0, borderRightWidth: '1.18px' }}>
+    <aside className="w-[267px] h-[864px] bg-white flex flex-col" style={{ position: 'fixed', right: '0', opacity: 1, transform: 'rotate(0deg)', paddingBottom: 0, borderRightWidth: '1.18px' }}>
       {/* Header with Logo and Dropdown */}
       <div className="px-6 py-5 border-b border-gray-medium/20">
         <div className="flex items-center justify-between gap-3">
