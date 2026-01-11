@@ -45,7 +45,7 @@ export default function ReportsAnalytics() {
       <br></br>
 
       {/* Stat Cards */}
-      <div className="grid grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 mb-6">
         <StatCard
           title="إجمالي الإيرادات"
           value="SAR 98,500"
@@ -166,7 +166,7 @@ function StatusRow({ label, value }) {
     <div className="flex items-center justify-between">
       <span className="text-gray-700">{label}</span>
       <span className="bg-green-100 text-green-700 px-3 py-0.5 rounded-full text-xs font-bold">
-     {value}
+        {value}
       </span>
     </div>
   );
