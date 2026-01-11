@@ -21,6 +21,7 @@ import EditProduct from "./pages/EditProduct";
 
 import Customers from "./pages/Customers";
 import Reports from "./pages/Reports";
+import Email from "./pages/Email";
 
 import Profile from "./pages/Profile";
 import Security from "./pages/Security";

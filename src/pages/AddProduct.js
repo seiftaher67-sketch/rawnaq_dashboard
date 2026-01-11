@@ -69,7 +69,7 @@ export default function AddProduct() {
       <div className="w-full max-w-[1400px]">
         {/* Header */}
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-800" style={{ marginLeft: '15px', marginBottom: '2px', fontFamily: 'Cairo', fontWeight: 600, fontStyle: 'SemiBold', fontSize: '36px', leadingTrim: 'NONE', lineHeight: '36px', letterSpacing: '0px', textAlign: 'right', color: '#101828' }}>إضافة منتج جديد</h1>
+        <h1 className="text-2xl font-bold text-gray-800" style={{ marginLeft: '15px', marginBottom: '2px', fontFamily: 'Cairo', fontWeight: 600, fontStyle: 'SemiBold', fontSize: '36px', leadingTrim: 'NONE', lineHeight: '36px', letterSpacing: '0px', textAlign: 'right', color: '#101828' }}>إضافة منتج جديد</h1>
           <p className="text-sm" style={{ marginLeft: '15px', marginTop: '16px', fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'normal', fontSize: '20px', leadingTrim: 'NONE', lineHeight: '24px', letterSpacing: '0px', textAlign: 'right', color: '#6A7282' }}>املأ تفاصيل المنتج أدناه</p>
         </div>
 

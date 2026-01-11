@@ -6,6 +6,7 @@ import {
   CubeIcon,
   UsersIcon,
   ChartBarIcon,
+  EnvelopeIcon,
   UserCircleIcon,
   ShieldCheckIcon,
 } from "@heroicons/react/24/outline";
@@ -36,7 +37,11 @@ const menuItems = [
     label: "التقارير",
     icon: ChartBarIcon,
   },
-
+  // {
+  //   path: "/profile",
+  //   label: "محمد أحمد",
+  //   icon: UserCircleIcon,
+  // },
 ];
 
 export default function Sidebar() {
@@ -75,7 +80,7 @@ export default function Sidebar() {
               onClick={() => setActivePath(item.path)}
               className={`
                 flex items-center gap-3 px-4 py-3 rounded-md text-sm font-medium
-                transition-colors
+                transition-colors hover:bg-gray-medium/10
                 ${isActive
                   ? "bg-[#FEF3C680] text-brand-black"
                   : "text-gray-dark"
@@ -90,16 +95,21 @@ export default function Sidebar() {
       </nav>
 
       {/* User Profile Footer */}
-      <div className="px-6 py-4 border-t border-gray-medium/20" style={{ marginTop: '-250px' }}>
-        <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-medium/5 hover:bg-gray-medium/10 transition-colors cursor-pointer">
-          <div className="w-10 h-10 rounded-full flex items-center justify-center text-brand-black font-bold text-sm flex-shrink-0" style={{ backgroundColor: '#FEE685' }}>
-            <img src="/images/Icon.png" alt="User Icon" className="w-6 h-6 rounded-full" />
-          </div>
+      <div className="px-3 py-4 border-t border-gray-medium/20" style={{ marginTop: '0px', marginBottom: '200px' }}>
+        <NavLink
+          to="/profile"
+          onClick={() => setActivePath("/profile")}
+          className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors flex-row ${activePath === "/profile"
+              ? "bg-[#FEF3C680] text-brand-black"
+              : "bg-gray-medium/5 hover:bg-gray-medium/10"
+            }`}
+        >
+          <UserCircleIcon className="w-5 h-5 flex-shrink-0" />
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-brand-black truncate">أحمد محمد</p>
+            <p className="text-sm font-medium text-brand-black truncate">محمد أحمد</p>
             <p className="text-xs text-gray-dark truncate">مدير</p>
           </div>
-        </div>
+        </NavLink>
       </div>
     </aside>
   );
