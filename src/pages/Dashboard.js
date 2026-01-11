@@ -4,6 +4,15 @@ import {
   UsersIcon,
   CurrencyDollarIcon,
 } from "@heroicons/react/24/outline";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 export default function Dashboard() {
   const statsData = [
@@ -86,6 +95,11 @@ export default function Dashboard() {
 
   const chartData = [25, 28, 24, 30, 27, 32, 28, 35, 30, 38, 35, 42];
 
+  const lineData = chartData.map((value, index) => ({
+    month: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][index],
+    value
+  }));
+
   return (
     <div className="space-y-6">
       {/* ================= Header ================= */}
@@ -116,9 +130,21 @@ export default function Dashboard() {
           </h3>
 
           {/* Chart */}
-          <div className="relative h-72">
-            <img src="/images/Container.png" alt="تحليلات المبيعات" className="w-full h-full object-cover" />
-          </div>
+          <ResponsiveContainer width="100%" height={400}>
+            <LineChart data={lineData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="month" />
+              <YAxis />
+              <Tooltip />
+              <Line
+                type="monotone"
+                dataKey="value"
+                stroke="blue"
+                strokeWidth={2}
+                dot={{ r: 4 }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
         </div>
       </div>
 
