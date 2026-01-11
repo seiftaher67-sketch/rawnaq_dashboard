@@ -2,6 +2,23 @@ import React, { useState } from "react";
 
 export default function AccountSettings() {
   const [activeTab, setActiveTab] = useState('account');
+  const [firstName, setFirstName] = useState('احمد');
+  const [lastName, setLastName] = useState('محمد');
+  const [email, setEmail] = useState('Ahmedmohmed@gmail.com');
+  const [phone, setPhone] = useState('015258584566255888');
+  const [location, setLocation] = useState('الرياض - السعودية');
+  const [timezone, setTimezone] = useState('');
+  const [language, setLanguage] = useState('');
+  const [saveMessage, setSaveMessage] = useState('');
+  const [isEditing, setIsEditing] = useState(false);
+
+  const handleSave = () => {
+    // Simulate saving data
+    setSaveMessage('تم حفظ البيانات بنجاح!');
+    setTimeout(() => setSaveMessage(''), 3000);
+    setIsEditing(false);
+  };
+
   return (
     <div className="wrapper">
       <style>{`
@@ -304,7 +321,9 @@ export default function AccountSettings() {
                 <div className="user-role">مدير</div>
               </div>
             </div>
-            <div className="badge">حفظ  التغيرات </div>
+            <button className="badge" onClick={!isEditing ? () => setIsEditing(true) : handleSave} style={{ border: 'none', cursor: 'pointer' }}>
+              {!isEditing ? 'تعديل الحساب' : 'حفظ التغيرات'}
+            </button>
           </div>
 
           {/* Personal Info */}
@@ -313,27 +332,27 @@ export default function AccountSettings() {
             <div className="form-grid">
               <div className="form-group">
                 <label>الاسم الأول</label>
-                <input value="احمد" />
+                <input value={firstName} onChange={(e) => setFirstName(e.target.value)} disabled={!isEditing} />
               </div>
 
               <div className="form-group">
                 <label>اسم العائلة</label>
-                <input value="محمد" />
+                <input value={lastName} onChange={(e) => setLastName(e.target.value)} disabled={!isEditing} />
               </div>
 
               <div className="form-group">
                 <label>البريد الإلكتروني</label>
-                <input value="Ahmedmohmed@gmail.com" />
+                <input value={email} onChange={(e) => setEmail(e.target.value)} disabled={!isEditing} />
               </div>
 
               <div className="form-group">
                 <label>رقم الهاتف</label>
-                <input value="015258584566255888" />
+                <input value={phone} onChange={(e) => setPhone(e.target.value)} disabled={!isEditing} />
               </div>
 
               <div className="form-group full">
                 <label>الموقع</label>
-                <input value="الرياض - السعودية" />
+                <input value={location} onChange={(e) => setLocation(e.target.value)} disabled={!isEditing} />
               </div>
             </div>
           </div>
@@ -344,14 +363,15 @@ export default function AccountSettings() {
             <div className="form-grid">
               <div className="form-group">
                 <label>المنطقة الزمنية</label>
-                <input />
+                <input value={timezone} onChange={(e) => setTimezone(e.target.value)} disabled={!isEditing} />
               </div>
 
               <div className="form-group">
                 <label>اللغة</label>
-                <input />
+                <input value={language} onChange={(e) => setLanguage(e.target.value)} disabled={!isEditing} />
               </div>
             </div>
+            {saveMessage && <p style={{ color: 'green', marginTop: '10px' }}>{saveMessage}</p>}
           </div>
         </>
       )}
