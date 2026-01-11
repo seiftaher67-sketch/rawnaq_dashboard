@@ -45,7 +45,7 @@ export default function ReportsAnalytics() {
       <br></br>
 
       {/* Stat Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 mb-6">
         <StatCard
           title="إجمالي الإيرادات"
           value="SAR 98,500"
@@ -67,7 +67,7 @@ export default function ReportsAnalytics() {
           value="3,845"
           note="+12% عن الشهر الماضي"
           color="orange"
-          image="/images/Container (0).png"
+          image="/images/sss.png"
         />
         <StatCard
           title="متوسط الطلب"
@@ -81,7 +81,7 @@ export default function ReportsAnalytics() {
       {/* Charts */}
       <div className="grid grid-cols-1 gap-6 mb-6">
         <div className="bg-white rounded-xl p-5 shadow-sm">
-          <h3 className="text-sm font-bold mb-4">
+          <h3 style={{ fontFamily: 'Cairo', fontWeight: 700, fontStyle: 'Bold', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '28px', letterSpacing: '0px', textAlign: 'right' }} className="mb-4">
             إيرادات المبيعات الشهرية
           </h3>
           <ResponsiveContainer width="100%" height={400}>
@@ -102,7 +102,7 @@ export default function ReportsAnalytics() {
         </div>
 
         <div className="bg-white rounded-xl p-5 shadow-sm">
-          <h3 className="text-sm font-bold mb-4">
+          <h3 style={{ fontFamily: 'Cairo', fontWeight: 700, fontStyle: 'Bold', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '28px', letterSpacing: '0px', textAlign: 'right' }} className="mb-4">
             أفضل المنتجات مبيعاً
           </h3>
           <ResponsiveContainer width="100%" height={400}>
@@ -123,7 +123,7 @@ export default function ReportsAnalytics() {
 
       {/* Order Status */}
       <div className="bg-white rounded-xl p-5 shadow-sm">
-        <h3 className="text-sm font-bold mb-4">حالة الطلبات</h3>
+        <h3 style={{ fontFamily: 'Cairo', fontWeight: 700, fontStyle: 'Bold', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '28px', letterSpacing: '0px', textAlign: 'right' }} className="mb-4">ملخص حالة الطلب</h3>
 
         <div className="space-y-3 text-sm">
           <StatusRow label="تم التوصيل" value={15} />
@@ -142,7 +142,7 @@ function StatCard({ title, value, note, color, image }) {
   const colors = {
     orange: "text-orange-500",
     blue: "text-blue-500",
-    green: "text-green-600",
+    green: "text-green-500",
     purple: "text-purple-500",
   };
 
@@ -154,8 +154,8 @@ function StatCard({ title, value, note, color, image }) {
         <p style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'normal', fontSize: '16px', lineHeight: '16px', letterSpacing: '0px', textAlign: 'right', color: '#009966', marginTop: '5px' }}>{note}</p>
       </div>
 
-      <div className="w-14 h-14 flex items-center justify-center rounded-lg bg-transparent" style={{ marginTop: '20px' }}>
-        {image && <img src={image} alt={title} style={{ width: '50px', height: '50px', transform: 'rotate(0deg)', opacity: 1, borderRadius: '14px', paddingRight: '0.02px' }} />}
+      <div className={`w-14 h-14 flex items-center justify-center rounded-lg`} style={{ marginTop: '20px', backgroundColor: title === "المنتجات المباعة" ? "#FEF3C680" : "transparent" }}>
+        {image && <img src={image} alt={title} style={{ width: title === "المنتجات المباعة" ? '40px' : '50px', height: title === "المنتجات المباعة" ? '40px' : '50px', transform: 'rotate(0deg)', opacity: 1, borderRadius: '14px', paddingRight: '0.02px', objectFit: 'cover' }} />}
       </div>
     </div>
   );
@@ -164,8 +164,8 @@ function StatCard({ title, value, note, color, image }) {
 function StatusRow({ label, value }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-gray-700">{label}</span>
-      <span className="bg-green-100 text-green-700 px-3 py-0.5 rounded-full text-xs font-bold">
+      <span className="text-gray-700" style={{ fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'normal', fontSize: '16px', lineHeight: '20px', letterSpacing: '0px', textAlign: 'right' }}>{label}</span>
+      <span className="bg-green-100 text-green-700 px-5 py-1 rounded-full text-sm font-bold">
         {value}
       </span>
     </div>

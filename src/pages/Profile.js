@@ -275,8 +275,13 @@ export default function AccountSettings() {
         }
 
         .status {
+          font-family: Arial;
+          font-weight: 700;
+          font-style: normal;
           font-size: 12px;
-          font-weight: 600;
+          leading-trim: none;
+          line-height: 16px;
+          letter-spacing: 0px;
         }
 
         .current {
