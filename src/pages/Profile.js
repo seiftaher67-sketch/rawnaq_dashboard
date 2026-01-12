@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 
 export default function AccountSettings() {
+  const { logout } = useAuth();
   const [activeTab, setActiveTab] = useState('account');
   const [firstName, setFirstName] = useState('احمد');
   const [lastName, setLastName] = useState('محمد');
@@ -293,8 +295,11 @@ export default function AccountSettings() {
           cursor: pointer;
         }
       `}</style>
-      <h1 className="text-2xl font-bold text-gray-800" style={{ marginLeft: '15px', marginBottom: '2px', fontFamily: 'Cairo', fontWeight: 600, fontStyle: 'SemiBold', fontSize: '36px', leadingTrim: 'NONE', lineHeight: '36px', letterSpacing: '0px', textAlign: 'right', color: '#101828' }}>    إعدادات الحساب</h1>
-      <p className="text-sm" style={{ marginLeft: '15px', marginTop: '16px', fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'normal', fontSize: '20px', leadingTrim: 'NONE', lineHeight: '24px', letterSpacing: '0px', textAlign: 'right', color: '#6A7282' }}>    إدارة إعدادات حسابك وتفضيلاتك</p>
+      <div style={{ display: 'flex', flexDirection: 'row-reverse', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+        <button onClick={logout} style={{ background: '#e34d4d', color: 'white', border: 'none', padding: '8px 16px', borderRadius: '8px', cursor: 'pointer', fontFamily: 'Cairo', fontSize: '14px' }}>تسجيل الخروج</button>
+        <h1 className="text-2xl font-bold text-gray-800" style={{ margin: '0', fontFamily: 'Cairo', fontWeight: 600, fontStyle: 'SemiBold', fontSize: '36px', leadingTrim: 'NONE', lineHeight: '36px', letterSpacing: '0px', textAlign: 'right', color: '#101828' }}>إعدادات الحساب</h1>
+      </div>
+      <p className="text-sm" style={{ marginTop: '0', fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'normal', fontSize: '20px', leadingTrim: 'NONE', lineHeight: '24px', letterSpacing: '0px', textAlign: 'right', color: '#6A7282' }}>إدارة إعدادات حسابك وتفضيلاتك</p>
 
       <br></br>
 

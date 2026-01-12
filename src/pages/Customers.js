@@ -90,7 +90,7 @@ export default function Customers() {
                   borderBottom: "1px solid #EAECF0",
                 }}
               >
-                <td style={{ ...tdStyle, color: '#000000' }}>{c.name}</td>
+                <td style={{ ...tdStyle, color: '#000000', fontWeight: 900 }}>{c.name}</td>
                 <td style={tdStyle}>{c.phone}</td>
                 <td style={tdStyle}>
                   <span
@@ -121,7 +121,7 @@ export default function Customers() {
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 24,
+          gap: 4,
           marginTop: 32,
         }}
       >

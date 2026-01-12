@@ -159,6 +159,7 @@ fonfmly 'C:#5o'
           <div className="title">
 
             <h1 className="text-2xl font-bold text-gray-800" style={{ marginLeft: '15px', marginBottom: '2px', fontFamily: 'Cairo', fontWeight: 600, fontStyle: 'SemiBold', fontSize: '36px', leadingTrim: 'NONE', lineHeight: '36px', letterSpacing: '0px', textAlign: 'right', color: '#101828' }}> تفاصيل الطلب</h1>
+           <br></br>
             <p className="text-sm" style={{ marginLeft: '15px', fontFamily: 'Cairo', fontWeight: 400, fontStyle: 'Regular', fontSize: '24px', leadingTrim: 'NONE', lineHeight: '24px', letterSpacing: '0px', textAlign: 'right', color: '#6A7282' }}> 2025-11-30 – #ORD-1246</p>
           </div>
 

@@ -3,8 +3,23 @@ import { Outlet } from 'react-router-dom';
 
 const AuthLayout = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
+    <div style={{
+      width: '100vw',
+      height: '100vh',
+      background: 'url("/images/bglogin.jpeg") center / cover no-repeat',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      direction: 'rtl'
+    }}>
+      <div style={{
+        width: '420px',
+        background: '#ffffff',
+        borderRadius: '20px',
+        padding: '32px 28px',
+        boxShadow: '0 20px 60px rgba(0, 0, 0, 0.25)',
+        textAlign: 'center'
+      }}>
         <Outlet />
       </div>
     </div>

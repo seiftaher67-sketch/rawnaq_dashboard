@@ -353,3 +353,5 @@ function SalesChart({ data }) {
     </svg>
   );
 }
+
+

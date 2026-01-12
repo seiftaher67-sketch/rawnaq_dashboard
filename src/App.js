@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 
 // layouts
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -29,44 +30,46 @@ import Security from "./pages/Security";
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        {/* ================= Auth Routes ================= */}
-        <Route element={<AuthLayout />}>
-          <Route path="/login" element={<Login />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-        </Route>
+      <AuthProvider>
+        <Routes>
+          {/* ================= Auth Routes ================= */}
+          <Route element={<AuthLayout />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+          </Route>
 
-        {/* ================= Dashboard Routes ================= */}
-        <Route element={<DashboardLayout />}>
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          {/* ================= Dashboard Routes ================= */}
+          <Route element={<DashboardLayout />}>
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
-          <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
 
-          {/* Orders */}
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/orders/:id" element={<OrderDetails />} />
-          <Route path="/resort-details" element={<ResortDetails />} />
+            {/* Orders */}
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/orders/:id" element={<OrderDetails />} />
+            <Route path="/resort-details" element={<ResortDetails />} />
 
-          {/* Products */}
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/new" element={<AddProduct />} />
-          <Route path="/products/:id/edit" element={<EditProduct />} />
+            {/* Products */}
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/new" element={<AddProduct />} />
+            <Route path="/products/:id/edit" element={<EditProduct />} />
 
-          {/* Customers */}
-          <Route path="/customers" element={<Customers />} />
+            {/* Customers */}
+            <Route path="/customers" element={<Customers />} />
 
-          {/* Reports */}
-          <Route path="/reports" element={<Reports />} />
+            {/* Reports */}
+            <Route path="/reports" element={<Reports />} />
 
-          {/* Settings */}
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/security" element={<Security />} />
-        </Route>
+            {/* Settings */}
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/security" element={<Security />} />
+          </Route>
 
-        {/* ================= Fallback ================= */}
-        <Route path="*" element={<Navigate to="/login" replace />} />
-      </Routes>
+          {/* ================= Fallback ================= */}
+          <Route path="*" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

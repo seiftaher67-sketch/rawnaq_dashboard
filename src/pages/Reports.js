@@ -60,8 +60,6 @@ export default function ReportsAnalytics() {
           color="blue"
           image="/images/Container (3).png"
         />
-
-
         <StatCard
           title="المنتجات المباعة"
           value="3,845"
@@ -74,7 +72,7 @@ export default function ReportsAnalytics() {
           value="SAR 50,480"
           note="-3% عن الشهر الماضي"
           color="purple"
-          image="/images/c1.png"
+          image="/images/Container (0).png"
         />
       </div>
 
