@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState("");
   return (
     <div style={{
       fontFamily: 'Cairo, sans-serif',
@@ -9,14 +11,15 @@ export default function Login() {
     }}>
       <h1 style={{
         margin: 0,
-        fontSize: '20px',
+        fontSize: '30px',
         fontWeight: 700,
         color: '#222'
       }}>تسجيل الدخول إلى الحساب</h1>
       <div style={{
         marginTop: '6px',
         fontSize: '13px',
-        color: '#7a7a7a'
+        color: '#7a7a7a',
+        fontFamily: 'Cairo'
       }}>
         يرجى إدخال البريد الإلكتروني وكلمة المرور للمتابعة
       </div>
@@ -30,7 +33,8 @@ export default function Login() {
             display: 'block',
             fontSize: '13px',
             color: '#555',
-            marginBottom: '6px'
+            marginBottom: '6px',
+            fontFamily: 'Cairo'
           }}>ادخل عنوان البريد الإلكتروني</label>
           <input
             type="text"
@@ -48,27 +52,46 @@ export default function Login() {
           />
         </div>
 
-        <div style={{ marginBottom: '18px' }}>
+        <div style={{ marginBottom: '18px', position: 'relative' }}>
           <label style={{
             display: 'block',
             fontSize: '13px',
             color: '#555',
-            marginBottom: '6px'
+            marginBottom: '6px',
+            fontFamily: 'Cairo'
           }}>ادخل كلمة المرور</label>
           <input
-            type="password"
-            value="••••••••"
-            readOnly
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="كلمة المرور"
             style={{
               width: '100%',
-              height: '42px',
+              height: '44px',
               borderRadius: '8px',
               border: '1px solid #e2e2e2',
-              padding: '0 12px',
+              padding: '0 40px 0 12px',
               fontSize: '14px',
               background: '#f3f3f3'
             }}
           />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            style={{
+              position: 'absolute',
+              right: '10px',
+              top: '70%',
+              transform: 'translateY(-50%)',
+              background: 'none',
+              border: 'none',
+              cursor: 'pointer',
+              fontSize: '16px',
+              color: '#555'
+            }}
+          >
+            {showPassword ? '🔒' : '👁️'}
+          </button>
         </div>
 
         <div style={{
@@ -85,12 +108,13 @@ export default function Login() {
             color: '#555'
           }}>
             <input type="checkbox" checked readOnly style={{ accentColor: '#3b82f6' }} />
-            <span>تذكر كلمة المرور</span>
+            <span style={{ fontFamily:'Cairo' }}>تذكر كلمة المرور</span>
           </div>
           <Link to="/forgot-password" style={{
             color: '#3b82f6',
             textDecoration: 'none',
-            fontSize: '12px'
+            fontSize: '12px',
+             fontFamily: 'Cairo'
           }}>
             نسيت كلمة المرور؟
           </Link>
@@ -106,7 +130,8 @@ export default function Login() {
           color: '#fff',
           fontSize: '14px',
           fontWeight: 600,
-          cursor: 'pointer'
+          cursor: 'pointer',
+          fontFamily: 'Cairo'
         }}>تسجيل الدخول</button>
       </div>
     </div>

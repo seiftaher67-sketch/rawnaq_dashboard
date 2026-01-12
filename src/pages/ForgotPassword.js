@@ -17,26 +17,10 @@ export default function ForgotPassword() {
       fontFamily: 'Cairo, sans-serif',
       boxSizing: 'border-box'
     }}>
-      <button
-        onClick={handleBack}
-        style={{
-          position: 'absolute',
-          top: '16px',
-          left: '0',
-          padding: '8px 12px',
-          borderRadius: '6px',
-          border: '1px solid #e2e2e2',
-          background: '#f9f9f9',
-          color: '#555',
-          fontSize: '12px',
-          cursor: 'pointer'
-        }}
-      >
-        ← رجوع
-      </button>
+
       <h1 style={{
         margin: 0,
-        fontSize: '20px',
+        fontSize: '30px',
         fontWeight: 700,
         color: '#222'
       }}>نسيت كلمة المرور</h1>
@@ -65,7 +49,7 @@ export default function ForgotPassword() {
           gap: '8px',
           direction: 'ltr'
         }}>
-          <input readOnly style={{
+          <input style={{
             width: '48px',
             height: '44px',
             borderRadius: '8px',
@@ -75,7 +59,7 @@ export default function ForgotPassword() {
             fontSize: '18px',
             fontWeight: 600
           }} />
-          <input readOnly style={{
+          <input style={{
             width: '48px',
             height: '44px',
             borderRadius: '8px',
@@ -85,7 +69,7 @@ export default function ForgotPassword() {
             fontSize: '18px',
             fontWeight: 600
           }} />
-          <input readOnly style={{
+          <input style={{
             width: '48px',
             height: '44px',
             borderRadius: '8px',
@@ -95,7 +79,7 @@ export default function ForgotPassword() {
             fontSize: '18px',
             fontWeight: 600
           }} />
-          <input readOnly style={{
+          <input style={{
             width: '48px',
             height: '44px',
             borderRadius: '8px',
@@ -105,7 +89,7 @@ export default function ForgotPassword() {
             fontSize: '18px',
             fontWeight: 600
           }} />
-          <input readOnly style={{
+          <input style={{
             width: '48px',
             height: '44px',
             borderRadius: '8px',
@@ -115,7 +99,7 @@ export default function ForgotPassword() {
             fontSize: '18px',
             fontWeight: 600
           }} />
-          <input readOnly style={{
+          <input style={{
             width: '48px',
             height: '44px',
             borderRadius: '8px',

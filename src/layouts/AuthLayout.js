@@ -13,7 +13,8 @@ const AuthLayout = () => {
       direction: 'rtl'
     }}>
       <div style={{
-        width: '420px',
+        width: '450px',
+        
         background: '#ffffff',
         borderRadius: '20px',
         padding: '32px 28px',
