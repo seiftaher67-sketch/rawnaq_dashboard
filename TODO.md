@@ -1,1 +1,4 @@
-- [ ] Edit the first password input's toggle button in ResetPassword.js to use icons (👁️ and 🔒) instead of text, and set fontSize to 16px to match the second input.
+- [x] Make DialogOverlay background transparent in src/components/ui/Dialog.js
+- [x] Change DialogContent background to white in src/components/ui/Dialog.js
+- [x] Adjust NotificationPanel dialog height to 90vh and width to 350px
+- [x] Remove scroll from notifications list by eliminating max-height and overflow-y-auto
