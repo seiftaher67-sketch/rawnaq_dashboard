@@ -99,10 +99,10 @@ function Index() {
                 <h2 style={{ fontFamily: 'El Messiri', fontWeight: 700, fontSize: '64px', lineHeight: '1%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginRight: '20px', paddingTop: '40px' }}>والأناقة</h2>
             </div>
             <div style={{ position: 'absolute', top: '240px', right: '65px', lineHeight: '100px' }}>
-                <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '250px', marginBottom: '0px',wordSpacing:'1px' }}>سكربات طبية بجودة عالية وتصاميم عملية تناسب ساعات </p>
-                <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '0px',wordSpacing:'5px' }}> العمل الطويل.راحة، متانة، ومقاسات تناسب الجميع  </p>
+                <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '250px', marginBottom: '0px', wordSpacing: '1px' }}>سكربات طبية بجودة عالية وتصاميم عملية تناسب ساعات </p>
+                <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '0px', wordSpacing: '5px' }}> العمل الطويل.راحة، متانة، ومقاسات تناسب الجميع  </p>
             </div>
-            <button></button>
+            <button style={{ position: 'absolute', top: '550px', right: '65px', width: '275px', height: '76px', background: '#1F7A8C', color: 'white', fontFamily: 'El Messiri', fontWeight: 500, fontSize: '24px', borderRadius: '10px', border: 'none', cursor: 'pointer' }}>تسوق الأن</button>
             <div style={{
                 position: 'absolute',
                 top: '53px',
