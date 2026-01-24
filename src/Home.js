@@ -93,6 +93,14 @@ function Index() {
                     marginTop: '0px'
                 }}
             />
+            <div style={{ position: 'absolute', top: '160px', right: '16px', lineHeight: '-20px' }}>
+                <h2 style={{ fontFamily: 'El Messiri', fontWeight: 700, fontSize: '64px', lineHeight: '130%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginRight: '20px' }}>رونق سكربات طبية </h2>
+                <h2 style={{ fontFamily: 'El Messiri', fontWeight: 700, fontSize: '64px', lineHeight: '1%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginRight: '20px', paddingTop: '0px' }}>تجمع بين الراحة والأناقة</h2>
+            </div>
+            <div style={{ position: 'absolute', top: '260px', right: '35px', lineHeight: '100px' }}>
+                <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '150px', marginBottom: '0px',wordSpacing:'1px' }}>سكربات طبية بجودة عالية وتصاميم عملية تناسب ساعات العمل</p>
+                <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '0px',wordSpacing:'5px' }}>الطويل.راحة، متانة، ومقاسات تناسب الجميع</p>
+            </div>
             <div style={{
                 position: 'absolute',
                 top: '53px',

@@ -141,3 +141,31 @@
     align-items: center;
     margin-right: 60px;
 }
+
+/* Hover effects for images and links in footer */
+.footer-container img {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.footer-container img:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.footer-container a {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.footer-container a:hover {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+    color: #FFD700;
+}
+
+#logoftoer img:hover {
+    transform: none;
+    box-shadow: none;
+    filter: none;
+}
