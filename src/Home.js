@@ -177,7 +177,7 @@ function Index() {
       </div>
 
       {/* ================== Best Sellers Section ================== */}
-      <div style={{ position: 'absolute', width: '100%', height: '900px', top: '995px' }}>
+      <div style={{ position: 'absolute', width: '100%', height: '1100px', top: '995px' }}>
 
         {/* Title */}
         <div style={{ position: 'absolute', top: '0', right: '80px' }}>
@@ -235,98 +235,151 @@ function Index() {
             transform: 'translateX(-50%)',
             display: 'flex',
             flexDirection: 'row-reverse',
-            gap: '32px'
+            gap: '32px',
+            // width:'100%'
           }}
         >
           {[
-            '/image/product1.png',
-            '/image/product2.png',
-            '/image/product3.png',
-            '/image/product4.png'
+            '/image/staf1.jpg',
+            '/image/staf2.jpg',
+            '/image/staf3.jpg'
           ].map((img, index) => (
             <div
               key={index}
               style={{
-                width: '270px',
-                backgroundColor: 'white',
-                borderRadius: '24px',
+                width: '405px',
+                height: '522px',
+                backgroundColor: '#fff',
+                borderRadius: '10px',
+                boxShadow: '0 10px 30px rgba(0,0,0,0.12)',
                 overflow: 'hidden',
-                boxShadow: '0 12px 30px rgba(0,0,0,0.08)'
+                fontFamily: 'Cairo',
+                direction: 'rtl',
+                opacity: 1
               }}
             >
-              {/* Image */}
-              <img
-                src={img}
-                alt="product"
+              {/* Image Wrapper */}
+              <div
                 style={{
-                  width: '100%',
-                  height: '310px',
-                  objectFit: 'cover'
+                  position: 'relative',
+                  backgroundColor: '#F7F7F7',
+                  padding: '30px 20px 10px',
+                  textAlign: 'center',
+                  height: '382px'
                 }}
-              />
-
-              {/* Content */}
-              <div style={{ padding: '20px 18px', textAlign: 'right' }}>
-                <h3
+              >
+                {/* Image */}
+                <img
+                  src={img}
+                  alt="product"
                   style={{
-                    fontFamily: 'El Messiri',
-                    fontWeight: 600,
-                    fontSize: '20px',
-                    marginBottom: '12px'
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                />
+
+                {/* Arrow */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: '16px',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    width: '42px',
+                    height: '42px',
+                    borderRadius: '50%',
+                    backgroundColor: '#E5E7EB',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer'
                   }}
                 >
-                  سكراب طبي
-                </h3>
-
-                {/* Color Dots */}
-                <div style={{ display: 'flex', gap: '10px', marginBottom: '14px', justifyContent: 'flex-end' }}>
-                  {['#111827', '#1B4B66', '#9CA3AF', '#991B1B'].map((c, i) => (
-                    <span
-                      key={i}
-                      style={{
-                        width: '14px',
-                        height: '14px',
-                        borderRadius: '50%',
-                        backgroundColor: c
-                      }}
-                    />
-                  ))}
+                  ‹
                 </div>
+              </div>
 
-                {/* Price + Arrow */}
+              {/* Content */}
+              <div style={{ padding: '20px 20px' }}>
+                {/* Title and Colors on same line */}
                 <div
                   style={{
                     display: 'flex',
+                    alignItems: 'center',
                     justifyContent: 'space-between',
-                    alignItems: 'center'
+                    marginBottom: '6px'
                   }}
                 >
-                  <span
+                  {/* Title on left */}
+                  <h3
                     style={{
-                      fontFamily: 'Cairo',
-                      fontWeight: 700,
-                      fontSize: '18px',
-                      color: '#1B4B66'
+                      fontFamily: 'El Messiri',
+                      fontWeight: 600,
+                      fontSize: '20px',
+                      margin: 0
                     }}
                   >
-                    230 ر.س
-                  </span>
+                    سكراب ميديكل
+                  </h3>
 
+                  {/* Color dots on right */}
                   <div
                     style={{
-                      width: '36px',
-                      height: '36px',
-                      backgroundColor: '#1B4B66',
-                      borderRadius: '50%',
-                      color: '#fff',
                       display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
+                      gap: '10px'
+                    }}
+                  >
+                    {['#000000', '#7B1113', '#BDBDBD', '#0D47A1'].map((c, i) => (
+                      <span
+                        key={i}
+                        style={{
+                          width: '16px',
+                          height: '16px',
+                          borderRadius: '50%',
+                          backgroundColor: c
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Price */}
+
+                {/* Button and Price on same line */}
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    marginBottom: '14px'
+                  }}
+                >
+                  {/* Price */}
+                  <p
+                    style={{
+                      fontSize: '18px',
+                      fontWeight: 700,
+                      margin: 0
+                    }}
+                  >
+                    250 ريال
+                  </p>
+
+                  <button
+                    style={{
+                      backgroundColor: '#0F6A7B',
+                      color: '#fff',
+                      border: 'none',
+                      borderRadius: '8px',
+                      padding: '8px 16px',
+                      fontSize: '14px',
+                      fontWeight: 600,
                       cursor: 'pointer'
                     }}
                   >
-                    ←
-                  </div>
+                    + أضف للسلة
+                  </button>
                 </div>
               </div>
             </div>
@@ -341,11 +394,12 @@ function Index() {
         alt="Middle"
         style={{
           position: 'absolute',
-          top: '1700px',
+          top: '1800px',
           left: '85px',
           width: '95%',
           height: '719px',
-         
+          borderRadius: '8px'
+
         }}
       />
 
