@@ -1,15 +1,12 @@
-
-
-
-
-
-
 import React, { useState, useEffect } from 'react';
 
 function Index() {
   const [isHovered, setIsHovered] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const [isButtonHoveredX2, setIsButtonHoveredX2] = useState(false);
+  const [isButtonHoveredX1, setIsButtonHoveredX1] = useState(false);
   const cardsPerView = 3;
   const images = ['/image/middle.jpg', '/image/nextmiddle.jpg', '/image/therdmiddle.jpg'];
   const texts = [
@@ -51,7 +48,7 @@ function Index() {
   }, [images.length]);
 
   return (
-    <div style={{ position: 'relative', width: '100%', minHeight: '100vh', backgroundColor: '#FBFBFB' }}>
+    <div style={{ position: 'relative', width: '100%', height: '3780px', backgroundColor: '#FBFBFB' }}>
       {/* Header Section */}
       <img
         src="/image/Header.png"
@@ -566,10 +563,209 @@ function Index() {
         />
       </div>
 
+      {/* New Images Section */}
+      <div style={{
+        position: 'absolute',
+        top: '2790px',
+        left: '85px',
+        display: 'flex',
+        flexDirection: 'row',
+        gap: '32px'
+      }}>
+        <div
+          style={{
+            width: '405px',
+            height: '570px',
+            borderRadius: '10px',
+            backgroundImage: 'url(/image/x3.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'flex-end'
+          }}
+        >
+          <div
+            style={{
+              fontFamily: 'El Messiri',
+              fontWeight: 600,
+              fontStyle: 'SemiBold',
+              fontSize: '32px',
+              lineHeight: '150%',
+              letterSpacing: '0%',
+              textAlign: 'center',
+              color: 'white',
+              direction: 'rtl',
+              paddingBottom: '20px',
+
+            }}
+          >
+            سكربات نسائي
+          </div>
+          <button
+            style={{
+              width: '187px',
+              height: '50px',
+              borderRadius: '10px',
+              backgroundColor: isButtonHovered ? '#D1D5E2' : '#E1E5F2',
+              color: '#000',
+              fontFamily: 'Cairo',
+              fontWeight: 600,
+              fontStyle: 'SemiBold',
+              fontSize: '24px',
+              leadingTrim: 'NONE',
+              lineHeight: '150%',
+              letterSpacing: '0%',
+              border: 'none',
+              cursor: 'pointer',
+              opacity: 1,
+              padding: '0',
+              marginBottom: '35px',
+              transition: 'background-color 0.3s ease',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            onMouseEnter={() => setIsButtonHovered(true)}
+            onMouseLeave={() => setIsButtonHovered(false)}
+          >
+            تسوقي الأن
+          </button>
+        </div>
+        <div
+          style={{
+            width: '405px',
+            height: '570px',
+            borderRadius: '10px',
+            backgroundImage: 'url(/image/x2.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            marginTop:'50px'
+          }}
+        >
+          <div
+            style={{
+              fontFamily: 'El Messiri',
+              fontWeight: 600,
+              fontStyle: 'SemiBold',
+              fontSize: '32px',
+              lineHeight: '150%',
+              letterSpacing: '0%',
+              textAlign: 'center',
+              color: 'white',
+              direction: 'rtl',
+              paddingBottom: '20px',
+
+            }}
+          >
+            أدوات طبية
+          </div>
+          <button
+            style={{
+              width: '187px',
+              height: '50px',
+              borderRadius: '10px',
+              backgroundColor: isButtonHoveredX2 ? '#D1D5E2' : '#E1E5F2',
+              color: '#000',
+              fontFamily: 'Cairo',
+              fontWeight: 600,
+              fontStyle: 'SemiBold',
+              fontSize: '24px',
+              leadingTrim: 'NONE',
+              lineHeight: '150%',
+              letterSpacing: '0%',
+              border: 'none',
+              cursor: 'pointer',
+              opacity: 1,
+              padding: '0',
+              marginBottom: '35px',
+              transition: 'background-color 0.3s ease',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            onMouseEnter={() => setIsButtonHoveredX2(true)}
+            onMouseLeave={() => setIsButtonHoveredX2(false)}
+          >
+            تسوق الان
+          </button>
+        </div>
+        <div
+          style={{
+            width: '405px',
+            height: '570px',
+            borderRadius: '10px',
+            backgroundImage: 'url(/image/x1.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'flex-end'
+          }}
+        >
+          <div
+            style={{
+              fontFamily: 'El Messiri',
+              fontWeight: 600,
+              fontStyle: 'SemiBold',
+              fontSize: '32px',
+              lineHeight: '150%',
+              letterSpacing: '0%',
+              textAlign: 'center',
+              color: 'white',
+              direction: 'rtl',
+              paddingBottom: '20px',
+
+            }}
+          >
+            سكربات رجالي
+            
+          </div>
+          <button
+            style={{
+              width: '187px',
+              height: '50px',
+              borderRadius: '10px',
+              backgroundColor: isButtonHoveredX1 ? '#D1D5E2' : '#E1E5F2',
+              color: '#000',
+              fontFamily: 'Cairo',
+              fontWeight: 600,
+              fontStyle: 'SemiBold',
+              fontSize: '24px',
+              leadingTrim: 'NONE',
+              lineHeight: '150%',
+              letterSpacing: '0%',
+              border: 'none',
+              cursor: 'pointer',
+              opacity: 1,
+              padding: '0',
+              marginBottom: '35px',
+              transition: 'background-color 0.3s ease',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            onMouseEnter={() => setIsButtonHoveredX1(true)}
+            onMouseLeave={() => setIsButtonHoveredX1(false)}
+          >
+            تسوق الان
+          </button>
+        </div>
+      </div>
+
       {/* Footer Text Section */}
       <div style={{
         position: 'absolute',
-        top: '2545px',
+        top: '2550px',
         left: '0',
         width: '100%',
         textAlign: 'center',
