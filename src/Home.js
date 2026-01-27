@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 function Index() {
   const [isHovered, setIsHovered] = useState(false);
@@ -7,6 +7,8 @@ function Index() {
   const [isButtonHovered, setIsButtonHovered] = useState(false);
   const [isButtonHoveredX2, setIsButtonHoveredX2] = useState(false);
   const [isButtonHoveredX1, setIsButtonHoveredX1] = useState(false);
+  const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
+  const hoverTimeoutRef = useRef(null);
   const cardsPerView = 3;
   const images = ['/image/middle.jpg', '/image/nextmiddle.jpg', '/image/therdmiddle.jpg'];
   const texts = [
@@ -20,6 +22,14 @@ function Index() {
     '/image/staf1.jpg',
     '/image/staf2.jpg',
     '/image/staf3.jpg'
+  ];
+
+  const cardTexts = [
+    'الجودة عالية والتصميم عصري، يناسب كل المناسبات الطبية.',
+    'مريح وسهل التنظيف، مثالي للعمل اليومي.',
+    'الخامة مريحة جدًا، بلبسه مناوبات طويلة ومش بحس بأي ضيق. الشكل كمان شيك.',
+    'الألوان متنوعة والمقاسات مناسبة للجميع.',
+    'يمنح شعور بالثقة والاحترافية في العمل.'
   ];
 
   const buttonStyle = (isHovered) => ({
@@ -48,7 +58,7 @@ function Index() {
   }, [images.length]);
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '3780px', backgroundColor: '#FBFBFB' }}>
+    <div style={{ position: 'relative', width: '100%', height: '4300px', backgroundColor: '#FBFBFB' }}>
       {/* Header Section */}
       <img
         src="/image/Header.png"
@@ -647,7 +657,7 @@ function Index() {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'flex-end',
-            marginTop:'50px'
+            marginTop: '50px'
           }}
         >
           <div
@@ -728,7 +738,7 @@ function Index() {
             }}
           >
             سكربات رجالي
-            
+
           </div>
           <button
             style={{
@@ -759,6 +769,273 @@ function Index() {
           >
             تسوق الان
           </button>
+        </div>
+      </div>
+
+      {/* New Section */}
+      <div className="new-section" style={{
+        position: 'absolute',
+        top: '3580px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '100%',
+        height: '662px',
+        backgroundColor: '#C1C1C1',
+        opacity: 1,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        <div style={{
+          fontFamily: 'El Messiri',
+          fontWeight: 700,
+          fontSize: '55px',
+          lineHeight: '150%',
+          letterSpacing: '0%',
+          textAlign: 'right',
+          direction: 'rtl',
+          marginTop: '-540px'
+        }}>
+          ثقة عملائنا
+        </div>
+        {/* Empty Cards */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '195px',
+            left: '40px',
+            width: '276px',
+            height: '383.3999938964844px',
+            backgroundColor: '#FBFBFB',
+            borderRadius: '10.8px',
+            opacity: 0.5,
+            transition: 'opacity 0.3s ease'
+          }}
+          onMouseEnter={() => {
+            if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+            hoverTimeoutRef.current = setTimeout(() => setHoveredCardIndex(0), 500);
+          }}
+          onMouseLeave={() => {
+            if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+            hoverTimeoutRef.current = setTimeout(() => setHoveredCardIndex(null), 500);
+          }}
+        >
+          <img
+            src="/image/Vector.png"
+            alt="Vector"
+            style={{
+              position: 'absolute',
+              top: '45px',
+              left: '20%',
+              transform: 'translateX(-50%) rotate(0deg)',
+              width: '67.5px',
+              height: '46.58699417114258px',
+              opacity: 1
+            }}
+          />
+          <div style={{
+            position: 'absolute',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            right: '20px',
+            width: 'calc(100% - 40px)',
+            fontFamily: 'Cairo',
+            fontWeight: 500,
+            fontSize: '24.3px',
+            lineHeight: '32px',
+            letterSpacing: '-0.63px',
+            textAlign: 'right',
+            direction: 'rtl'
+          }}>
+            الجودة عالية والتصميم عصري، يناسب كل المناسبات الطبية.
+          </div>
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            top: '220px',
+            left: '336px',
+            width: '276px',
+            height: '383.3999938964844px',
+            backgroundColor: '#FBFBFB',
+            borderRadius: '10.8px',
+            opacity: 0.5,
+            transition: 'opacity 0.3s ease'
+          }}
+          onMouseEnter={() => {
+            if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+            hoverTimeoutRef.current = setTimeout(() => setHoveredCardIndex(1), 500);
+          }}
+          onMouseLeave={() => {
+            if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+            hoverTimeoutRef.current = setTimeout(() => setHoveredCardIndex(null), 500);
+          }}
+        >
+          <img
+            src="/image/Vector.png"
+            alt="Vector"
+            style={{
+              position: 'absolute',
+              top: '45px',
+              left: '20%',
+              transform: 'translateX(-50%) rotate(0deg)',
+              width: '67.5px',
+              height: '46.58699417114258px',
+              opacity: 1
+            }}
+          />
+          <div style={{
+            position: 'absolute',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            right: '20px',
+            width: 'calc(100% - 40px)',
+            fontFamily: 'Cairo',
+            fontWeight: 500,
+            fontSize: '24.3px',
+            lineHeight: '32px',
+            letterSpacing: '-0.63px',
+            textAlign: 'right',
+            direction: 'rtl'
+          }}>
+            مريح وسهل التنظيف، مثالي للعمل اليومي.
+          </div>
+        </div>
+        <div style={{
+          position: 'absolute',
+          top: '250px',
+          left: '632px',
+          width: '276px',
+          height: '383.3999938964844px',
+          backgroundColor: '#FBFBFB',
+          borderRadius: '10.8px',
+          opacity: 1
+        }}>
+          <img
+            src="/image/Vector.png"
+            alt="Vector"
+            style={{
+              position: 'absolute',
+              top: '45px',
+              left: '20%',
+              transform: 'translateX(-50%) rotate(0deg)',
+              width: '67.5px',
+              height: '46.58699417114258px',
+              opacity: 1
+            }}
+          />
+          <div style={{
+            position: 'absolute',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            right: '20px',
+            width: 'calc(100% - 40px)',
+            fontFamily: 'Cairo',
+            fontWeight: 500,
+            fontSize: '24.3px',
+            lineHeight: '32px',
+            letterSpacing: '-0.63px',
+            textAlign: 'right',
+            direction: 'rtl'
+          }}>
+            {hoveredCardIndex !== null ? cardTexts[hoveredCardIndex] : cardTexts[2]}
+          </div>
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            top: '220px',
+            left: '928px',
+            width: '276px',
+            height: '383.3999938964844px',
+            backgroundColor: '#FBFBFB',
+            borderRadius: '10.8px',
+            opacity: 0.5,
+            transition: 'opacity 0.3s ease'
+          }}
+          onMouseEnter={() => setHoveredCardIndex(3)}
+          onMouseLeave={() => setHoveredCardIndex(null)}
+        >
+          <img
+            src="/image/Vector.png"
+            alt="Vector"
+            style={{
+              position: 'absolute',
+              top: '45px',
+              left: '20%',
+              transform: 'translateX(-50%) rotate(0deg)',
+              width: '67.5px',
+              height: '46.58699417114258px',
+              opacity: 1
+            }}
+          />
+          <div style={{
+            position: 'absolute',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            right: '20px',
+            width: 'calc(100% - 40px)',
+            fontFamily: 'Cairo',
+            fontWeight: 500,
+            fontSize: '24.3px',
+            lineHeight: '32px',
+            letterSpacing: '-0.63px',
+            textAlign: 'right',
+            direction: 'rtl'
+          }}>
+            الألوان متنوعة والمقاسات مناسبة للجميع.
+          </div>
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            top: '195px',
+            left: '1224px',
+            width: '276px',
+            height: '383.3999938964844px',
+            backgroundColor: '#FBFBFB',
+            borderRadius: '10.8px',
+            opacity: 0.5,
+            transition: 'opacity 0.3s ease'
+          }}
+          onMouseEnter={() => {
+            if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+            hoverTimeoutRef.current = setTimeout(() => setHoveredCardIndex(4), 500);
+          }}
+          onMouseLeave={() => {
+            if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+            hoverTimeoutRef.current = setTimeout(() => setHoveredCardIndex(null), 500);
+          }}
+        >
+          <img
+            src="/image/Vector.png"
+            alt="Vector"
+            style={{
+              position: 'absolute',
+              top: '45px',
+              left: '20%',
+              transform: 'translateX(-50%) rotate(0deg)',
+              width: '67.5px',
+              height: '46.58699417114258px',
+              opacity: 1
+            }}
+          />
+          <div style={{
+            position: 'absolute',
+            top: '50%',
+            transform: 'translateY(-50%)',
+            right: '20px',
+            width: 'calc(100% - 40px)',
+            fontFamily: 'Cairo',
+            fontWeight: 500,
+            fontSize: '24.3px',
+            lineHeight: '32px',
+            letterSpacing: '-0.63px',
+            textAlign: 'right',
+            direction: 'rtl'
+          }}>
+            يمنح شعور بالثقة والاحترافية في العمل.
+          </div>
         </div>
       </div>
 
