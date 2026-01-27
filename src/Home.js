@@ -1,14 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 function Index() {
-  const [isHovered, setIsHovered] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isButtonHovered, setIsButtonHovered] = useState(false);
-  const [isButtonHoveredX2, setIsButtonHoveredX2] = useState(false);
-  const [isButtonHoveredX1, setIsButtonHoveredX1] = useState(false);
-  const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
-  const hoverTimeoutRef = useRef(null);
   const cardsPerView = 3;
   const images = ['/image/middle.jpg', '/image/nextmiddle.jpg', '/image/therdmiddle.jpg'];
   const texts = [
@@ -25,12 +17,37 @@ function Index() {
   ];
 
   const cardTexts = [
-    'الجودة عالية والتصميم عصري، يناسب كل المناسبات الطبية.',
+    '“مقاسه مظبوط والتفصيل عملي. واضح إن التصميم معمول لناس شغالة فعلًا.”',
     'مريح وسهل التنظيف، مثالي للعمل اليومي.',
     'الخامة مريحة جدًا، بلبسه مناوبات طويلة ومش بحس بأي ضيق. الشكل كمان شيك.',
     'الألوان متنوعة والمقاسات مناسبة للجميع.',
     'يمنح شعور بالثقة والاحترافية في العمل.'
   ];
+
+  const [isHovered, setIsHovered] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const [isButtonHoveredX2, setIsButtonHoveredX2] = useState(false);
+  const [isButtonHoveredX1, setIsButtonHoveredX1] = useState(false);
+  const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
+  const [currentComment, setCurrentComment] = useState(cardTexts[2]);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isVisibleX3, setIsVisibleX3] = useState(false);
+  const [isTitle1Visible, setIsTitle1Visible] = useState(false);
+  const [isTitle2Visible, setIsTitle2Visible] = useState(false);
+  const [isTitle3Visible, setIsTitle3Visible] = useState(false);
+  const [isDescVisible, setIsDescVisible] = useState(false);
+  const [isDiscountTextVisible, setIsDiscountTextVisible] = useState(false);
+  const [isDiscountPercentVisible, setIsDiscountPercentVisible] = useState(false);
+  const [isVisibleCard1, setIsVisibleCard1] = useState(false);
+  const [isVisibleCard2, setIsVisibleCard2] = useState(false);
+  const [isVisibleCard3, setIsVisibleCard3] = useState(false);
+  const [isVisibleCard4, setIsVisibleCard4] = useState(false);
+  const [isVisibleCard5, setIsVisibleCard5] = useState(false);
+  const [isVisibleX1, setIsVisibleX1] = useState(false);
+  const [isVisibleX2, setIsVisibleX2] = useState(false);
+  const hoverTimeoutRef = useRef(null);
 
   const buttonStyle = (isHovered) => ({
     position: 'absolute',
@@ -56,6 +73,66 @@ function Index() {
     }, 2000);
     return () => clearInterval(interval);
   }, [images.length]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisibleX3(true);
+    }, 500); // Delay of 500ms
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const timerX1 = setTimeout(() => {
+      setIsVisibleX1(true);
+    }, 700); // Delay for Men's Scrubs
+    const timerX2 = setTimeout(() => {
+      setIsVisibleX2(true);
+    }, 900); // Delay for Medical Tools
+    return () => {
+      clearTimeout(timerX1);
+      clearTimeout(timerX2);
+    };
+  }, []);
+
+  useEffect(() => {
+    const timer1 = setTimeout(() => setIsTitle1Visible(true), 2000);
+    const timer2 = setTimeout(() => setIsTitle2Visible(true), 2500);
+    const timer3 = setTimeout(() => setIsTitle3Visible(true), 3000);
+    const timerDesc = setTimeout(() => setIsDescVisible(true), 3500);
+    const timerDiscountText = setTimeout(() => setIsDiscountTextVisible(true), 4000);
+    const timerDiscountPercent = setTimeout(() => setIsDiscountPercentVisible(true), 4500);
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+      clearTimeout(timerDesc);
+      clearTimeout(timerDiscountText);
+      clearTimeout(timerDiscountPercent);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (hoveredCardIndex !== null) {
+      setCurrentComment(cardTexts[hoveredCardIndex]);
+    } else {
+      setCurrentComment(cardTexts[2]);
+    }
+  }, [hoveredCardIndex, cardTexts]);
+
+  useEffect(() => {
+    const timer1 = setTimeout(() => setIsVisibleCard1(true), 1000);
+    const timer2 = setTimeout(() => setIsVisibleCard2(true), 1200);
+    const timer3 = setTimeout(() => setIsVisibleCard3(true), 1400);
+    const timer4 = setTimeout(() => setIsVisibleCard4(true), 1600);
+    const timer5 = setTimeout(() => setIsVisibleCard5(true), 1800);
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+      clearTimeout(timer4);
+      clearTimeout(timer5);
+    };
+  }, []);
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '4300px', backgroundColor: '#FBFBFB' }}>
@@ -111,7 +188,10 @@ function Index() {
             textAlign: 'center',
             color: 'white',
             direction: 'rtl',
-            marginBottom: '10px'
+            marginBottom: '10px',
+            opacity: isDiscountTextVisible ? 1 : 0,
+            transform: isDiscountTextVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 1s ease, transform 1s ease'
           }}
         >
           خصم خاص على جميع الإسكرابات لا تفوّتوا الفرصة
@@ -123,7 +203,10 @@ function Index() {
             fontSize: '64px',
             lineHeight: '150%',
             textAlign: 'center',
-            color: 'white'
+            color: 'white',
+            opacity: isDiscountPercentVisible ? 1 : 0,
+            transform: isDiscountPercentVisible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 1s ease, transform 1s ease'
           }}
         >
           30%
@@ -144,11 +227,57 @@ function Index() {
         }}
       />
       <div style={{ position: 'absolute', top: '160px', right: '60px', lineHeight: '-20px' }}>
-        <h2 style={{ fontFamily: 'El Messiri', fontWeight: 700, fontSize: '64px', lineHeight: '130%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginRight: '20px' }}>رونق سكربات طبية </h2>
-        <h2 style={{ fontFamily: 'El Messiri', fontWeight: 700, fontSize: '64px', lineHeight: '1%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginRight: '20px', paddingTop: '0px' }}>تجمع بين الراحة </h2>
-        <h2 style={{ fontFamily: 'El Messiri', fontWeight: 700, fontSize: '64px', lineHeight: '1%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginRight: '20px', paddingTop: '40px' }}>والأناقة</h2>
+        <h2 style={{
+          fontFamily: 'El Messiri',
+          fontWeight: 700,
+          fontSize: '64px',
+          lineHeight: '80%',
+          letterSpacing: '0%',
+          textAlign: 'right',
+          color: '#FFFFFF',
+          marginRight: '20px',
+          opacity: isTitle1Visible ? 1 : 0,
+          transform: isTitle1Visible ? 'translateY(0)' : 'translateY(20px)',
+          transition: 'opacity 1s ease, transform 1s ease'
+        }}>رونق سكربات طبية </h2>
+        <h2 style={{
+          fontFamily: 'El Messiri',
+          fontWeight: 700,
+          fontSize: '64px',
+          lineHeight: '1%',
+          letterSpacing: '0%',
+          textAlign: 'right',
+          color: '#FFFFFF',
+          marginRight: '20px',
+          paddingTop: '0px',
+          opacity: isTitle2Visible ? 1 : 0,
+          transform: isTitle2Visible ? 'translateY(0)' : 'translateY(20px)',
+          transition: 'opacity 1s ease, transform 1s ease'
+        }}>تجمع بين الراحة </h2>
+        <h2 style={{
+          fontFamily: 'El Messiri',
+          fontWeight: 700,
+          fontSize: '64px',
+          lineHeight: '1%',
+          letterSpacing: '0%',
+          textAlign: 'right',
+          color: '#FFFFFF',
+          marginRight: '20px',
+          paddingTop: '40px',
+          opacity: isTitle3Visible ? 1 : 0,
+          transform: isTitle3Visible ? 'translateY(0)' : 'translateY(20px)',
+          transition: 'opacity 1s ease, transform 1s ease'
+        }}>والأناقة</h2>
       </div>
-      <div style={{ position: 'absolute', top: '240px', right: '65px', lineHeight: '100px' }}>
+      <div style={{
+        position: 'absolute',
+        top: '240px',
+        right: '65px',
+        lineHeight: '100px',
+        opacity: isDescVisible ? 1 : 0,
+        transform: isDescVisible ? 'translateY(0)' : 'translateY(20px)',
+        transition: 'opacity 1s ease, transform 1s ease'
+      }}>
         <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '250px', marginBottom: '0px', wordSpacing: '1px' }}>سكربات طبية بجودة عالية وتصاميم عملية تناسب ساعات </p>
         <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '0px', wordSpacing: '5px' }}> العمل الطويل.راحة، متانة، ومقاسات تناسب الجميع  </p>
       </div>
@@ -197,7 +326,7 @@ function Index() {
         fontWeight: 600,
         fontSize: '30px',
         lineHeight: '150%',
-        wordSpacing: '20px',
+        wordSpacing: '5px',
         color: '#FFFFFF'
       }}>
         <span>أدوات طبية</span>
@@ -609,6 +738,9 @@ function Index() {
               color: 'white',
               direction: 'rtl',
               paddingBottom: '20px',
+              opacity: isVisibleX3 ? 1 : 0,
+              transform: isVisibleX3 ? 'translateY(0)' : 'translateY(20px)',
+              transition: 'opacity 1s ease, transform 1s ease',
 
             }}
           >
@@ -630,13 +762,15 @@ function Index() {
               letterSpacing: '0%',
               border: 'none',
               cursor: 'pointer',
-              opacity: 1,
+              opacity: isVisibleX3 ? 1 : 0,
               padding: '0',
               marginBottom: '35px',
-              transition: 'background-color 0.3s ease',
+              transition: 'background-color 0.3s ease, opacity 1s ease 0.5s',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              margintop: '4px'
+
             }}
             onMouseEnter={() => setIsButtonHovered(true)}
             onMouseLeave={() => setIsButtonHovered(false)}
@@ -672,6 +806,9 @@ function Index() {
               color: 'white',
               direction: 'rtl',
               paddingBottom: '20px',
+              opacity: isVisibleX2 ? 1 : 0,
+              transform: isVisibleX2 ? 'translateY(0)' : 'translateY(20px)',
+              transition: 'opacity 1s ease, transform 1s ease',
 
             }}
           >
@@ -693,10 +830,10 @@ function Index() {
               letterSpacing: '0%',
               border: 'none',
               cursor: 'pointer',
-              opacity: 1,
+              opacity: isVisibleX2 ? 1 : 0,
               padding: '0',
               marginBottom: '35px',
-              transition: 'background-color 0.3s ease',
+              transition: 'background-color 0.3s ease, opacity 1s ease 0.5s',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
@@ -719,7 +856,8 @@ function Index() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'flex-end'
+            justifyContent: 'flex-end',
+            marginTop: '4px'
           }}
         >
           <div
@@ -734,6 +872,9 @@ function Index() {
               color: 'white',
               direction: 'rtl',
               paddingBottom: '20px',
+              opacity: isVisibleX1 ? 1 : 0,
+              transform: isVisibleX1 ? 'translateY(0)' : 'translateY(20px)',
+              transition: 'opacity 1s ease, transform 1s ease',
 
             }}
           >
@@ -756,10 +897,10 @@ function Index() {
               letterSpacing: '0%',
               border: 'none',
               cursor: 'pointer',
-              opacity: 1,
+              opacity: isVisibleX1 ? 1 : 0,
               padding: '0',
               marginBottom: '35px',
-              transition: 'background-color 0.3s ease',
+              transition: 'background-color 0.3s ease, opacity 1s ease 0.5s',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
@@ -779,7 +920,7 @@ function Index() {
         left: '50%',
         transform: 'translateX(-50%)',
         width: '100%',
-        height: '662px',
+        height: '640px',
         backgroundColor: '#C1C1C1',
         opacity: 1,
         display: 'flex',
@@ -794,7 +935,8 @@ function Index() {
           letterSpacing: '0%',
           textAlign: 'right',
           direction: 'rtl',
-          marginTop: '-540px'
+          marginTop: '-510px',
+          color: '#022B3A'
         }}>
           ثقة عملائنا
         </div>
@@ -802,23 +944,18 @@ function Index() {
         <div
           style={{
             position: 'absolute',
-            top: '195px',
+            top: '131px',
             left: '40px',
             width: '276px',
             height: '383.3999938964844px',
             backgroundColor: '#FBFBFB',
             borderRadius: '10.8px',
-            opacity: 0.5,
-            transition: 'opacity 0.3s ease'
+            opacity: isVisibleCard1 ? 0.5 : 0,
+            transform: isVisibleCard1 ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 1s ease, transform 1s ease'
           }}
-          onMouseEnter={() => {
-            if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-            hoverTimeoutRef.current = setTimeout(() => setHoveredCardIndex(0), 500);
-          }}
-          onMouseLeave={() => {
-            if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-            hoverTimeoutRef.current = setTimeout(() => setHoveredCardIndex(null), 500);
-          }}
+          onMouseEnter={() => setHoveredCardIndex(0)}
+          onMouseLeave={() => setHoveredCardIndex(null)}
         >
           <img
             src="/image/Vector.png"
@@ -835,7 +972,7 @@ function Index() {
           />
           <div style={{
             position: 'absolute',
-            top: '50%',
+            top: '40%',
             transform: 'translateY(-50%)',
             right: '20px',
             width: 'calc(100% - 40px)',
@@ -847,29 +984,24 @@ function Index() {
             textAlign: 'right',
             direction: 'rtl'
           }}>
-            الجودة عالية والتصميم عصري، يناسب كل المناسبات الطبية.
+            “مقاسه مظبوط والتفصيل عملي. واضح إن التصميم معمول لناس شغالة فعلًا.”
           </div>
         </div>
         <div
           style={{
             position: 'absolute',
-            top: '220px',
+            top: '180px',
             left: '336px',
             width: '276px',
             height: '383.3999938964844px',
             backgroundColor: '#FBFBFB',
             borderRadius: '10.8px',
-            opacity: 0.5,
-            transition: 'opacity 0.3s ease'
+            opacity: isVisibleCard2 ? 0.5 : 0,
+            transform: isVisibleCard2 ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 1s ease, transform 1s ease'
           }}
-          onMouseEnter={() => {
-            if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-            hoverTimeoutRef.current = setTimeout(() => setHoveredCardIndex(1), 500);
-          }}
-          onMouseLeave={() => {
-            if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
-            hoverTimeoutRef.current = setTimeout(() => setHoveredCardIndex(null), 500);
-          }}
+          onMouseEnter={() => setHoveredCardIndex(1)}
+          onMouseLeave={() => setHoveredCardIndex(null)}
         >
           <img
             src="/image/Vector.png"
@@ -886,7 +1018,7 @@ function Index() {
           />
           <div style={{
             position: 'absolute',
-            top: '50%',
+            top: '40%',
             transform: 'translateY(-50%)',
             right: '20px',
             width: 'calc(100% - 40px)',
@@ -903,7 +1035,7 @@ function Index() {
         </div>
         <div style={{
           position: 'absolute',
-          top: '250px',
+          top: '208px',
           left: '632px',
           width: '276px',
           height: '383.3999938964844px',
@@ -926,8 +1058,8 @@ function Index() {
           />
           <div style={{
             position: 'absolute',
-            top: '50%',
-            transform: 'translateY(-50%)',
+            top: '45%',
+            transform: hoveredCardIndex !== null ? 'translateY(-50%) translateY(0)' : 'translateY(-50%) translateY(20px)',
             right: '20px',
             width: 'calc(100% - 40px)',
             fontFamily: 'Cairo',
@@ -936,22 +1068,25 @@ function Index() {
             lineHeight: '32px',
             letterSpacing: '-0.63px',
             textAlign: 'right',
-            direction: 'rtl'
+            direction: 'rtl',
+            opacity: 1,
+            transition: 'transform 1s ease'
           }}>
-            {hoveredCardIndex !== null ? cardTexts[hoveredCardIndex] : cardTexts[2]}
+            {currentComment}
           </div>
         </div>
         <div
           style={{
             position: 'absolute',
-            top: '220px',
+            top: '180px',
             left: '928px',
             width: '276px',
             height: '383.3999938964844px',
             backgroundColor: '#FBFBFB',
             borderRadius: '10.8px',
-            opacity: 0.5,
-            transition: 'opacity 0.3s ease'
+            opacity: isVisibleCard4 ? 0.5 : 0,
+            transform: isVisibleCard4 ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 1s ease, transform 1s ease'
           }}
           onMouseEnter={() => setHoveredCardIndex(3)}
           onMouseLeave={() => setHoveredCardIndex(null)}
@@ -971,7 +1106,7 @@ function Index() {
           />
           <div style={{
             position: 'absolute',
-            top: '50%',
+            top: '45%',
             transform: 'translateY(-50%)',
             right: '20px',
             width: 'calc(100% - 40px)',
@@ -989,14 +1124,15 @@ function Index() {
         <div
           style={{
             position: 'absolute',
-            top: '195px',
+            top: '140px',
             left: '1224px',
             width: '276px',
             height: '383.3999938964844px',
             backgroundColor: '#FBFBFB',
             borderRadius: '10.8px',
-            opacity: 0.5,
-            transition: 'opacity 0.3s ease'
+            opacity: isVisibleCard5 ? 0.5 : 0,
+            transform: isVisibleCard5 ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'opacity 1s ease, transform 1s ease'
           }}
           onMouseEnter={() => {
             if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
@@ -1022,7 +1158,7 @@ function Index() {
           />
           <div style={{
             position: 'absolute',
-            top: '50%',
+            top: '45%',
             transform: 'translateY(-50%)',
             right: '20px',
             width: 'calc(100% - 40px)',
