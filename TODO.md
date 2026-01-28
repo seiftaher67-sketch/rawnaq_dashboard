@@ -1,2 +1,2 @@
-- Modify SortFilter.js to make the arrow separately clickable from the text "فرز حسب"
-- Test the dropdown functionality after changes
+- [x] Modify SortFilter.js to make the arrow separately clickable from the text "فرز حسب"
+- [x] Test the dropdown functionality after changes

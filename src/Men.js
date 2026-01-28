@@ -111,11 +111,12 @@ function Men() {
           marginRight: '20px',
           opacity: isTitle1Visible ? 1 : 0,
           transform: isTitle1Visible ? 'translateY(0)' : 'translateY(20px)',
-          transition: 'opacity 1s ease, transform 1s ease'
+          transition: 'opacity 1s ease, transform 1s ease',
         }}>سكرابات رجالي</h2>
 
       </div>
       <div style={{
+        
         position: 'absolute',
         top: '240px',
         right: '65px',
@@ -143,6 +144,9 @@ function Men() {
         <div style={{ width: '70px', height: '70px', borderRadius: '50%', backgroundColor: 'rgba(251, 251, 251, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <img src="/image/icon2.png" alt="Icon 2" style={{ width: '40px', height: '40px', borderRadius: '50%' }} />
         </div>
+        <div style={{ position: 'relative', width: '295px', height: '70px' }}>
+          <input type="text" placeholder="أبحث عن منتج" dir="rtl" style={{ width: '100%', height: '100%', borderRadius: '50px', backgroundColor: '#FBFBFB', opacity: 1, border: 'none', padding: '0 60px 0 20px', fontFamily: 'El Messiri', fontWeight: 400, fontSize: '24px', lineHeight: '150%', outline: 'none', backgroundImage: 'url(/image/adca.png)', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 20px center', backgroundSize: '20px 20px' }} />
+        </div>
       </div>
       <div style={{
         position: 'absolute',
@@ -168,7 +172,8 @@ function Men() {
       {/* New Section */}
       <div style={{ position: 'absolute', top: '570px', left: '50px', right: '50px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <SortFilter onSort={handleSort} />
-        <h2 style={{ fontFamily: 'El Messiri', fontWeight: 700, fontStyle: 'Bold', fontSize: '55px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#000' }}>سكرابات رجالي</h2>
+    
+        <h2 style={{ fontFamily: 'El Messiri', fontWeight: 700, fontStyle: 'Bold', fontSize: '55px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#000', marginRight:'130px' }}>سكرابات رجالي</h2>
       </div>
 
       {/* ================== Best Sellers Section ================== */}

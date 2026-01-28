@@ -1,24 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export default function SortFilter({ onSort }) {
     const [open, setOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
     const handleSelect = (type) => {
         onSort(type);     // تبعت نوع الفلترة للأب
         setOpen(false);   // تقفل القائمة
     };
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
         <div style={{ position: "relative", width: "260px", fontFamily: "Cairo" }}>
 
             {/* زر فرز حسب */}
-            <button
+            <div
                 onClick={() => setOpen(!open)}
                 style={{
                     width: "100%",
                     height: "56px",
                     borderRadius: "14px",
-                    border: "none",
                     background: "#EDEDED",
                     fontSize: "20px",
                     fontWeight: 600,
@@ -30,10 +43,10 @@ export default function SortFilter({ onSort }) {
                 }}
             >
                 فرز حسب
-                <span style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}>
+                <span style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s" }}>
                     ▲
                 </span>
-            </button>
+            </div>
 
             {/* القائمة */}
             {open && (
