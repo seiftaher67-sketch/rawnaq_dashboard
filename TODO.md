@@ -1,2 +1,2 @@
-- [x] Add two more product card sections (Best Sellers Section 3 and 4) to src/Men.js
-- [x] Adjust the main div height to accommodate the new sections
+- Modify SortFilter.js to make the arrow separately clickable from the text "فرز حسب"
+- Test the dropdown functionality after changes
