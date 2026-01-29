@@ -5,9 +5,9 @@ import SortFilter from './SortFilter';
 function Men() {
   const cardsPerView = 3;
   const [products, setProducts] = useState([
-    { img: '/image/man1.jpg', price: 250, sales: 100 },
-    { img: '/image/man2.jpg', price: 300, sales: 80 },
-    { img: '/image/man3.jpg', price: 200, sales: 120 }
+    { img: '/image/ad1.jpg', price: 250, sales: 100 },
+    { img: '/image/ad2.jpg', price: 300, sales: 80 },
+    { img: '/image/ad3.jpg', price: 200, sales: 120 }
   ]);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
   const [isTitle1Visible, setIsTitle1Visible] = useState(false);
@@ -70,7 +70,7 @@ function Men() {
     <div style={{ position: 'relative', width: '100%', height: '2500px', backgroundColor: '#FBFBFB' }}>
       {/* Header Section */}
       <img
-        src="/image/ad2.jpg"
+        src="/image/aass.jpg"
         alt="Header"
         style={{
           width: 'calc(100vw - 32px)',
@@ -112,7 +112,7 @@ function Men() {
           opacity: isTitle1Visible ? 1 : 0,
           transform: isTitle1Visible ? 'translateY(0)' : 'translateY(20px)',
           transition: 'opacity 1s ease, transform 1s ease',
-        }}>سكرابات رجالي</h2>
+        }}> أدوات طبية</h2>
 
       </div>
       <div style={{
@@ -125,8 +125,7 @@ function Men() {
         transform: isDescVisible ? 'translateY(0)' : 'translateY(20px)',
         transition: 'opacity 1s ease, transform 1s ease'
       }}>
-        <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '80px', marginBottom: '0px', wordSpacing: '1px' }}>تصميمات أنيقة بخامات مريحة تمنحك الثقة</p>
-        <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '0px', wordSpacing: '5px' }}> والراحة طوال يومك الطبي </p>
+        <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '80px', marginBottom: '0px', wordSpacing: '1px' }}>أختيارك الذكي للأدوات الطبية</p>
       </div>
 
       <div style={{
@@ -173,7 +172,7 @@ function Men() {
       <div style={{ position: 'absolute', top: '570px', left: '50px', right: '50px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 10 }}>
         <SortFilter onSort={handleSort} />
 
-        <h2 style={{ fontFamily: 'El Messiri', fontWeight: 700, fontStyle: 'Bold', fontSize: '55px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#000', marginRight: '130px' }}>سكرابات رجالي</h2>
+        <h2 style={{ fontFamily: 'El Messiri', fontWeight: 700, fontStyle: 'Bold', fontSize: '55px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#000', marginRight: '130px' }}>أدوات طبية </h2>
       </div>
 
       {/* ================== Best Sellers Section ================== */}

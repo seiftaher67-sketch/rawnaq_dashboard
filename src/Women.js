@@ -163,7 +163,7 @@ function Women() {
         wordSpacing: '5px',
         color: '#FFFFFF'
       }}>
-        <span style={{ marginLeft: '35px' }}>أدوات طبية</span>
+        <Link to="/medical-tools" style={{ color: '#FFFFFF', textDecoration: 'none' }}>أدوات طبية</Link>
         <Link to="/women" style={{ color: '#FFFFFF', textDecoration: 'none' }}>نسائي</Link>
         <Link to="/men" style={{ color: '#FFFFFF', textDecoration: 'none' }}>رجالي</Link>
         <Link to="/" style={{ color: '#FFFFFF', textDecoration: 'none' }}>الرئيسية </Link>
