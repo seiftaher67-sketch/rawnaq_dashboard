@@ -712,206 +712,212 @@ function Index() {
         flexDirection: 'row',
         gap: '32px'
       }}>
-        <div
-          style={{
-            width: '405px',
-            height: '570px',
-            borderRadius: '10px',
-            backgroundImage: 'url(/image/x3.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            position: 'relative',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'flex-end'
-          }}
-        >
+        <Link to="/women" style={{ textDecoration: 'none' }}>
           <div
             style={{
-              fontFamily: 'El Messiri',
-              fontWeight: 600,
-              fontStyle: 'SemiBold',
-              fontSize: '32px',
-              lineHeight: '150%',
-              letterSpacing: '0%',
-              textAlign: 'center',
-              color: 'white',
-              direction: 'rtl',
-              paddingBottom: '20px',
-              opacity: isVisibleX3 ? 1 : 0,
-              transform: isVisibleX3 ? 'translateY(0)' : 'translateY(20px)',
-              transition: 'opacity 1s ease, transform 1s ease',
-
-            }}
-          >
-            سكربات نسائي
-          </div>
-          <button
-            style={{
-              width: '187px',
-              height: '50px',
+              width: '405px',
+              height: '570px',
               borderRadius: '10px',
-              backgroundColor: isButtonHovered ? '#D1D5E2' : '#E1E5F2',
-              color: '#000',
-              fontFamily: 'Cairo',
-              fontWeight: 600,
-              fontStyle: 'SemiBold',
-              fontSize: '24px',
-              leadingTrim: 'NONE',
-              lineHeight: '150%',
-              letterSpacing: '0%',
-              border: 'none',
-              cursor: 'pointer',
-              opacity: isVisibleX3 ? 1 : 0,
-              padding: '0',
-              marginBottom: '35px',
-              transition: 'background-color 0.3s ease, opacity 1s ease 0.5s',
+              backgroundImage: 'url(/image/x3.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              position: 'relative',
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'center',
-              margintop: '4px'
-
+              justifyContent: 'flex-end'
             }}
-            onMouseEnter={() => setIsButtonHovered(true)}
-            onMouseLeave={() => setIsButtonHovered(false)}
           >
-            تسوقي الأن
-          </button>
-        </div>
-        <div
-          style={{
-            width: '405px',
-            height: '570px',
-            borderRadius: '10px',
-            backgroundImage: 'url(/image/x2.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            position: 'relative',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            marginTop: '50px'
-          }}
-        >
+            <div
+              style={{
+                fontFamily: 'El Messiri',
+                fontWeight: 600,
+                fontStyle: 'SemiBold',
+                fontSize: '32px',
+                lineHeight: '150%',
+                letterSpacing: '0%',
+                textAlign: 'center',
+                color: 'white',
+                direction: 'rtl',
+                paddingBottom: '20px',
+                opacity: isVisibleX3 ? 1 : 0,
+                transform: isVisibleX3 ? 'translateY(0)' : 'translateY(20px)',
+                transition: 'opacity 1s ease, transform 1s ease',
+
+              }}
+            >
+              سكربات نسائي
+            </div>
+            <button
+              style={{
+                width: '187px',
+                height: '50px',
+                borderRadius: '10px',
+                backgroundColor: isButtonHovered ? '#D1D5E2' : '#E1E5F2',
+                color: '#000',
+                fontFamily: 'Cairo',
+                fontWeight: 600,
+                fontStyle: 'SemiBold',
+                fontSize: '24px',
+                leadingTrim: 'NONE',
+                lineHeight: '150%',
+                letterSpacing: '0%',
+                border: 'none',
+                cursor: 'pointer',
+                opacity: isVisibleX3 ? 1 : 0,
+                padding: '0',
+                marginBottom: '35px',
+                transition: 'background-color 0.3s ease, opacity 1s ease 0.5s',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margintop: '4px'
+
+              }}
+              onMouseEnter={() => setIsButtonHovered(true)}
+              onMouseLeave={() => setIsButtonHovered(false)}
+            >
+              تسوقي الأن
+            </button>
+          </div>
+        </Link>
+        <Link to="/medical-tools" style={{ textDecoration: 'none' }}>
           <div
             style={{
-              fontFamily: 'El Messiri',
-              fontWeight: 600,
-              fontStyle: 'SemiBold',
-              fontSize: '32px',
-              lineHeight: '150%',
-              letterSpacing: '0%',
-              textAlign: 'center',
-              color: 'white',
-              direction: 'rtl',
-              paddingBottom: '20px',
-              opacity: isVisibleX2 ? 1 : 0,
-              transform: isVisibleX2 ? 'translateY(0)' : 'translateY(20px)',
-              transition: 'opacity 1s ease, transform 1s ease',
-
-            }}
-          >
-            أدوات طبية
-          </div>
-          <button
-            style={{
-              width: '187px',
-              height: '50px',
+              width: '405px',
+              height: '570px',
               borderRadius: '10px',
-              backgroundColor: isButtonHoveredX2 ? '#D1D5E2' : '#E1E5F2',
-              color: '#000',
-              fontFamily: 'Cairo',
-              fontWeight: 600,
-              fontStyle: 'SemiBold',
-              fontSize: '24px',
-              leadingTrim: 'NONE',
-              lineHeight: '150%',
-              letterSpacing: '0%',
-              border: 'none',
-              cursor: 'pointer',
-              opacity: isVisibleX2 ? 1 : 0,
-              padding: '0',
-              marginBottom: '35px',
-              transition: 'background-color 0.3s ease, opacity 1s ease 0.5s',
+              backgroundImage: 'url(/image/x2.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              position: 'relative',
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'flex-end',
+              marginTop: '50px'
             }}
-            onMouseEnter={() => setIsButtonHoveredX2(true)}
-            onMouseLeave={() => setIsButtonHoveredX2(false)}
           >
-            تسوق الان
-          </button>
-        </div>
-        <div
-          style={{
-            width: '405px',
-            height: '570px',
-            borderRadius: '10px',
-            backgroundImage: 'url(/image/x1.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            position: 'relative',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-            marginTop: '4px'
-          }}
-        >
+            <div
+              style={{
+                fontFamily: 'El Messiri',
+                fontWeight: 600,
+                fontStyle: 'SemiBold',
+                fontSize: '32px',
+                lineHeight: '150%',
+                letterSpacing: '0%',
+                textAlign: 'center',
+                color: 'white',
+                direction: 'rtl',
+                paddingBottom: '20px',
+                opacity: isVisibleX2 ? 1 : 0,
+                transform: isVisibleX2 ? 'translateY(0)' : 'translateY(20px)',
+                transition: 'opacity 1s ease, transform 1s ease',
+
+              }}
+            >
+              أدوات طبية
+            </div>
+            <button
+              style={{
+                width: '187px',
+                height: '50px',
+                borderRadius: '10px',
+                backgroundColor: isButtonHoveredX2 ? '#D1D5E2' : '#E1E5F2',
+                color: '#000',
+                fontFamily: 'Cairo',
+                fontWeight: 600,
+                fontStyle: 'SemiBold',
+                fontSize: '24px',
+                leadingTrim: 'NONE',
+                lineHeight: '150%',
+                letterSpacing: '0%',
+                border: 'none',
+                cursor: 'pointer',
+                opacity: isVisibleX2 ? 1 : 0,
+                padding: '0',
+                marginBottom: '35px',
+                transition: 'background-color 0.3s ease, opacity 1s ease 0.5s',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+              onMouseEnter={() => setIsButtonHoveredX2(true)}
+              onMouseLeave={() => setIsButtonHoveredX2(false)}
+            >
+              تسوق الان
+            </button>
+          </div>
+        </Link>
+        <Link to="/men" style={{ textDecoration: 'none' }}>
           <div
             style={{
-              fontFamily: 'El Messiri',
-              fontWeight: 600,
-              fontStyle: 'SemiBold',
-              fontSize: '32px',
-              lineHeight: '150%',
-              letterSpacing: '0%',
-              textAlign: 'center',
-              color: 'white',
-              direction: 'rtl',
-              paddingBottom: '20px',
-              opacity: isVisibleX1 ? 1 : 0,
-              transform: isVisibleX1 ? 'translateY(0)' : 'translateY(20px)',
-              transition: 'opacity 1s ease, transform 1s ease',
-
-            }}
-          >
-            سكربات رجالي
-
-          </div>
-          <button
-            style={{
-              width: '187px',
-              height: '50px',
+              width: '405px',
+              height: '570px',
               borderRadius: '10px',
-              backgroundColor: isButtonHoveredX1 ? '#D1D5E2' : '#E1E5F2',
-              color: '#000',
-              fontFamily: 'Cairo',
-              fontWeight: 600,
-              fontStyle: 'SemiBold',
-              fontSize: '24px',
-              leadingTrim: 'NONE',
-              lineHeight: '150%',
-              letterSpacing: '0%',
-              border: 'none',
-              cursor: 'pointer',
-              opacity: isVisibleX1 ? 1 : 0,
-              padding: '0',
-              marginBottom: '35px',
-              transition: 'background-color 0.3s ease, opacity 1s ease 0.5s',
+              backgroundImage: 'url(/image/x1.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              position: 'relative',
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'flex-end',
+              marginTop: '4px'
             }}
-            onMouseEnter={() => setIsButtonHoveredX1(true)}
-            onMouseLeave={() => setIsButtonHoveredX1(false)}
           >
-            تسوق الان
-          </button>
-        </div>
+            <div
+              style={{
+                fontFamily: 'El Messiri',
+                fontWeight: 600,
+                fontStyle: 'SemiBold',
+                fontSize: '32px',
+                lineHeight: '150%',
+                letterSpacing: '0%',
+                textAlign: 'center',
+                color: 'white',
+                direction: 'rtl',
+                paddingBottom: '20px',
+                opacity: isVisibleX1 ? 1 : 0,
+                transform: isVisibleX1 ? 'translateY(0)' : 'translateY(20px)',
+                transition: 'opacity 1s ease, transform 1s ease',
+
+              }}
+            >
+              سكربات رجالي
+
+            </div>
+            <button
+              style={{
+                width: '187px',
+                height: '50px',
+                borderRadius: '10px',
+                backgroundColor: isButtonHoveredX1 ? '#D1D5E2' : '#E1E5F2',
+                color: '#000',
+                fontFamily: 'Cairo',
+                fontWeight: 600,
+                fontStyle: 'SemiBold',
+                fontSize: '24px',
+                leadingTrim: 'NONE',
+                lineHeight: '150%',
+                letterSpacing: '0%',
+                border: 'none',
+                cursor: 'pointer',
+                opacity: isVisibleX1 ? 1 : 0,
+                padding: '0',
+                marginBottom: '35px',
+                transition: 'background-color 0.3s ease, opacity 1s ease 0.5s',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+              onMouseEnter={() => setIsButtonHoveredX1(true)}
+              onMouseLeave={() => setIsButtonHoveredX1(false)}
+            >
+              تسوق الان
+            </button>
+          </div>
+        </Link>
       </div>
 
       {/* New Section */}
@@ -1194,7 +1200,7 @@ function Index() {
         }}>
           أساسياتك الطبية، بأسلوب عصري
         </h2>
-      </div>
+      </div>نف
 
       {/* Spacer for scrolling */}
     </div>
