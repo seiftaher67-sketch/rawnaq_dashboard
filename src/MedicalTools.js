@@ -70,7 +70,7 @@ function Men() {
     <div style={{ position: 'relative', width: '100%', height: '2500px', backgroundColor: '#FBFBFB' }}>
       {/* Header Section */}
       <img
-        src="/image/x1.jpg"
+        src="/image/ad2.jpg"
         alt="Header"
         style={{
           width: 'calc(100vw - 32px)',

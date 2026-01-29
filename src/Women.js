@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SortFilter from './SortFilter';
 
-function Men() {
+function Women() {
   const cardsPerView = 3;
   const [products, setProducts] = useState([
-    { img: '/image/man1.jpg', price: 250, sales: 100 },
-    { img: '/image/man2.jpg', price: 300, sales: 80 },
-    { img: '/image/man3.jpg', price: 200, sales: 120 }
+    { img: '/image/woman1.jpg', price: 250, sales: 100 },
+    { img: '/image/woman2.jpg', price: 300, sales: 80 },
+    { img: '/image/woman3.jpg', price: 200, sales: 120 }
   ]);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
   const [isTitle1Visible, setIsTitle1Visible] = useState(false);
@@ -70,7 +70,7 @@ function Men() {
     <div style={{ position: 'relative', width: '100%', height: '2500px', backgroundColor: '#FBFBFB' }}>
       {/* Header Section */}
       <img
-        src="/image/x1.jpg"
+        src="/image/x3.jpg"
         alt="Header"
         style={{
           width: 'calc(100vw - 32px)',
@@ -112,7 +112,7 @@ function Men() {
           opacity: isTitle1Visible ? 1 : 0,
           transform: isTitle1Visible ? 'translateY(0)' : 'translateY(20px)',
           transition: 'opacity 1s ease, transform 1s ease',
-        }}>سكرابات رجالي</h2>
+        }}>سكرابات نسائي</h2>
 
       </div>
       <div style={{
@@ -173,7 +173,7 @@ function Men() {
       <div style={{ position: 'absolute', top: '570px', left: '50px', right: '50px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 10 }}>
         <SortFilter onSort={handleSort} />
 
-        <h2 style={{ fontFamily: 'El Messiri', fontWeight: 700, fontStyle: 'Bold', fontSize: '55px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#000', marginRight: '130px' }}>سكرابات رجالي</h2>
+        <h2 style={{ fontFamily: 'El Messiri', fontWeight: 700, fontStyle: 'Bold', fontSize: '55px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#000', marginRight: '130px' }}>سكرابات نسائي</h2>
       </div>
 
       {/* ================== Best Sellers Section ================== */}
@@ -688,4 +688,4 @@ function Men() {
   );
 }
 
-export default Men;
+export default Women;

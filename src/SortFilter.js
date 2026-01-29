@@ -1,11 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 
 export default function SortFilter({ onSort }) {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
+    const [selectedText, setSelectedText] = useState("فرز حسب");
     const dropdownRef = useRef(null);
 
     const handleSelect = (type) => {
         onSort(type);     // تبعت نوع الفلترة للأب
+        if (type === "highToLow") {
+            setSelectedText("السعر : من الاعلي الي الارخص");
+        } else if (type === "lowToHigh") {
+            setSelectedText("السعر : من الارخص الي الاعلي");
+        } else if (type === "bestSeller") {
+            setSelectedText("الافضل مبيعا");
+        }
         setOpen(false);   // تقفل القائمة
     };
 
@@ -23,7 +31,7 @@ export default function SortFilter({ onSort }) {
     }, []);
 
     return (
-        <div style={{ position: "relative", width: "260px", fontFamily: "Cairo" }}>
+        <div style={{ position: "relative", width: "260px", fontFamily: "Cairo", marginLeft: "35px" }}>
 
             {/* زر فرز حسب */}
             <div
@@ -35,22 +43,28 @@ export default function SortFilter({ onSort }) {
                     background: "#EDEDED",
                     fontSize: "20px",
                     fontWeight: 600,
-                    cursor: "pointer",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    gap: "10px"
+                    gap: "10px",
+                    cursor: "pointer"
                 }}
             >
-                فرز حسب
-                <span style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s" }}>
-                    ▲
+                {selectedText}
+                <span
+                    style={{
+                        transform: open ? "rotate(180deg)" : "rotate(0deg)",
+                        transition: "transform 0.3s"
+                    }}
+                >
+                    ▼
                 </span>
             </div>
 
             {/* القائمة */}
             {open && (
                 <div
+                    ref={dropdownRef}
                     style={{
                         position: "absolute",
                         top: "65px",
@@ -59,7 +73,7 @@ export default function SortFilter({ onSort }) {
                         borderRadius: "14px",
                         boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
                         overflow: "hidden",
-                        zIndex: 100
+                        zIndex: 1000
                     }}
                 >
                     <div style={itemStyle} onClick={() => handleSelect("highToLow")}>

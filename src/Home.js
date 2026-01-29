@@ -330,8 +330,8 @@ function Index() {
         wordSpacing: '5px',
         color: '#FFFFFF'
       }}>
-        <span>أدوات طبية</span>
-        <span>نسائي </span>
+        <Link to="/medical-tools" style={{ color: '#FFFFFF', textDecoration: 'none' }}>أدوات طبية</Link>
+        <Link to="/women" style={{ color: '#FFFFFF', textDecoration: 'none' }}>نسائي</Link>
         <Link to="/men" style={{ color: '#FFFFFF', textDecoration: 'none' }}>رجالي</Link>
         <span>الرئيسية </span>
       </div>
@@ -1202,4 +1202,3 @@ function Index() {
 }
 
 export default Index;
-
