@@ -31,7 +31,7 @@ export default function SortFilter({ onSort }) {
     }, []);
 
     return (
-        <div style={{ position: "relative", width: "260px", fontFamily: "Cairo", marginLeft: "35px" }}>
+        <div style={{ position: "relative", width: "260px", fontFamily: "Cairo", marginLeft: "70px" }}>
 
             {/* زر فرز حسب */}
             <div

@@ -347,7 +347,7 @@ function Index() {
               fontWeight: 700,
               fontSize: '56px',
               lineHeight: '84px',
-              marginRight: '89px',
+              marginRight: '59px',
 
 
             }}
@@ -365,7 +365,7 @@ function Index() {
               fontSize: '32px',
               lineHeight: '150%',
               color: '#1B4B66',
-              marginRight: '89px',
+              marginRight: '59px',
               direction: 'rtl',
 
             }}
@@ -374,37 +374,28 @@ function Index() {
           </p>
         </div>
 
-        {/* More Products Button */}
+        {/* More Products Text */}
         <div style={{ position: 'absolute', top: '50px', left: '50px', marginTop: '-50px' }}>
-          <p
+          <div
             style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               gap: '10px',
-              color: 'white',
+              color: '#1B4B66',
               fontFamily: 'El Messiri',
               fontWeight: 500,
-              fontStyle: 'normal',
               fontSize: '32px',
-              leadingTrim: 'none',
               lineHeight: '150%',
               letterSpacing: '0%',
               textAlign: 'center',
-              textDecoration: 'underline',
-              textDecorationStyle: 'solid',
-              textDecorationOffset: '0%',
-              textDecorationThickness: '0%',
-              textDecorationSkipInk: 'auto',
-              padding: '16px 44px',
-              borderRadius: '50px',
-              border: 'none',
-              cursor: 'pointer'
+              marginTop:'50px',
+              marginLeft:'70px'
             }}
           >
             <img src='/image/sahm.png' alt="Arrow" style={{ width: '20px', height: '20px' }} />
             المزيد من المنتجات
-          </p>
+          </div>
         </div>
 
         {/* Left Arrow */}
@@ -456,7 +447,8 @@ function Index() {
           style={{
             position: 'absolute',
             top: '180px',
-            left: '85px',
+            left: '50%',
+            transform: 'translateX(-50%)',
             display: 'flex',
             flexDirection: 'row',
             gap: '32px',
@@ -637,13 +629,14 @@ function Index() {
                       backgroundColor: '#0F6A7B',
                       color: '#fff',
                       border: 'none',
-                      borderRadius: '8px',
-                      padding: '8px 16px',
+                      borderRadius: '20px',
+                      padding: '7px 16px',
                       fontSize: '17px',
                       fontWeight: 600,
                       cursor: 'pointer',
-                      width: '140px',
+                      width: '112px',
                       fontFamily: 'Cairo',
+
 
 
                     }}
@@ -665,7 +658,8 @@ function Index() {
         style={{
           position: 'absolute',
           top: '1800px',
-          left: '85px',
+          left: '50%',
+          transform: 'translateX(-50%)',
           width: '1264px',
           height: '719px',
           borderRadius: '8px'
@@ -676,7 +670,8 @@ function Index() {
         style={{
           position: 'absolute',
           top: '1800px',
-          left: '85px',
+          left: '50%',
+          transform: 'translateX(-50%)',
           width: '1264px',
           height: '719px',
           display: 'flex',
@@ -707,7 +702,8 @@ function Index() {
       <div style={{
         position: 'absolute',
         top: '2790px',
-        left: '85px',
+        left: '50%',
+        transform: 'translateX(-50%)',
         display: 'flex',
         flexDirection: 'row',
         gap: '32px'
@@ -1200,7 +1196,7 @@ function Index() {
         }}>
           أساسياتك الطبية، بأسلوب عصري
         </h2>
-      </div>نف
+      </div>
 
       {/* Spacer for scrolling */}
     </div>

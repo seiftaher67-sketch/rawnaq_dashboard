@@ -2,12 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SortFilter from './SortFilter';
 
-function Men() {
+function MedicalTools() {
   const cardsPerView = 3;
   const [products, setProducts] = useState([
     { img: '/image/ad1.jpg', price: 250, sales: 100 },
     { img: '/image/ad2.jpg', price: 300, sales: 80 },
-    { img: '/image/ad3.jpg', price: 200, sales: 120 }
+    { img: '/image/x2.jpg', price: 200, sales: 120 }
   ]);
   const [isButtonHovered, setIsButtonHovered] = useState(false);
   const [isTitle1Visible, setIsTitle1Visible] = useState(false);
@@ -73,11 +73,12 @@ function Men() {
         src="/image/aass.jpg"
         alt="Header"
         style={{
-          width: 'calc(100vw - 32px)',
+          width: 'calc(100vw - 40px)',
           height: '536px',
           position: 'absolute',
           top: '16px',
           left: '16px',
+          right: '15px',
           transform: 'scaleX(-1)',
           opacity: 1,
           borderRadius: '10px',
@@ -92,14 +93,14 @@ function Men() {
           width: '100px',
           height: 'auto',
           position: 'absolute',
-          top: '63px',
+          top: '37px',
           right: '50px',
           borderRadius: '10px',
           marginRight: '30px',
           marginTop: '0px'
         }}
       />
-      <div style={{ position: 'absolute', top: '160px', right: '60px', lineHeight: '-20px' }}>
+      <div style={{ position: 'absolute', top: '60px', right: '60px', lineHeight: '-20px' }}>
         <h2 style={{
           fontFamily: 'El Messiri',
           fontWeight: 700,
@@ -109,6 +110,7 @@ function Men() {
           textAlign: 'right',
           color: '#FFFFFF',
           marginRight: '20px',
+          marginTop: '120px',
           opacity: isTitle1Visible ? 1 : 0,
           transform: isTitle1Visible ? 'translateY(0)' : 'translateY(20px)',
           transition: 'opacity 1s ease, transform 1s ease',
@@ -118,19 +120,19 @@ function Men() {
       <div style={{
 
         position: 'absolute',
-        top: '240px',
+        top: '140px',
         right: '65px',
         lineHeight: '100px',
         opacity: isDescVisible ? 1 : 0,
         transform: isDescVisible ? 'translateY(0)' : 'translateY(20px)',
         transition: 'opacity 1s ease, transform 1s ease'
       }}>
-        <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '80px', marginBottom: '0px', wordSpacing: '1px' }}>أختيارك الذكي للأدوات الطبية</p>
+        <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '80px', marginBottom: '0px', wordSpacing: '1px', marginTop: '140px' }}>أختيارك الذكي للأدوات الطبية</p>
       </div>
 
       <div style={{
         position: 'absolute',
-        top: '53px',
+        top: '37px',
         left: '0px',
         display: 'flex',
         flexDirection: 'row',
@@ -149,7 +151,7 @@ function Men() {
       </div>
       <div style={{
         position: 'absolute',
-        top: '73px',
+        top: '49px',
         left: '800px',
         display: 'flex',
         flexDirection: 'row',
@@ -162,7 +164,7 @@ function Men() {
         wordSpacing: '5px',
         color: '#FFFFFF'
       }}>
-        <span style={{ marginLeft: '35px' }}>أدوات طبية</span>
+        <Link to="/medical-tools" style={{ color: '#FFFFFF', textDecoration: 'none', marginLeft: '50px' }}>أدوات طبية</Link>
         <Link to="/women" style={{ color: '#FFFFFF', textDecoration: 'none' }}>نسائي</Link>
         <Link to="/men" style={{ color: '#FFFFFF', textDecoration: 'none' }}>رجالي</Link>
         <Link to="/" style={{ color: '#FFFFFF', textDecoration: 'none' }}>الرئيسية </Link>
@@ -172,7 +174,7 @@ function Men() {
       <div style={{ position: 'absolute', top: '570px', left: '50px', right: '50px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', zIndex: 10 }}>
         <SortFilter onSort={handleSort} />
 
-        <h2 style={{ fontFamily: 'El Messiri', fontWeight: 700, fontStyle: 'Bold', fontSize: '55px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#000', marginRight: '130px' }}>أدوات طبية </h2>
+        <h2 style={{ fontFamily: 'El Messiri', fontWeight: 700, fontStyle: 'Bold', fontSize: '55px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#000', marginRight: '80px' }}>أدوات طبية</h2>
       </div>
 
       {/* ================== Best Sellers Section ================== */}
@@ -189,7 +191,8 @@ function Men() {
           style={{
             position: 'absolute',
             top: '180px',
-            left: '85px',
+            left: '50%',
+            transform: 'translateX(-50%)',
             display: 'flex',
             flexDirection: 'row',
             gap: '32px',
@@ -259,14 +262,14 @@ function Men() {
                       margin: 0
                     }}
                   >
-                    سكراب ميديكل
+                    أداة طبية
                   </h3>
 
                   {/* Color dots on right */}
                   <div
                     style={{
                       display: 'flex',
-                      gap: '10px'
+                      gap: '5px'
                     }}
                   >
                     {['#000000', '#7B1113', '#BDBDBD', '#0D47A1'].map((c, i) => (
@@ -276,7 +279,8 @@ function Men() {
                           width: '23px',
                           height: '23px',
                           borderRadius: '50%',
-                          backgroundColor: c
+                          backgroundColor: c,
+                          boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
                         }}
                       />
                     ))}
@@ -320,16 +324,16 @@ function Men() {
                   </p>
 
                   <button
-                    style={{
+                 style={{
                       backgroundColor: '#0F6A7B',
                       color: '#fff',
                       border: 'none',
-                      borderRadius: '8px',
-                      padding: '8px 16px',
+                      borderRadius: '20px',
+                      padding: '7px 16px',
                       fontSize: '17px',
                       fontWeight: 600,
                       cursor: 'pointer',
-                      width: '140px',
+                      width: '112px',
                       fontFamily: 'Cairo',
 
 
@@ -358,7 +362,8 @@ function Men() {
           style={{
             position: 'absolute',
             top: '180px',
-            left: '85px',
+            left: '50%',
+            transform: 'translateX(-50%)',
             display: 'flex',
             flexDirection: 'row',
             gap: '32px',
@@ -428,14 +433,14 @@ function Men() {
                       margin: 0
                     }}
                   >
-                    سكراب ميديكل
+                    أداة طبية
                   </h3>
 
                   {/* Color dots on right */}
                   <div
                     style={{
                       display: 'flex',
-                      gap: '10px'
+                      gap: '5px'
                     }}
                   >
                     {['#000000', '#7B1113', '#BDBDBD', '#0D47A1'].map((c, i) => (
@@ -445,7 +450,8 @@ function Men() {
                           width: '23px',
                           height: '23px',
                           borderRadius: '50%',
-                          backgroundColor: c
+                          backgroundColor: c,
+                          boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
                         }}
                       />
                     ))}
@@ -489,18 +495,17 @@ function Men() {
                   </p>
 
                   <button
-                    style={{
+                  style={{
                       backgroundColor: '#0F6A7B',
                       color: '#fff',
                       border: 'none',
-                      borderRadius: '8px',
-                      padding: '8px 16px',
+                      borderRadius: '20px',
+                      padding: '7px 16px',
                       fontSize: '17px',
                       fontWeight: 600,
                       cursor: 'pointer',
-                      width: '140px',
+                      width: '112px',
                       fontFamily: 'Cairo',
-
 
                     }}
                   >
@@ -520,14 +525,13 @@ function Men() {
 
 
 
-
-
         {/* Product Cards */}
         <div
           style={{
             position: 'absolute',
             top: '180px',
-            left: '85px',
+            left: '50%',
+            transform: 'translateX(-50%)',
             display: 'flex',
             flexDirection: 'row',
             gap: '32px',
@@ -604,7 +608,7 @@ function Men() {
                   <div
                     style={{
                       display: 'flex',
-                      gap: '10px'
+                      gap: '5px'
                     }}
                   >
                     {['#000000', '#7B1113', '#BDBDBD', '#0D47A1'].map((c, i) => (
@@ -614,7 +618,8 @@ function Men() {
                           width: '23px',
                           height: '23px',
                           borderRadius: '50%',
-                          backgroundColor: c
+                          backgroundColor: c,
+                          boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
                         }}
                       />
                     ))}
@@ -662,12 +667,12 @@ function Men() {
                       backgroundColor: '#0F6A7B',
                       color: '#fff',
                       border: 'none',
-                      borderRadius: '8px',
-                      padding: '8px 16px',
+                      borderRadius: '20px',
+                      padding: '7px 16px',
                       fontSize: '17px',
                       fontWeight: 600,
                       cursor: 'pointer',
-                      width: '140px',
+                      width: '112px',
                       fontFamily: 'Cairo',
 
 
@@ -687,4 +692,4 @@ function Men() {
   );
 }
 
-export default Men;
+export default MedicalTools;
