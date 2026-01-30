@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import Login from './Login';
 
 function Index() {
   const cardsPerView = 3;
@@ -57,6 +58,7 @@ function Index() {
   const [isVisibleCard5, setIsVisibleCard5] = useState(false);
   const [isVisibleX1, setIsVisibleX1] = useState(false);
   const [isVisibleX2, setIsVisibleX2] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
   const hoverTimeoutRef = useRef(null);
 
   const buttonStyle = (isHovered) => ({
@@ -293,20 +295,22 @@ function Index() {
         <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '250px', marginBottom: '0px', wordSpacing: '1px' }}>سكربات طبية بجودة عالية وتصاميم عملية تناسب ساعات </p>
         <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '0px', wordSpacing: '5px' }}> العمل الطويل.راحة، متانة، ومقاسات تناسب الجميع  </p>
       </div>
-      <button
-        style={buttonStyle(isHovered)}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <span style={{
-          display: 'inline-block',
-          transition: 'transform 0.3s ease, font-size 0.3s ease',
-          transform: isHovered ? 'translateY(-2px)' : 'translateY(0)',
-          fontSize: isHovered ? '36px' : '34px'
-        }}>
-          تسوق الأن
-        </span>
-      </button>
+      <Link to="/women" style={{ textDecoration: 'none' }}>
+        <button
+          style={buttonStyle(isHovered)}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <span style={{
+            display: 'inline-block',
+            transition: 'transform 0.3s ease, font-size 0.3s ease',
+            transform: isHovered ? 'translateY(-2px)' : 'translateY(0)',
+            fontSize: isHovered ? '36px' : '34px'
+          }}>
+            تسوق الأن
+          </span>
+        </button>
+      </Link>
       <div style={{
         position: 'absolute',
         top: '53px',
@@ -319,7 +323,7 @@ function Index() {
         <div style={{ width: '70px', height: '70px', borderRadius: '50%', backgroundColor: 'rgba(251, 251, 251, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '90px' }}>
           <img src="/image/icon1.png" alt="Icon 1" style={{ width: '40px', height: '40px', borderRadius: '50%' }} />
         </div>
-        <div style={{ width: '70px', height: '70px', borderRadius: '50%', backgroundColor: 'rgba(251, 251, 251, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div onClick={() => setShowLoginModal(true)} style={{ width: '70px', height: '70px', borderRadius: '50%', backgroundColor: 'rgba(251, 251, 251, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
           <img src="/image/icon2.png" alt="Icon 2" style={{ width: '40px', height: '40px', borderRadius: '50%' }} />
         </div>
         <div style={{ position: 'relative', width: '295px', height: '70px' }}>
@@ -1302,6 +1306,35 @@ function Index() {
       </div>
 
       {/* Spacer for scrolling */}
+      {showLoginModal && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 1000
+          }}
+          onClick={() => setShowLoginModal(false)}
+        >
+          <div
+            style={{
+              transform: 'scale(0.5)',
+              transformOrigin: 'center'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{ background: 'transparent' }}>
+              <Login />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

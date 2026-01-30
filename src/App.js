@@ -4,6 +4,8 @@ import Home from './Home';
 import Men from './Men';
 import Women from './Women';
 import MedicalTools from './MedicalTools';
+import Login from './Login';
+import VerifyCode from './VerifyCode';
 import Footer from './Footer';
 import WashingGuide from './WashingGuide';
 import ReturnPolicy from './ReturnPolicy';
@@ -17,6 +19,7 @@ function App() {
           <Route path="/men" element={<Men />} />
           <Route path="/women" element={<Women />} />
           <Route path="/medical-tools" element={<MedicalTools />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/washing-guide" element={<WashingGuide />} />
           <Route path="/return-policy" element={<ReturnPolicy />} />
         </Routes>

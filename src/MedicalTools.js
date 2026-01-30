@@ -37,6 +37,10 @@ function MedicalTools() {
 
 
   useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top when component mounts
+  }, []);
+
+  useEffect(() => {
     const timer1 = setTimeout(() => setIsTitle1Visible(true), 2000);
     const timer2 = setTimeout(() => setIsTitle2Visible(true), 2500);
     const timer3 = setTimeout(() => setIsTitle3Visible(true), 3000);
@@ -324,7 +328,7 @@ function MedicalTools() {
                   </p>
 
                   <button
-                 style={{
+                    style={{
                       backgroundColor: '#0F6A7B',
                       color: '#fff',
                       border: 'none',
@@ -495,7 +499,7 @@ function MedicalTools() {
                   </p>
 
                   <button
-                  style={{
+                    style={{
                       backgroundColor: '#0F6A7B',
                       color: '#fff',
                       border: 'none',

@@ -50,6 +50,10 @@ function Women() {
   }, []);
 
   useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top when component mounts
+  }, []);
+
+  useEffect(() => {
     const timerX1 = setTimeout(() => {
       setIsVisibleX1(true);
     }, 700); // Delay for Men's Scrubs
@@ -492,7 +496,7 @@ function Women() {
                   </p>
 
                   <button
-                 style={{
+                    style={{
                       backgroundColor: '#0F6A7B',
                       color: '#fff',
                       border: 'none',
