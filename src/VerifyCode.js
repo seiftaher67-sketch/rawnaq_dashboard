@@ -23,11 +23,12 @@ export default function VerifyCode() {
         }
 
         .login-card {
+        fontFamily:El Messiri;
           width: 750px;
           height: 740px;
           background: #ffffff;
           border-radius: 10px;
-          padding: 60px 50px;
+          padding: 80px 50px;
           direction: rtl;
           box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
           text-align: center;

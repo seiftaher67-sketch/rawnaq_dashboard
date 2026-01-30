@@ -128,7 +128,9 @@ export default function Login() {
               <input type="tel" placeholder="أدخل رقم الهاتف" />
             </div>
 
-            <button className="login-btn" onClick={handleLogin}>تسجيل الدخول</button>
+            <button className="login-btn" onClick={handleLogin}>
+              تسجيل الدخول
+            </button>
           </div>
         )}
       </div>
