@@ -8,7 +8,7 @@ function Index() {
   const texts = [
     'لأنك تقضي ساعات طويلة في عملك وتحتاج ملابس تعتمد عليها<br />قدمنا اسكرابات تجمع بين الخامة المريحة والتصميم العصري',
     'سكرابات طبية بتصميم عصري وخامات مريحة   <br />تمنحك راحة تدوم وثقة تكمّل حضورك في كل مناوبة',
-    'سواء كنتِ في مناوبة طويلة أو يوم عمل مزدحم، سكراباتنا مصممة لتكون جزءًا من راحتك اليومية. </br>لأننا نؤمن أن الراحة تبدأ مما ترتديه، وأن الأداء الأفضل يحتاج إحساس حقيقي بالثقة.'
+    'سواء كنتِ في مناوبة طويلة أو يوم عمل مزدحم، سكراباتنا مصممة لتكون جزءًا من راحتك اليومية   لأننا نؤمن  أن الراحة أن الأداء الأفضل يحتاج إحساس حقيقي بالثقة'
   ];
   const products = [
     '/image/Header.png',
@@ -76,7 +76,7 @@ function Index() {
     border: 'none',
     cursor: 'pointer',
     transition: 'background 0.3s ease, box-shadow 0.3s ease',
-    boxShadow: isHovered ? '0 2px 5px rgba(0,0,0,0.1)' : 'none'
+    boxShadow: isHovered ? 'inset 0 -16px 16px rgba(0,0,0,0.6)' : 'inset 0 -12px 12px rgba(0,0,0,0.5)'
   });
 
   useEffect(() => {
@@ -134,11 +134,11 @@ function Index() {
   }, [hoveredCardIndex, cardTexts, cardNames]);
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setIsVisibleCard1(true), 1000);
-    const timer2 = setTimeout(() => setIsVisibleCard2(true), 1200);
-    const timer3 = setTimeout(() => setIsVisibleCard3(true), 1400);
-    const timer4 = setTimeout(() => setIsVisibleCard4(true), 1600);
-    const timer5 = setTimeout(() => setIsVisibleCard5(true), 1800);
+    const timer1 = setTimeout(() => setIsVisibleCard1(true), 1200);
+    const timer2 = setTimeout(() => setIsVisibleCard2(true), 1600);
+    const timer3 = setTimeout(() => setIsVisibleCard3(true), 2000);
+    const timer4 = setTimeout(() => setIsVisibleCard4(true), 2400);
+    const timer5 = setTimeout(() => setIsVisibleCard5(true), 2800);
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
@@ -292,8 +292,9 @@ function Index() {
         transform: isDescVisible ? 'translateY(0)' : 'translateY(20px)',
         transition: 'opacity 1s ease, transform 1s ease'
       }}>
-        <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '250px', marginBottom: '0px', wordSpacing: '1px' }}>سكربات طبية بجودة عالية وتصاميم عملية تناسب ساعات </p>
-        <p style={{ fontFamily: 'Cairo', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '0px', wordSpacing: '5px' }}> العمل الطويل.راحة، متانة، ومقاسات تناسب الجميع  </p>
+        <p style={{ fontFamily: 'El Messiri', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '250px', marginBottom: '0px', wordSpacing: '1px' }}>سكربات طبية بجودة عالية وتصاميم عملية </p>
+        <p style={{ fontFamily: 'El Messiri', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '0px', wordSpacing: '5px' }}>تناسب ساعات العمل الطويل.راحة، متانة  </p>
+        <p style={{ fontFamily: 'El Messiri', fontWeight: 500, fontSize: '24px', lineHeight: '150%', letterSpacing: '0%', textAlign: 'right', color: '#FFFFFF', marginTop: '-24px', wordSpacing: '5px' }}>ومقاسات تناسب الجميع</p>
       </div>
       <Link to="/women" style={{ textDecoration: 'none' }}>
         <button
@@ -477,10 +478,9 @@ function Index() {
               key={index}
               style={{
                 width: '400px',
-                height: '495px',
+                height: '520px',
                 backgroundColor: '#fff',
                 borderRadius: '10px',
-                boxShadow: '0 10px 30px rgba(0,0,0,0.12)',
                 overflow: 'hidden',
                 fontFamily: 'Cairo',
                 direction: 'rtl',
@@ -559,14 +559,15 @@ function Index() {
               </div>
 
               {/* Content */}
-              <div style={{ padding: '20px 20px' }}>
+              <div style={{ padding: '5px 20px', marginTop: '10px' }}>
                 {/* Title and Colors on same line */}
                 <div
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    marginBottom: '6px'
+                    marginBottom: '6px',
+                    marginTop: '-5px'
                   }}
                 >
                   {/* Title on left */}
@@ -591,12 +592,12 @@ function Index() {
                       gap: '5px'
                     }}
                   >
-                    {['#000000', '#7B1113', '#BDBDBD', '#0D47A1'].map((c, i) => (
+                    {['#0148D6', '#0000005C', '#5B0202', '#000000'].map((c, i) => (
                       <span
                         key={i}
                         style={{
-                          width: '23px',
-                          height: '23px',
+                          width: '30px',
+                          height: '30px',
                           borderRadius: '50%',
                           backgroundColor: c,
                           boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
@@ -614,7 +615,8 @@ function Index() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    marginBottom: '14px'
+                    marginBottom: '14px',
+                    marginTop: '20px'
                   }}
                 >
                   {/* Price */}
@@ -647,13 +649,15 @@ function Index() {
                       backgroundColor: '#0F6A7B',
                       color: '#fff',
                       border: 'none',
-                      borderRadius: '20px',
+                      borderRadius: '50px',
                       padding: '7px 16px',
                       fontSize: '17px',
                       fontWeight: 600,
                       cursor: 'pointer',
-                      width: '112px',
+                      width: '146px',
+                      height: '44px',
                       fontFamily: 'Cairo',
+
 
 
 
@@ -680,7 +684,8 @@ function Index() {
           transform: 'translateX(-50%)',
           width: '1264px',
           height: '719px',
-          borderRadius: '8px'
+          borderRadius: '8px',
+          boxShadow: 'inset 0 -250px 250px -50px rgba(0,0,0,0.9)'
 
         }}
       />
@@ -702,7 +707,7 @@ function Index() {
           style={{
             fontFamily: 'El Messiri',
             fontWeight: 600,
-            fontSize: '32px',
+            fontSize: '30px',
             lineHeight: '140%',
             letterSpacing: '0%',
             textAlign: 'right',
@@ -732,14 +737,15 @@ function Index() {
               width: '405px',
               height: '570px',
               borderRadius: '10px',
-              backgroundImage: 'url(/image/x3.jpg)',
+              backgroundImage: 'url(/image/new2.jpg)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               position: 'relative',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'flex-end'
+              justifyContent: 'flex-end',
+              boxShadow: '0 4px 8px rgba(0,0,0,0.5), inset 0 -200px 200px -40px rgba(0,0,0,0.8)'
             }}
           >
             <div
@@ -757,6 +763,7 @@ function Index() {
                 opacity: isVisibleX3 ? 1 : 0,
                 transform: isVisibleX3 ? 'translateY(0)' : 'translateY(20px)',
                 transition: 'opacity 1s ease, transform 1s ease',
+
 
               }}
             >
@@ -809,7 +816,8 @@ function Index() {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'flex-end',
-              marginTop: '50px'
+              marginTop: '50px',
+              boxShadow: '0 4px 8px rgba(0,0,0,0.5), inset 0 -200px 200px -40px rgba(0,0,0,0.8)'
             }}
           >
             <div
@@ -869,7 +877,7 @@ function Index() {
               width: '405px',
               height: '570px',
               borderRadius: '10px',
-              backgroundImage: 'url(/image/x1.jpg)',
+              backgroundImage: 'url(/image/new1.jpg)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               position: 'relative',
@@ -877,7 +885,8 @@ function Index() {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'flex-end',
-              marginTop: '4px'
+              marginTop: '4px',
+              boxShadow: '0 4px 8px rgba(0,0,0,0.5), inset 0 -200px 200px -40px rgba(0,0,0,0.8)'
             }}
           >
             <div
@@ -972,8 +981,8 @@ function Index() {
             backgroundColor: '#FBFBFB',
             borderRadius: '10.8px',
             opacity: isVisibleCard1 ? 0.5 : 0,
-            transform: isVisibleCard1 ? 'translateY(0)' : 'translateY(20px)',
-            transition: 'opacity 1s ease, transform 1s ease'
+            transform: isVisibleCard1 ? 'translateY(0)' : 'translateY(30px)',
+            transition: 'opacity 2s cubic-bezier(0.34, 1.56, 0.64, 1), transform 2s cubic-bezier(0.34, 1.56, 0.64, 1)'
           }}
           onMouseEnter={() => setHoveredCardIndex(0)}
           onMouseLeave={() => setHoveredCardIndex(null)}
@@ -1036,8 +1045,8 @@ function Index() {
             backgroundColor: '#FBFBFB',
             borderRadius: '10.8px',
             opacity: isVisibleCard2 ? 0.5 : 0,
-            transform: isVisibleCard2 ? 'translateY(0)' : 'translateY(20px)',
-            transition: 'opacity 1s ease, transform 1s ease'
+            transform: isVisibleCard2 ? 'translateY(0)' : 'translateY(30px)',
+            transition: 'opacity 2s cubic-bezier(0.34, 1.56, 0.64, 1), transform 2s cubic-bezier(0.34, 1.56, 0.64, 1)'
           }}
           onMouseEnter={() => setHoveredCardIndex(1)}
           onMouseLeave={() => setHoveredCardIndex(null)}
@@ -1127,7 +1136,7 @@ function Index() {
             textAlign: 'right',
             direction: 'rtl',
             opacity: 1,
-            transition: 'transform 1s ease'
+            transition: 'transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1)'
           }}>
             {currentComment}
           </div>
@@ -1145,7 +1154,7 @@ function Index() {
             textAlign: 'right',
             direction: 'rtl',
             opacity: 1,
-            transition: 'transform 1s ease',
+            transition: 'transform 1.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
             color: '#1B4B66'
           }}>
             {currentName}
@@ -1161,8 +1170,8 @@ function Index() {
             backgroundColor: '#FBFBFB',
             borderRadius: '10.8px',
             opacity: isVisibleCard4 ? 0.5 : 0,
-            transform: isVisibleCard4 ? 'translateY(0)' : 'translateY(20px)',
-            transition: 'opacity 1s ease, transform 1s ease'
+            transform: isVisibleCard4 ? 'translateY(0)' : 'translateY(30px)',
+            transition: 'opacity 2s cubic-bezier(0.34, 1.56, 0.64, 1), transform 2s cubic-bezier(0.34, 1.56, 0.64, 1)'
           }}
           onMouseEnter={() => setHoveredCardIndex(3)}
           onMouseLeave={() => setHoveredCardIndex(null)}
@@ -1225,8 +1234,8 @@ function Index() {
             backgroundColor: '#FBFBFB',
             borderRadius: '10.8px',
             opacity: isVisibleCard5 ? 0.5 : 0,
-            transform: isVisibleCard5 ? 'translateY(0)' : 'translateY(20px)',
-            transition: 'opacity 1s ease, transform 1s ease'
+            transform: isVisibleCard5 ? 'translateY(0)' : 'translateY(30px)',
+            transition: 'opacity 2s cubic-bezier(0.34, 1.56, 0.64, 1), transform 2s cubic-bezier(0.34, 1.56, 0.64, 1)'
           }}
           onMouseEnter={() => {
             if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);

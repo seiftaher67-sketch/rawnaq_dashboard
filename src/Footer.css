@@ -20,7 +20,7 @@
     font-family: Cairo;
     font-weight: 400;
     font-style: Regular;
-    font-size: 18px;
+    font-size: 16px;
     leading-trim: none;
     line-height: 23px;
     letter-spacing: 0%;
@@ -33,6 +33,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+     margin-top: 25px;
 
 }
 
@@ -65,6 +66,7 @@
     top: 50%;
     left: 10%;
     transform: translateY(-50%);
+     margin-top: 25px;
 }
 
 #footerconect h2 {
@@ -107,10 +109,12 @@
 .footer-images {
     display: flex;
     justify-content: flex-end;
+     margin-top: -7px;
 }
 
 .footer-images img {
     margin-right: 10px;
+    margin-top: 15px;
 
 }
 
@@ -118,6 +122,7 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
+     
 }
 
 .copyright {
@@ -130,7 +135,7 @@
     letter-spacing: 0.2px;
     text-align: right;
     color: #FBFBFB;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-right: 60px;
 }
 
@@ -139,6 +144,11 @@
     justify-content: space-between;
     align-items: center;
     margin-right: 60px;
+    margin-top: -2px;
+}
+
+hr {
+    margin-top: 30px;
 }
 
 /* Hover effects for images and links in footer */

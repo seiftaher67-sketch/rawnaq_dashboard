@@ -165,7 +165,7 @@ function Women() {
       <div style={{
         position: 'absolute',
         top: '49px',
-        left: '800px',
+        left: '730px',
         display: 'flex',
         flexDirection: 'row',
         gap: '30px',
@@ -215,7 +215,7 @@ function Women() {
               key={index}
               style={{
                 width: '400px',
-                height: '495px',
+                height: '520px',
                 backgroundColor: '#fff',
                 borderRadius: '10px',
                 boxShadow: '0 10px 30px rgba(0,0,0,0.12)',
@@ -251,14 +251,15 @@ function Women() {
               </div>
 
               {/* Content */}
-              <div style={{ padding: '20px 20px' }}>
+              <div style={{ padding: '5px 20px', marginTop: '10px' }}>
                 {/* Title and Colors on same line */}
                 <div
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    marginBottom: '6px'
+                    marginBottom: '6px',
+                    marginTop: '-5px'
                   }}
                 >
                   {/* Title on left */}
@@ -267,7 +268,7 @@ function Women() {
                       fontFamily: 'Cairo',
                       fontWeight: 500,
                       fontSize: '24px',
-                      lineHeight: '100%',
+                      lineHeight: '150%',
                       letterSpacing: '0%',
                       color: '#000000',
                       margin: 0
@@ -288,8 +289,8 @@ function Women() {
                       <span
                         key={i}
                         style={{
-                          width: '23px',
-                          height: '23px',
+                          width: '30px',
+                          height: '30px',
                           borderRadius: '50%',
                           backgroundColor: c,
                           boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
@@ -307,7 +308,8 @@ function Women() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    marginBottom: '14px'
+                    marginBottom: '14px',
+                    marginTop: '20px'
                   }}
                 >
                   {/* Price */}
@@ -316,7 +318,7 @@ function Women() {
                       fontFamily: 'Cairo',
                       fontWeight: 500,
                       fontSize: '24px',
-                      lineHeight: '170%',
+                      lineHeight: '100%',
                       letterSpacing: '0%',
                       margin: 0,
                       display: 'flex',
@@ -340,15 +342,14 @@ function Women() {
                       backgroundColor: '#0F6A7B',
                       color: '#fff',
                       border: 'none',
-                      borderRadius: '20px',
+                      borderRadius: '50px',
                       padding: '7px 16px',
                       fontSize: '17px',
                       fontWeight: 600,
                       cursor: 'pointer',
-                      width: '112px',
-                      fontFamily: 'Cairo',
-
-
+                      width: '146px',
+                      height: '44px',
+                      fontFamily: 'Cairo'
                     }}
                   >
                     + أضف للسلة
@@ -385,7 +386,7 @@ function Women() {
               key={index}
               style={{
                 width: '400px',
-                height: '495px',
+                height: '505px',
                 backgroundColor: '#fff',
                 borderRadius: '10px',
                 boxShadow: '0 10px 30px rgba(0,0,0,0.12)',
@@ -421,14 +422,15 @@ function Women() {
               </div>
 
               {/* Content */}
-              <div style={{ padding: '20px 20px' }}>
+              <div style={{ padding: '5px 20px', marginTop: '10px' }}>
                 {/* Title and Colors on same line */}
                 <div
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    marginBottom: '6px'
+                    marginBottom: '6px',
+                    marginTop: '-5px'
                   }}
                 >
                   {/* Title on left */}
@@ -457,8 +459,8 @@ function Women() {
                       <span
                         key={i}
                         style={{
-                          width: '23px',
-                          height: '23px',
+                          width: '30px',
+                          height: '30px',
                           borderRadius: '50%',
                           backgroundColor: c,
                           boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
@@ -476,7 +478,8 @@ function Women() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    marginBottom: '14px'
+                    marginBottom: '14px',
+                    marginTop: '20px'
                   }}
                 >
                   {/* Price */}
@@ -509,15 +512,14 @@ function Women() {
                       backgroundColor: '#0F6A7B',
                       color: '#fff',
                       border: 'none',
-                      borderRadius: '20px',
+                      borderRadius: '50px',
                       padding: '7px 16px',
                       fontSize: '17px',
                       fontWeight: 600,
                       cursor: 'pointer',
-                      width: '112px',
-                      fontFamily: 'Cairo',
-
-
+                      width: '146px',
+                      height: '44px',
+                      fontFamily: 'Cairo'
                     }}
                   >
                     + أضف للسلة
@@ -554,7 +556,7 @@ function Women() {
               key={index}
               style={{
                 width: '400px',
-                height: '495px',
+                height: '505px',
                 backgroundColor: '#fff',
                 borderRadius: '10px',
                 boxShadow: '0 10px 30px rgba(0,0,0,0.12)',
@@ -590,14 +592,15 @@ function Women() {
               </div>
 
               {/* Content */}
-              <div style={{ padding: '20px 20px' }}>
+              <div style={{ padding: '5px 20px', marginTop: '10px' }}>
                 {/* Title and Colors on same line */}
                 <div
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    marginBottom: '6px'
+                    marginBottom: '6px',
+                    marginTop: '-5px'
                   }}
                 >
                   {/* Title on left */}
@@ -626,8 +629,8 @@ function Women() {
                       <span
                         key={i}
                         style={{
-                          width: '23px',
-                          height: '23px',
+                          width: '30px',
+                          height: '30px',
                           borderRadius: '50%',
                           backgroundColor: c,
                           boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
@@ -645,7 +648,8 @@ function Women() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    marginBottom: '14px'
+                    marginBottom: '14px',
+                    marginTop: '20px'
                   }}
                 >
                   {/* Price */}
@@ -678,15 +682,14 @@ function Women() {
                       backgroundColor: '#0F6A7B',
                       color: '#fff',
                       border: 'none',
-                      borderRadius: '20px',
+                      borderRadius: '50px',
                       padding: '7px 16px',
                       fontSize: '17px',
                       fontWeight: 600,
                       cursor: 'pointer',
-                      width: '112px',
-                      fontFamily: 'Cairo',
-
-
+                      width: '146px',
+                      height: '44px',
+                      fontFamily: 'Cairo'
                     }}
                   >
                     + أضف للسلة

@@ -4,7 +4,7 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer dir="rtl" className="footer-container w-full text-white py-12 px-4 md:px-12"
+    <footer dir="rtl" className="footer-container w-full text-white py-6 px-4 md:px-12"
       style={{
         background: 'linear-gradient(to bottom, #022B3A, #1F7A8C)',
         fontFamily: 'sans-serif',
@@ -15,7 +15,7 @@ const Footer = () => {
         </Link>
       </div>
       <div id='decfooter'>
-        <h2>نقدم سكربات وأدوات طبية</h2>
+        <h2 >نقدم سكرابات وأدوات طبية</h2>
         <h2>بتصميم عصري وخامات مريحة</h2>
         <h2>تساعدك علي التركيز في شغلك</h2>
         <h2>بثقة وراحة طوال اليوم</h2>
