@@ -97,25 +97,27 @@ function ProductDetail() {
           gap: '15px',
           alignItems: 'center'
         }}>
-          <div style={{
-            position: 'relative',
-            width: '70px',
-            height: '70px',
-            borderRadius: '1000px',
-            backgroundColor: '#FBFBFB30',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginLeft: '90px',
-            cursor: 'pointer',
-            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
-          }}>
-            <img src="/image/icon2.png" alt="Icon 2" style={{
-              width: '32px',
-              height: '32px',
-              filter: 'brightness(0) saturate(100%) invert(8%) sepia(65%) saturate(1414%) hue-rotate(185deg)'
-            }} />
-          </div>
+          <Link to="/account" style={{ textDecoration: 'none' }}>
+            <div style={{
+              position: 'relative',
+              width: '70px',
+              height: '70px',
+              borderRadius: '1000px',
+              backgroundColor: '#FBFBFB30',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginLeft: '90px',
+              cursor: 'pointer',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
+            }}>
+              <img src="/image/icon2.png" alt="Icon 2" style={{
+                width: '32px',
+                height: '32px',
+                filter: 'brightness(0) saturate(100%) invert(8%) sepia(65%) saturate(1414%) hue-rotate(185deg)'
+              }} />
+            </div>
+          </Link>
           <Link to="/product-detail" style={{ textDecoration: 'none' }}>
             <div style={{
               position: 'relative',
@@ -311,8 +313,7 @@ function ProductDetail() {
                         width: '140px',
                         height: '50px',
                         opacity: 1,
-                        transform: 'rotate(0deg)',
-                        borderRight: 'none'
+                        transform: 'rotate(0deg)'
                       }}>
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
@@ -367,8 +368,8 @@ function ProductDetail() {
                       <button
                         onClick={() => removeItem(item.id)}
                         style={{
-                          width: '93px',
-                          height: '50px',
+                          width: '80px',
+                          height: '53px',
                           border: '2px solid #999',
                           backgroundColor: '#FFF',
                           cursor: 'pointer',
@@ -380,10 +381,10 @@ function ProductDetail() {
                       >
                         <img src="/image/del.png" alt="Delete" style={{
                           position: 'absolute',
-                          width: '32px',
-                          height: '32px',
-                          top: '9px',
-                          left: '31px',
+                          width: '25px',
+                          height: '25px',
+                          top: '15px',
+                          left: '29px',
                           opacity: 1,
                           transform: 'rotate(0deg)'
                         }} />

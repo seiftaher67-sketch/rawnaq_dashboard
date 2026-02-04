@@ -11,6 +11,7 @@ import WashingGuide from './WashingGuide';
 import ReturnPolicy from './ReturnPolicy';
 import Purchase from './Purchase';
 import ProductDetail from './ProductDetail';
+import Account from './Account';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/return-policy" element={<ReturnPolicy />} />
           <Route path="/purchase" element={<Purchase />} />
           <Route path="/product-detail" element={<ProductDetail />} />
+          <Route path="/account" element={<Account />} />
         </Routes>
         <Footer />
       </div>
