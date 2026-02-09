@@ -12,6 +12,8 @@ import ReturnPolicy from './ReturnPolicy';
 import Purchase from './Purchase';
 import ProductDetail from './ProductDetail';
 import Account from './Account';
+import Orders from './Orders';
+import Resorts from './Resorts';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route path="/purchase" element={<Purchase />} />
           <Route path="/product-detail" element={<ProductDetail />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/resorts" element={<Resorts />} />
         </Routes>
         <Footer />
       </div>

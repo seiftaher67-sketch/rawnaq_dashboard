@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Account() {
+  const [activeTab, setActiveTab] = useState('account');
   return (
     <div style={{ width: '100%', minHeight: '100vh', backgroundColor: '#FBFBFB' }}>
       {/* Fixed Header Container */}
@@ -421,11 +422,11 @@ export default function Account() {
               <br></br>
               <div className="menu-card">
                 <ul className="menu">
-                  <li className="active">حسابي <img src="/image/k11.png" style={{ width: '29.114788055419922px', height: '33.33333206176758px', transform: 'rotate(0deg)', opacity: 1, position: 'relative', top: '2px', left: '-40px', borderWidth: '2px' }} /></li>
-                  <li> الطلبات <img src="/image/k1.png" style={{ width: '29.114788055419922px', height: '33.33333206176758px', transform: 'rotate(0deg)', opacity: 1, position: 'relative', top: '8px', left: '-37px', borderWidth: '2px' }} /></li>
-                  <li> المرتجعات <img src="/image/k2.png" style={{ width: '29.114788055419922px', height: '33.33333206176758px', transform: 'rotate(0deg)', opacity: 1, position: 'relative', top: '10px', left: '-12px', borderWidth: '2px' }} /></li>
-                  <li> العناوين <img src="/image/k3.png" style={{ width: '29.114788055419922px', height: '33.33333206176758px', transform: 'rotate(0deg)', opacity: 1, position: 'relative', top: '10px', left: '-36px', borderWidth: '2px' }} /></li>
-                  <li> المدفوعات <img src="/image/k4.png" style={{ width: '29.114788055419922px', height: '33.33333206176758px', transform: 'rotate(0deg)', opacity: 1, position: 'relative', top: '10px', left: '-10px', borderWidth: '2px' }} /></li>
+                  <li className={activeTab === 'account' ? 'active' : ''} onClick={() => setActiveTab('account')}>حسابي <img src="/image/k11.png" style={{ width: '29.114788055419922px', height: '33.33333206176758px', transform: 'rotate(0deg)', opacity: 1, position: 'relative', top: '2px', left: '-40px', borderWidth: '2px' }} /></li>
+                  <Link to="/orders" style={{ textDecoration: 'none', color: 'inherit' }}><li> الطلبات <img src="/image/k1.png" style={{ width: '29.114788055419922px', height: '33.33333206176758px', transform: 'rotate(0deg)', opacity: 1, position: 'relative', top: '8px', left: '-37px', borderWidth: '2px' }} /></li></Link>
+                  <Link to="/resorts" style={{ textDecoration: 'none', color: 'inherit' }}><li> المرتجعات <img src="/image/k2.png" style={{ width: '29.114788055419922px', height: '33.33333206176758px', transform: 'rotate(0deg)', opacity: 1, position: 'relative', top: '10px', left: '-12px', borderWidth: '2px' }} /></li></Link>
+                  <li className={activeTab === 'addresses' ? 'active' : ''} onClick={() => setActiveTab('addresses')}> العناوين <img src="/image/k3.png" style={{ width: '29.114788055419922px', height: '33.33333206176758px', transform: 'rotate(0deg)', opacity: 1, position: 'relative', top: '10px', left: '-36px', borderWidth: '2px' }} /></li>
+                  <li className={activeTab === 'payments' ? 'active' : ''} onClick={() => setActiveTab('payments')}> المدفوعات <img src="/image/k4.png" style={{ width: '29.114788055419922px', height: '33.33333206176758px', transform: 'rotate(0deg)', opacity: 1, position: 'relative', top: '10px', left: '-10px', borderWidth: '2px' }} /></li>
                 </ul>
               </div>
               <br></br>
@@ -434,45 +435,98 @@ export default function Account() {
 
             {/* ===== LEFT ===== */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', marginLeft: '-200px' }}>
-              <div className="card">
-                <h3 style={{ marginTop: ' -10px' }}>المعلومات الشخصية</h3>
-                <div className="form-grid">
-                  <div>
-                    <label>الاسم الأول</label>
-                    <input defaultValue="أحمد" />
+              {activeTab === 'account' && (
+                <>
+                  <div className="card">
+                    <h3 style={{ marginTop: ' -10px' }}>المعلومات الشخصية</h3>
+                    <div className="form-grid">
+                      <div>
+                        <label>الاسم الأول</label>
+                        <input defaultValue="أحمد" />
+                      </div>
+                      <div>
+                        <label>اسم العائلة</label>
+                        <input defaultValue="يحي" />
+                      </div>
+                      <div>
+                        <label>النوع</label>
+                        <select><option>ذكر</option></select>
+                      </div>
+                      <div>
+                        <label>تاريخ الميلاد</label>
+                        <input type="text" placeholder="يوم / شهر / سنة" />
+                      </div>
+                    </div>
+                    <button className="save-btn">حفظ التغييرات</button>
                   </div>
-                  <div>
-                    <label>اسم العائلة</label>
-                    <input defaultValue="يحي" />
-                  </div>
-                  <div>
-                    <label>النوع</label>
-                    <select><option>ذكر</option></select>
-                  </div>
-                  <div>
-                    <label>تاريخ الميلاد</label>
-                    <input type="text" placeholder="يوم / شهر / سنة" />
-                  </div>
-                </div>
-                <button className="save-btn">حفظ التغييرات</button>
-              </div>
 
-              <div className="card">
-                <h3 style={{ marginTop: ' -10px' }} >معلومات التواصل</h3>
-                <div className="form-grid">
-                  <div >
-                    <label>البريد الإلكتروني</label>
-                    <input defaultValue="seif@example.com" style={{ width: '200%', outline: 'none' }} />
+                  <div className="card">
+                    <h3 style={{ marginTop: ' -10px' }} >معلومات التواصل</h3>
+                    <div className="form-grid">
+                      <div >
+                        <label>البريد الإلكتروني</label>
+                        <input defaultValue="seif@example.com" style={{ width: '200%', outline: 'none' }} />
 
+                      </div>
+                      <br></br>
+                      <div>
+                        <label>رقم الهاتف</label>
+                        <input style={{ width: '200%', outline: 'none' }} />
+                      </div>
+                    </div>
+                    <button className="save-btn">حفظ التغييرات</button>
                   </div>
-                  <br></br>
-                  <div>
-                    <label>رقم الهاتف</label>
-                    <input style={{ width: '200%', outline: 'none' }} />
+                </>
+              )}
+              {(activeTab === 'orders' || activeTab === 'addresses' || activeTab === 'payments') && (
+                <>
+                  <div className="card">
+                    <h3 style={{ marginTop: ' -10px' }}>الطلبات الحالية</h3>
+                    <div className="form-grid">
+                      <div>
+                        <label>رقم الطلب</label>
+                        <input defaultValue="#12345" />
+                      </div>
+                      <div>
+                        <label>تاريخ الطلب</label>
+                        <input defaultValue="2023-10-01" />
+                      </div>
+                      <div>
+                        <label>حالة الطلب</label>
+                        <select><option>قيد التنفيذ</option></select>
+                      </div>
+                      <div>
+                        <label>المبلغ الإجمالي</label>
+                        <input defaultValue="500 ريال" />
+                      </div>
+                    </div>
+                    <button className="save-btn">عرض التفاصيل</button>
                   </div>
-                </div>
-                <button className="save-btn">حفظ التغييرات</button>
-              </div>
+
+                  <div className="card">
+                    <h3 style={{ marginTop: ' -10px' }}>تاريخ الطلبات</h3>
+                    <div className="form-grid">
+                      <div>
+                        <label>آخر طلب</label>
+                        <input defaultValue="#12344" />
+                      </div>
+                      <div>
+                        <label>تاريخ الاستلام</label>
+                        <input defaultValue="2023-09-15" />
+                      </div>
+                      <div>
+                        <label>الحالة</label>
+                        <select><option>مكتمل</option></select>
+                      </div>
+                      <div>
+                        <label>المبلغ</label>
+                        <input defaultValue="300 ريال" />
+                      </div>
+                    </div>
+                    <button className="save-btn">عرض الطلبات السابقة</button>
+                  </div>
+                </>
+              )}
             </div>
 
           </div>

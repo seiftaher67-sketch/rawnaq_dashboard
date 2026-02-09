@@ -1,8 +1,5 @@
-# TODO: Replace Header in Account Page
+# TODO: Add Resorts Page
 
-- [x] Replace the header in src/Account.js with the header from src/Purchase.js
-- [x] Update the header comment to reflect the change
-- [x] Update title styling for "حسابي"
-- [x] Adjust layout dimensions for account sidebar and cards
-- [x] Increase gap between frames
-- [x] All changes completed and verified by user
+- [x] Create Scrup-wepsite/src/Resorts.js with header from Account.js and empty content
+- [x] Update Scrup-wepsite/src/App.js to import Resorts and add /resorts route
+- [x] Update Scrup-wepsite/src/Account.js to wrap "المرتجعات" in Link to="/resorts"
